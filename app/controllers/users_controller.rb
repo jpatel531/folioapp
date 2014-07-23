@@ -16,18 +16,11 @@ class UsersController < ApplicationController
 			end
 		end
 
-		# puts params
-		# @user.update(params[:profile].permit(:name, :bio, :profession, :network))
-		render json: { success: true }
-		# render :show
+		@user.update(params[:user].permit(:avatar))
+
+		render :show
+
 	end
 
-
-	# private
-
-	# def update(user)
-	# 	user.update(name: params[:name]) if params[:name]
-
-	# end
 
 end

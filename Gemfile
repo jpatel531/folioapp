@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 gem 'devise'
 
 gem 'launchy'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 
 group :test, :development do 
 	gem 'rspec-rails'

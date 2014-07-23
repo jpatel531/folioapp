@@ -17,6 +17,7 @@ app.controller('ProfileCtrl', function($http, $scope, $location) {
       $scope.profession = data.profession;
       $scope.network = data.network;
       $scope.shortBio = data.shortBio;
+      $scope.avatar = data.avatar;
      });
     };
 
