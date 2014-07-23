@@ -2,14 +2,21 @@
 
 <h1>Please fill in your profile details</h1>
 
-<div ng-controller="Ctrl">
-  <a href="#" name="Name" editable-text="user.name" onaftersave="updateName($data)">{{ user.name || "empty" }}</a>
+<div ng-controller="ProfileCtrl">
+  <a href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)">{{ user.name || "empty" }}</a>
   <br>
-  <a href="#" name="Profession" editable-text="user.profession">{{ user.profession || "empty" }}</a>
+  <a href="#" name="profile[profession]" editable-text="user.profession" onaftersave="updateProfile('profession', $data)">{{ user.profession || "empty" }}</a>
 <br>
-  <a href="#" name="Network" editable-text="user.network">{{ user.network || "empty" }}</a>
+  <a href="#" name="profile[network]" editable-text="user.network" onaftersave="updateProfile('network', $data)">{{ user.network || "empty" }}</a>
+  <br>
+  <a href="#" name="profile[bio]" editable-text="user.shortBio" onaftersave="updateProfile('short_bio', $data)">{{ user.shortBio || "empty" }}</a>
 
+
+  <br>
   <h1 class="name">{{name}}</h1>
+  <p class="profession">{{profession}}</p>
+  <p class="network">{{network}}</p>
+  <p class="short-bio">{{shortBio}}</p>
 
 </div>
 

@@ -1,26 +1,35 @@
-var app = angular.module("app", ["xeditable", "ngResource"]);
+var app = angular.module("app", ["xeditable"]);
 
-app.controller('Ctrl', function($http, $scope, $location, $resource) {
+app.controller('ProfileCtrl', function($http, $scope, $location) {
   $scope.user = {
     name: 'Name',
     profession: 'Profession',
-    network: 'Network'
+    network: 'Network',
+    shortBio: 'Short Bio'
   };  
+
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
-  var displayName = function(){
+  var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
-      $scope.name = data.name
-      console.log("bla bla")
+      $scope.name = data.name;
+      $scope.profession = data.profession;
+      $scope.network = data.network;
+      $scope.shortBio = data.shortBio;
      });
     };
 
-  displayName();
+      getProfileProperties();
 
-  $scope.updateName = function(data) {
-    $http.put('/users/' + $scope.id, {name: data});
-    displayName()
+
+  $scope.updateProfile = function(property, value) {
+
+    var data = {}
+    data[property] = value
+    $http.put('/users/' + $scope.id, data);
+    console.log(data)
+    getProfileProperties();
    }
 
 
