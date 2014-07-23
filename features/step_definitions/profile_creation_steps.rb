@@ -9,8 +9,9 @@ end
 
 Given(/^I have filled in my name, type of creative, network, and attached a profile picture$/) do
   within '.profile-info' do
-    # click_link 'Name'
+
     find('a.name').trigger(:click)
+
     find(:css, "input").set "Laurie Lewis"
     click_button 'save'
 
@@ -53,3 +54,49 @@ end
 Then(/^I should not be able to edit my profile information$/) do
   expect(page).not_to have_link 'Laurie Lewis'
 end
+
+
+
+When(/^I log out$/) do
+  logout
+end
+
+When(/^log back in$/) do
+  @user = User.find_by_name 'Laurie Lewis'
+  login_as @user
+
+end
+
+When(/^I visit my profile$/) do
+  visit "/users/#{@user.id}"
+
+end
+
+Then(/^my profile should be uneditable by default$/) do
+  expect(page).not_to have_link 'Laurie Lewis'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

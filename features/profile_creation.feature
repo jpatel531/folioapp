@@ -17,3 +17,9 @@ Feature: profile creation
 		When I click the 'Toggle Edit' button
 		Then I should not be able to edit my profile information
 
+	@javascript
+	Scenario: My profile is only set to already-editable on first login
+		When I log out
+		And log back in
+		And I visit my profile
+		Then my profile should be uneditable by default

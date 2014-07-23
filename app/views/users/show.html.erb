@@ -23,7 +23,6 @@
 
 	<button ng-click="editable = !editable">Toggle Edit</button>
 
-
   <a class="name" ng-show="editable" href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)"><h1 class="name">{{user.name || "Name" }}</h1></a>
 	<h1 class="name" ng-hide="editable">{{user.name || "Name" }}</h1>  
 

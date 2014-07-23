@@ -8,19 +8,20 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
     shortBio: 'Short Bio'
   };  
 
-  $scope.editable = true;
 
-  console.log($scope.editable)
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
   var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
       $scope.user = data
+      $scope.editable = ($scope.user.signInCount === 1) ? true : false
      });
     };
 
   getProfileProperties();
+
+
 
   $scope.updateProfile = function(property, value) {
     var data = {}
