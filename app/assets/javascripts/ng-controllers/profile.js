@@ -1,6 +1,6 @@
 var app = angular.module("app", ["xeditable"]);
 
-app.controller('ProfileCtrl', function($http, $scope, $location) {
+app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $scope, $location) {
   $scope.user = {
     name: 'Name',
     profession: 'Profession',
@@ -33,4 +33,4 @@ app.controller('ProfileCtrl', function($http, $scope, $location) {
 
 
 
-});
+}]);
