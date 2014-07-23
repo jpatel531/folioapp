@@ -256,5 +256,8 @@ Devise.setup do |config|
 
   config.omniauth :facebook, Rails.application.secrets.facebook_id, Rails.application.secrets.facebook_secret, {secure_image_url: true}
 
+  require 'omniauth-twitter'
+
+  config.omniauth :twitter, Rails.application.secrets.twitter_id, Rails.application.secrets.twitter_secret
 
 end

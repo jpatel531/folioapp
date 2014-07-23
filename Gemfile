@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
