@@ -30,7 +30,7 @@ gem 'devise'
 
 gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+gem 'aws-sdk'
 
 group :test, :development do 
 	gem 'rspec-rails'

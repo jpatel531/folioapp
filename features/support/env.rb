@@ -15,6 +15,11 @@ end
 
 Capybara.javascript_driver = :poltergeist
 
+require 'aws'
+
+AWS.stub!
+AWS.config(access_key_id: "TESTKEY", secret_access_key: "TESTSECRET")
+
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
 # selectors in your step definitions to use the XPath syntax.
