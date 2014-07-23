@@ -39,7 +39,7 @@ end
 Then(/^I should see them on my newly created profile$/) do
   visit current_path
   page.find('h1.name').should have_text('Laurie Lewis')
-  page.find('p.profession').should have_text "artist, writer, illustrator"
+  page.find('p.profession').should have_text "Artist, Writer & Illustrator"
   page.find('p.network').should have_text "Cambridge"
   page.find('p.short-bio').should have_text "Lorem Ipsum"
 

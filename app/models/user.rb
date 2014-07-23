@@ -15,4 +15,10 @@ class User < ActiveRecord::Base
   									 }
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  def formatted_profession
+    if profession
+      profession.split(", ").map(&:capitalize).to_sentence.gsub(" and ", " & ").gsub(", &", " &")
+    end
+  end
+
 end
