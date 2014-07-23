@@ -1,0 +1,17 @@
+<div>
+
+<h1>Please fill in your profile details</h1>
+
+<div ng-controller="Ctrl">
+  <a href="#" name="Name" editable-text="user.name" onaftersave="updateName($data)">{{ user.name || "empty" }}</a>
+  <br>
+  <a href="#" name="Profession" editable-text="user.profession">{{ user.profession || "empty" }}</a>
+<br>
+  <a href="#" name="Network" editable-text="user.network">{{ user.network || "empty" }}</a>
+
+  <h1 class="name">{{name}}</h1>
+
+</div>
+
+
+</div>
