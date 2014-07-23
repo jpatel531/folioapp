@@ -32,6 +32,8 @@ gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
 
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+
 group :test, :development do 
 	gem 'rspec-rails'
 	gem 'capybara'
@@ -40,6 +42,10 @@ group :test, :development do
   gem "selenium-webdriver"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+end
+
+group :production do 
+	gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
