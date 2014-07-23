@@ -8,28 +8,24 @@ app.controller('ProfileCtrl', function($http, $scope, $location) {
     shortBio: 'Short Bio'
   };  
 
+  $scope.editable = true;
+
+  console.log($scope.editable)
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
   var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
-      $scope.name = data.name;
-      $scope.profession = data.profession;
-      $scope.network = data.network;
-      $scope.shortBio = data.shortBio;
-      $scope.avatar = data.avatar;
+      $scope.user = data
      });
     };
 
-      getProfileProperties();
-
+  getProfileProperties();
 
   $scope.updateProfile = function(property, value) {
-
     var data = {}
     data[property] = value
     $http.put('/users/' + $scope.id, data);
-    console.log(data)
     getProfileProperties();
    }
 

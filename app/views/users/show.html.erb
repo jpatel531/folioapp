@@ -1,6 +1,9 @@
 <div>
 
-<h1>Please fill in your profile details</h1>
+<% if current_user.sign_in_count == 1 %>
+	<h1>Please fill in your profile details</h1>
+<% end %>
+
 
 
 <%= form_for @user, html: {multipart: true} do |f| %>
@@ -17,20 +20,25 @@
 
 
 <div ng-controller="ProfileCtrl" class='profile-info'>
-  <a href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)">{{ user.name || "empty" }}</a>
-  <br>
-  <a href="#" name="profile[profession]" editable-text="user.profession" onaftersave="updateProfile('profession', $data)">{{ user.profession || "empty" }}</a>
-<br>
-  <a href="#" name="profile[network]" editable-text="user.network" onaftersave="updateProfile('network', $data)">{{ user.network || "empty" }}</a>
-  <br>
-  <a href="#" name="profile[bio]" editable-text="user.shortBio" onaftersave="updateProfile('short_bio', $data)">{{ user.shortBio || "empty" }}</a>
+
+	<button ng-click="editable = !editable">Toggle Edit</button>
 
 
-  <br>
-  <h1 class="name">{{name}}</h1>
-  <p class="profession">{{profession}}</p>
-  <p class="network">{{network}}</p>
-  <p class="short-bio">{{shortBio}}</p>
+  <a class="name" ng-show="editable" href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)"><h1 class="name">{{user.name || "Name" }}</h1></a>
+	<h1 class="name" ng-hide="editable">{{user.name || "Name" }}</h1>  
+
+
+  <a class="profession" ng-show="editable" href="#" name="profile[profession]" editable-text="user.profession" onaftersave="updateProfile('profession', $data)"><p class="profession">{{user.profession || "Profession" }}</p></a>
+  <p class="profession" ng-hide="editable">{{user.profession || "Profession" }}</p>
+
+
+  <a class="network" ng-show="editable" href="#" name="profile[network]" editable-text="user.network" onaftersave="updateProfile('network', $data)"><p class="network">{{user.network || "Network" }}</p></a>
+  <p ng-hide="editable" class="network">{{user.network || "Network" }}</p>
+
+
+  <a class="short-bio" ng-show="editable" href="#" name="profile[bio]" editable-text="user.shortBio" onaftersave="updateProfile('short_bio', $data)"><p class="short-bio">{{user.shortBio || "Short Bio" }}</p></a>
+  <p ng-hide="editable" class="short-bio">{{user.shortBio || "Short Bio" }}</p>
+
 
 </div>
 
