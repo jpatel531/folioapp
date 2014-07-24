@@ -13,7 +13,3 @@ class WorksController < ApplicationController
 
 end
 
-
-def get_params
-
-end	
