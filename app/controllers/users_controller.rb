@@ -16,11 +16,15 @@ class UsersController < ApplicationController
 			end
 		end
 
-		@user.update(params[:user].permit(:avatar))
+		
+		if params[:file]
+			@user.update!(avatar: params[:file])
+		end
 
 		render :show
 
 	end
+
 
 
 end
