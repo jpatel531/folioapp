@@ -1,3 +1,6 @@
+
+<div ng-controller="ProfileCtrl" class='profile-info'>
+
 <div>
 
 <% if current_user.sign_in_count == 1 %>
@@ -6,22 +9,31 @@
 
 
 
-<%= form_for @user, html: {multipart: true} do |f| %>
+	
+	<%= form_for @user, html: {multipart: true} do |f| %>
 
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %>
-	<%= f.submit %>
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar %>
+		<%= f.submit %>
 
-<% end %>
+	<% end %>
 
-<% if current_user.avatar.present? %>
-	<%= image_tag current_user.avatar.url(:thumb), class: 'profile-pic' %>
-<% end %>
+	<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">drop picture here</div>
 
 
-<div ng-controller="ProfileCtrl" class='profile-info'>
+	<% if current_user.avatar.present? %>
+ 		<img class="profile-pic" ng-src="{{user.userImage}}" style="height: 100px; width: auto">
+	<% end %>
+
+
+
+ 
+
 
 	<button ng-click="editable = !editable">Toggle Edit</button>
+
+	<div class="text-inputs">
+
 
   <a class="name" ng-show="editable" href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)"><h1 class="name">{{user.name || "Name" }}</h1></a>
 	<h1 class="name" ng-hide="editable">{{user.name || "Name" }}</h1>  
@@ -39,7 +51,10 @@
   <p ng-hide="editable" class="short-bio">{{user.shortBio || "Short Bio" }}</p>
 
 
+	</div>
+
 </div>
+
 
 
 </div>

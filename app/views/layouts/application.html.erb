@@ -2,9 +2,8 @@
 <html ng-app="app">
 <head>
   <title>Folioapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js" %>
-  <%= javascript_include_tag 'application'%>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,6 +13,11 @@
 
 <%= yield %>
 
+
 <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+  <%= javascript_include_tag 'application'%>
+
 </body>
 </html>
