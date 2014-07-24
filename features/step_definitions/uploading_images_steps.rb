@@ -1,5 +1,5 @@
 Given(/^I am a user$/) do
-  @user = User.create(email: "bla@bla.com", password: "12345678", password_confirmation: "12345678")
+  @user = User.create(email: "hello@hi.com", password: "12345678", password_confirmation: "12345678")
   login_as @user
 end
 
@@ -35,4 +35,16 @@ Then(/^I should see the image in the default group$/) do
   within 'div.my-collection.preview' do
     expect(page).to have_css 'img.uploaded-image'
   end
+
 end
+
+Then(/^I should see the image in on its collection page$/) do
+  click_button 'View Collection'
+  expect(page).to have_css 'img.uploaded-image'
+  click_button 'View Details'
+  expect(page).to have_content 'Samurai'
+  expect(page).to have_content 'Digitial Art'
+  expect(page).to have_content 'Fantasy, Japanese tings'
+  expect(page).to have_content 'Hello, here is some Art'
+end
+
