@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724163729) do
+ActiveRecord::Schema.define(version: 20140724182127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_works", id: false, force: true do |t|
+    t.integer "work_id",  null: false
+    t.integer "genre_id", null: false
+  end
+
+  create_table "media", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "media_works", id: false, force: true do |t|
+    t.integer "work_id",   null: false
+    t.integer "medium_id", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -49,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140724163729) do
     t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "caption"
   end
 
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree

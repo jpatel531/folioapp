@@ -16,7 +16,8 @@ Given(/^I specify that I wish to upload art$/) do
 end
 
 When(/^I attach an image$/) do
-  attach_file 'Upload', Rails.root.join('features/images/art.jpg')
+
+  attach_file 'Image', Rails.root.join('features/images/art.jpg')
 end
 
 When(/^I give it a title, medium, genre and captions$/) do

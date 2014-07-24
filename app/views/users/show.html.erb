@@ -25,10 +25,25 @@
 
 <%= link_to 'Upload Art' %>
 
-<%= form_for @user.works.new, html: {multipart: true} do |f| %>
+<%= form_for [@user, @work], html: {multipart: true} do |f| %>
 
-	<%= f.label 'Upload' %>
+	<%= f.label :image %>
 	<%= f.file_field :image %>
+
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :medium %>
+	<%= f.text_field :medium %>
+
+	<%= f.label :genre %>
+	<%= f.text_field :genre %>
+
+	<%= f.label :caption %>
+	<%= f.text_field :caption %>
+
+	<%= f.submit %>
+
 
 <% end %>
 
