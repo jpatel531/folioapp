@@ -28,3 +28,4 @@ Feature: uploading images
 
 	Scenario: not specifying a medium
 
+	Scenario: I am able to share a URL of the image
