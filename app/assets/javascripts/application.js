@@ -17,5 +17,6 @@
 //= require angular-file-upload-html5-shim.min
 
 //= require angular-file-upload.min
-//= require angular-resource.min
+//= require medium-editor
+//= require angular-medium-editor
 //= require_tree .
