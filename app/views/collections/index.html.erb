@@ -1,3 +1,5 @@
+<div ng-controller="CollectionCtrl">
+
 <% @user.collections.each do |collection| %>
 
 <div class="<%= collection.title %>">
@@ -15,9 +17,9 @@
 	<% end %>	
 
 
-<button ng-click="upload = true">Add To <%= collection.title %></button>
+<button class="details" ng-click="upload = <%= collection.id %>">Add To <%= collection.title %></button>
 
-	<div ng-show="upload">
+	<div class="upload-options" ng-show="upload == <%= collection.id %>">
 	<%= link_to "Add Art", new_user_collection_work_path(collection_id: collection.id, upload_type: 'art') %>
 	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: collection.id, upload_type: 'writing') %>
 	</div>
@@ -25,3 +27,12 @@
 </div>
 
 <% end %>
+
+
+
+
+
+
+
+
+

@@ -14,7 +14,7 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
 
   var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
-      $scope.user = data
+      $scope.user = dataup
       $scope.editable = ($scope.user.signInCount === 1) ? true : false
      });
     };
@@ -35,30 +35,3 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
 
 
 }])
-.controller("UploadController", ['$http', '$scope', '$location', function($http, $scope, $location) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}]);
