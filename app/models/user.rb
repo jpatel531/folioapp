@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :collections
   has_many :works, through: :collections
 
+  after_initialize :give_default_collection
+
   has_attached_file :avatar, 
   									 styles: { thumb: "100x100>" }, 
   									 storage: :s3, 
@@ -23,14 +25,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def self.from_omniauth(auth)
-  #   where(auth.slice(:provider, :uid)).first_or_create do |user|
-  #     user.email = auth.info.email
-  #     user.password = Devise.friendly_token[0,20]
-  #     user.name = auth.info.name   # assuming the user model has a name
-  #     user.avatar = process_uri(auth.info.image) # assuming the user model has an image
-  #   end
-  # end
+
+
 
   def self.find_for_facebook_oauth(auth)
   where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -83,6 +79,10 @@ end
    avatar_url = URI.parse(uri)
    avatar_url.scheme = 'https'
    avatar_url.to_s
+  end
+
+  def give_default_collection
+    collections << Collection.create(title: "My Collection", description: "This is your default collection")
   end
 
 end
