@@ -9,8 +9,9 @@ class WorksController < ApplicationController
 
 	def create
 		@user = User.find params[:user_id]
-		# @user = current_user
-		@work = @user.works.create work_params
+		@collection = @user.collections.find params[:collection_id]
+		@work = @collection.works.create work_params
+		render "collections/index"
 	end
 
 	private

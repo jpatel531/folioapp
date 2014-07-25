@@ -2,6 +2,17 @@
 
 <div class="<%= collection.title %>">
 <%= collection.title %>
+<%= collection.description %>
+
+	<% collection.works.each do |work| %>
+
+		<%= work.title %>
+		<%= image_tag work.image.url, class: 'uploaded-image' %>
+		<% work.media.each { |medium| %> <%= medium.name %> <% } %>
+		<% work.genres.each { |genre| %> <%= genre.name %> <% } %>
+		<%= work.caption %>
+
+	<% end %>	
 
 
 <button ng-click="upload = true">Add To <%= collection.title %></button>

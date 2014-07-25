@@ -24,7 +24,7 @@ When(/^I attach an image$/) do
 end
 
 When(/^I give it a title, medium, genre and captions$/) do
-  click_button 'Add Details'
+  click_link 'Add Details'
   fill_in 'Title', with: 'Samurai'
   fill_in 'Media', with: 'Digital Art'
   fill_in 'Genres', with: 'Fantasy, Japanese tings'
@@ -37,14 +37,15 @@ When(/^I click submit$/) do
 end
 
 Then(/^I should see the image in the default group$/) do
-  expect(current_path).to eq "/users/#{@user.id}/collections/my_collection"
+  @collection = @user.collections.last
+  expect(current_path).to eq "/users/#{@user.id}/collections/#{@collection.id}/works"
 end
 
 Then(/^I should see the image in on its collection page$/) do
   expect(page).to have_css 'img.uploaded-image'
   expect(page).to have_content 'Samurai'
-  expect(page).to have_content 'Digitial Art'
-  expect(page).to have_content 'Fantasy, Japanese tings'
+  expect(page).to have_content 'Digital Art'
+  expect(page).to have_content 'Fantasy Japanese tings'
   expect(page).to have_content 'Hello, here is some Art'
 end
 

@@ -19,14 +19,14 @@ Feature: uploading images
 		Then I should see the image in the default group
 		And I should see the image in on its collection page
 
-	Scenario: correct upload while specifying a new group
+	#Scenario: correct upload while specifying a new group
 
-	Scenario: correct upload while specifying an existing group
+	#Scenario: correct upload while specifying an existing group
 
-	Scenario: not uploading anything
+	#Scenario: not uploading anything
 
-	Scenario: not specifying a title
+	#Scenario: not specifying a title
 
-	Scenario: not specifying a medium
+	#Scenario: not specifying a medium
 
-	Scenario: I am able to share a URL of the image
+	#Scenario: I am able to share a URL of the image
