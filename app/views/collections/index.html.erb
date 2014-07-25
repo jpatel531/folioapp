@@ -1,16 +1,16 @@
-<div>
+<% @user.collections.each do |collection| %>
+
+<div class="<%= collection.title %>">
+<%= collection.title %>
 
 
+<button ng-click="upload = true">Add To <%= collection.title %></button>
 
-	<% @user.collections.each do |collection| %>
-
-		<div class="<%= collection.title %>">
-			<%= collection.title %>
-
-		<%= link_to "Add To Collection", new_user_collection_work_path(collection_id: collection.id) %>
-		</div>
-
-	<% end %>
+	<div ng-show="upload">
+	<%= link_to "Add Art", new_user_collection_work_path(collection_id: collection.id, upload_type: 'art') %>
+	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: collection.id, upload_type: 'writing') %>
+	</div>
 
 </div>
 
+<% end %>

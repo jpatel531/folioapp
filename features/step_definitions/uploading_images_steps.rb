@@ -14,8 +14,8 @@ end
 Given(/^I specify that I wish to upload art$/) do
   expect(current_path).to eq "/users/#{@user.id}/collections"
   within 'div.My.Collection' do 
-    click_button 'Add To Collection'
-    click_button 'Add Image'
+    click_button 'Add To My Collection'
+    click_link 'Add Art'
   end
 end
 

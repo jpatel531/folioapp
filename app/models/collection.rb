@@ -1,4 +1,4 @@
 class Collection < ActiveRecord::Base
   belongs_to :user
-  belongs_to :works
+  has_many :works
 end
