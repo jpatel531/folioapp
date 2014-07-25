@@ -11,6 +11,7 @@ Feature: uploading images
 		And I specify that I wish to upload art
 
 
+	@javascript
 	Scenario: uploading the first of a category in the right format without specifying group
 		When I attach an image
 		And I give it a title, medium, genre and captions

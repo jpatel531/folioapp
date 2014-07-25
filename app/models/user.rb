@@ -82,7 +82,9 @@ end
   end
 
   def give_default_collection
-    collections << Collection.create(title: "My Collection", description: "This is your default collection")
+    if collections.none?
+      collections << Collection.create(title: "My Collection", description: "This is your default collection")
+    end
   end
 
 end
