@@ -1,3 +1,6 @@
+
+<div ng-controller="ProfileCtrl" class='profile-info'>
+
 <div>
 
 <% if current_user.sign_in_count == 1 %>
@@ -6,25 +9,37 @@
 
 
 
-<%= form_for @user, html: {multipart: true} do |f| %>
+	
+	<%= form_for @user, html: {multipart: true} do |f| %>
 
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %>
-	<%= f.submit %>
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar %>
+		<%= f.submit %>
 
-<% end %>
+	<% end %>
 
-<% if current_user.avatar.present? %>
-	<%= image_tag current_user.avatar.url(:thumb), class: 'profile-pic' %>
-<% end %>
+	<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">drop picture here</div>
+
 
 
 <%= render "information" %>
+
+	<% if current_user.avatar.present? %>
+ 		<img class="profile-pic" ng-src="{{user.userImage}}" style="height: 100px; width: auto">
+	<% end %>
+
 
 <button>Work</button>
 
 <%= button_tag 'Upload Art', 'ng-model' => 'radioModel', 'btn-radio' => "'Art'" %>
 <%= button_tag 'Upload Text', 'ng-model' => 'radioModel', 'btn-radio' => "'Text'" %>
+
+	<div class="text-inputs">
+
+
+  <a class="name" ng-show="editable" href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)"><h1 class="name">{{user.name || "Name" }}</h1></a>
+	<h1 class="name" ng-hide="editable">{{user.name || "Name" }}</h1>  
+
 
 
 <%= form_for [@user, @work], html: {multipart: true, 'ng-model' => 'radioModel', 'ng-show' => "radioModel === 'Art' || radioModel === 'Text' "} do |f| %>
@@ -44,12 +59,18 @@
 	<%= f.label :caption %>
 	<%= f.text_field :caption %>
 
+
 	<%= f.submit "onclick" => "event.preventDefault();", 'ng-model' => 'radioModel', 'btn-radio' => "''" %>
 
 
 <% end %>
 
-	<h1>BLAH BLAH</h1>
+
+	</div>
+
+</div>
+
+
 
 
 </div>

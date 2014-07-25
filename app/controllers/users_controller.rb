@@ -18,11 +18,25 @@ class UsersController < ApplicationController
 			end
 		end
 
-		@user.update(params[:user].permit(:avatar))
+		
+		if params[:file]
+			@user.update!(avatar: params[:file])
+		else
+			@user.update(avatar_params)
+		end
+
+		# if params[:avatar]
+		# 	@user.update(avatar_params)
+		# end
 
 		render :show
 
 	end
 
+	private
+
+	def avatar_params
+		params.require(:user).permit(:avatar)
+	end
 
 end

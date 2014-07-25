@@ -1,6 +1,10 @@
-var app = angular.module("app", ["xeditable","ui.bootstrap"]);
 
-app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $scope, $location) {
+var app = angular.module('app', ['xeditable','angularFileUpload','ui.bootstrap']);
+
+
+app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {
+
+
   $scope.user = {
     name: 'Name',
     profession: 'Profession',
@@ -31,6 +35,28 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
     $http.put('/users/' + $scope.id, data);
     getProfileProperties();
    }
+
+  $scope.onFileSelect = function($files) {
+
+    for (var i = 0; i < $files.length; i++) {
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: '/users/' + $scope.id,
+        method: 'PUT',
+        file: file
+      }).then(function(){
+        getProfileProperties();
+      })
+    }
+    
+  }
+
+
+
+
+
+
+
 
 
 

@@ -23,3 +23,8 @@ Feature: profile creation
 		And log back in
 		And I visit my profile
 		Then my profile should be uneditable by default
+
+	@javascript
+	Scenario: User can drag and drop image to change their portfolio picture/avatar
+		When User drags drags an image into the drop-zone
+		Then profile picture/avatar should be updated	
