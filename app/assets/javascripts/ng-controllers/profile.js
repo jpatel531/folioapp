@@ -1,4 +1,4 @@
-var app = angular.module("app", ["xeditable"]);
+var app = angular.module("app", ["xeditable","ui.bootstrap"]);
 
 app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $scope, $location) {
   $scope.user = {
@@ -7,6 +7,10 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
     network: 'Network',
     shortBio: 'Short Bio'
   };  
+
+  $scope.isArt = false;
+
+  $scope.radioModel = '';
 
 
 

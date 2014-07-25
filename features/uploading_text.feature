@@ -15,8 +15,7 @@ Feature: uploading text
 		When I attach a thumbnail
 		And I give it a title, genre and captions
 		And I clicked on submit
-		Then I should see text in the default group
-		And I should see text in on its collection page
+		Then I should see text in on its collection page
 
 	Scenario: correct upload while specifying a new group
 

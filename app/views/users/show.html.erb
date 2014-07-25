@@ -23,10 +23,11 @@
 
 <button>Work</button>
 
-<%= button_tag 'Upload Art' %>
-<%= button_tag 'Upload Text' %>
+<%= button_tag 'Upload Art', 'ng-model' => 'radioModel', 'btn-radio' => "'Art'", 'ng-click' => "isArt = !isArt" %>
+<%= button_tag 'Upload Text', 'ng-model' => 'radioModel', 'btn-radio' => "'Text'", 'ng-click' => "isArt = !isArt" %>
 
-<%= form_for [@user, @work], html: {multipart: true} do |f| %>
+
+<%= form_for [@user, @work], html: {multipart: true, 'ng-show' => "radioModel === 'Text' || radioModel === 'Art' "} do |f| %>
 
 	<%= f.label :image %>
 	<%= f.file_field :image %>
@@ -34,8 +35,8 @@
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 
-	<%= f.label :medium_names, 'Media' %>
-	<%= f.text_field :medium_names, value: '' %>
+	<%= f.label :medium_names, 'Media', 'ng-show' => "isArt" %>
+	<%= f.text_field :medium_names, value: '', 'ng-show' => "isArt" %>
 
 	<%= f.label :genre_names, 'Genres' %>
 	<%= f.text_field :genre_names, value: '' %>
@@ -43,10 +44,12 @@
 	<%= f.label :caption %>
 	<%= f.text_field :caption %>
 
-	<%= f.submit %>
+	<%= f.submit "onclick" => "event.preventDefault();", 'ng-model' => 'radioModel', 'btn-radio' => "''" %>
 
 
 <% end %>
+
+	<h1>BLAH BLAH</h1>
 
 
 </div>

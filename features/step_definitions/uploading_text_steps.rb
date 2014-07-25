@@ -30,15 +30,10 @@ When(/^I clicked on submit$/) do
   click_button 'Create Work'
 end
 
-Then(/^I should see text in the default group$/) do
-  within 'div.my-collection.preview' do
-    expect(page).to have_css 'div.uploaded-text'
-  end
-end
 
 Then(/^I should see text in on its collection page$/) do
   click_button 'View Collection'
-  expect(page).to have_css 'div.uploaded-text'
+  expect(page).to have_css 'img.uploaded-image'
   click_button 'View Details'
   expect(page).to have_content 'Putative real world'
   expect(page).to have_content 'Bangsian, Contemporary Fantasy'
