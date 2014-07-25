@@ -23,11 +23,11 @@
 
 <button>Work</button>
 
-<%= button_tag 'Upload Art', 'ng-model' => 'radioModel', 'btn-radio' => "'Art'", 'ng-click' => "isArt = !isArt" %>
-<%= button_tag 'Upload Text', 'ng-model' => 'radioModel', 'btn-radio' => "'Text'", 'ng-click' => "isArt = !isArt" %>
+<%= button_tag 'Upload Art', 'ng-model' => 'radioModel', 'btn-radio' => "'Art'" %>
+<%= button_tag 'Upload Text', 'ng-model' => 'radioModel', 'btn-radio' => "'Text'" %>
 
 
-<%= form_for [@user, @work], html: {multipart: true, 'ng-show' => "radioModel === 'Text' || radioModel === 'Art' "} do |f| %>
+<%= form_for [@user, @work], html: {multipart: true, 'ng-model' => 'radioModel', 'ng-show' => "radioModel === 'Art' || radioModel === 'Text' "} do |f| %>
 
 	<%= f.label :image %>
 	<%= f.file_field :image %>
@@ -35,8 +35,8 @@
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 
-	<%= f.label :medium_names, 'Media', 'ng-show' => "isArt" %>
-	<%= f.text_field :medium_names, value: '', 'ng-show' => "isArt" %>
+	<%= f.label :medium_names, 'Media', 'ng-hide' => "radioModel === 'Text'" %>
+	<%= f.text_field :medium_names, value: '', 'ng-hide' => "radioModel === 'Text'" %>
 
 	<%= f.label :genre_names, 'Genres' %>
 	<%= f.text_field :genre_names, value: '' %>

@@ -8,8 +8,6 @@ app.controller('ProfileCtrl', ['$http', '$scope', '$location', function($http, $
     shortBio: 'Short Bio'
   };  
 
-  $scope.isArt = false;
-
   $scope.radioModel = '';
 
 
