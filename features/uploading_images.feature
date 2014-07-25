@@ -8,7 +8,7 @@ Feature: uploading images
 		Given I am a user
 		And on my profile
 		And I click the 'Work' button on my profile cover
-		And I specify that I wish to upload art
+		And I click radio button upload art
 
 
 	Scenario: uploading the first of a category in the right format without specifying group

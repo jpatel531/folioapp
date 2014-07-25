@@ -11,8 +11,8 @@ Given(/^I click the 'Work' button on my profile cover$/) do
   click_button 'Work'
 end
 
-Given(/^I specify that I wish to upload art$/) do
-  click_link 'Upload Art'
+Given(/^I click radio button upload art$/) do
+  click_button 'Upload Art'
 end
 
 When(/^I attach an image$/) do

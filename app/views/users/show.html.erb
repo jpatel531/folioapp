@@ -23,7 +23,8 @@
 
 <button>Work</button>
 
-<%= link_to 'Upload Art' %>
+<%= button_tag 'Upload Art' %>
+<%= button_tag 'Upload Text' %>
 
 <%= form_for [@user, @work], html: {multipart: true} do |f| %>
 
