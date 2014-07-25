@@ -3,7 +3,7 @@
 <%= form_for @new_work, url: user_collection_works_path do |f| %>
 
 	<%= f.label :image %>
-	<%= f.file_field :image %>
+	<%= f.file_field :image, required: true %>
 
 
 	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
@@ -14,7 +14,7 @@
 
 
 	<%= f.label :title %>
-	<%= f.text_field :title %>
+	<%= f.text_field :title, required: true %>
 
 	<%= f.label :medium_names, 'Media' %>
 	<%= f.text_field :medium_names, value: '' %>

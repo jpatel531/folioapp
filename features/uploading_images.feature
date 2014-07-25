@@ -7,7 +7,7 @@ Feature: uploading images
 	Background:
 		Given I am a user
 		And on my profile
-		And I click the 'Work' button on my profile cover
+		And I click the 'Work' link on my profile cover
 		And I specify that I wish to upload art
 
 
@@ -19,14 +19,15 @@ Feature: uploading images
 		Then I should see the image in the default group
 		And I should see the image in on its collection page
 
-	#Scenario: correct upload while specifying a new group
+	@javascript
+	Scenario: not uploading anything
+		When I fail to attach an image
+		Then I should not be allowed to submit
 
-	#Scenario: correct upload while specifying an existing group
 
-	#Scenario: not uploading anything
-
-	#Scenario: not specifying a title
+	Scenario: not specifying a title
+		When I fail to specify a title
+		Then I should not be allowed to submit
 
 	#Scenario: not specifying a medium
 
-	#Scenario: I am able to share a URL of the image

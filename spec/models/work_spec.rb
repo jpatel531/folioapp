@@ -34,31 +34,45 @@ RSpec.describe Work, :type => :model do
 
 	describe '#genre_names' do
 
-	context 'with one genre that does not exist' do 
-		it 'adds the genre to the work' do
-			work.genre_names = "Cubism"
-			expect(work.genres.length).to eq 1
+		context 'with one genre that does not exist' do 
+			it 'adds the genre to the work' do
+				work.genre_names = "Cubism"
+				expect(work.genres.length).to eq 1
+			end
+		end
+
+		context 'with a genre that do not exist' do 
+			it 'adds the genre to the work' do
+				work.genre_names = 'Cubism, Scottish Futurism'
+				expect(work.genres.length).to eq 2
+			end
+		end
+
+		context 'with a genre that already exists' do 
+			let!(:existing_genre) {Genre.create name: 'Cubism'}
+
+			it 'reuses the medium name' do 
+				work.genre_names = 'Cubism'
+				expect(work.genres).to include existing_genre
+				expect(Genre.count).to eq 1
+			end
 		end
 	end
 
-	context 'with a genre that do not exist' do 
-		it 'adds the genre to the work' do
-			work.genre_names = 'Cubism, Scottish Futurism'
-			expect(work.genres.length).to eq 2
+	describe 'validations' do 
+
+		it 'errors out when no image is uploaded' do 
+			work = Work.create(image: nil)
+			expect(work).to have(1).error_on(:image)
 		end
+
+		it 'erros out when no title is given' do 
+			work = Work.create(image: nil, title: nil)
+			expect(work).to have(1).error_on(:title)
+		end
+
 	end
 
-	context 'with a genre that already exists' do 
-		let!(:existing_genre) {Genre.create name: 'Cubism'}
-
-		it 'reuses the medium name' do 
-			work.genre_names = 'Cubism'
-			expect(work.genres).to include existing_genre
-			expect(Genre.count).to eq 1
-		end
-	end
-
-end
 
 
 

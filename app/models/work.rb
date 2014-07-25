@@ -7,6 +7,9 @@ class Work < ActiveRecord::Base
   has_and_belongs_to_many :media
   has_and_belongs_to_many :genres
 
+  validates :image, presence: {message: "You have not attached an image"}
+  validates :title, presence: true
+
   has_attached_file :image, 
   									 styles: { thumb: "500x500>" }, 
   									 storage: :s3, 

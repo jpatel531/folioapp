@@ -1,0 +1,21 @@
+<% @collection.works.each do |work| %>
+
+	<div>
+		<%= work.title %>
+		<%= image_tag work.image.url, class: 'uploaded-image' %>
+		<% work.media.each { |medium| %> <%= medium.name %> <% } %>
+		<% work.genres.each { |genre| %> <%= genre.name %> <% } %>
+		<%= work.caption %>
+	</div>
+
+
+</div>
+
+<% end %>
+
+	<button ng-click="upload = true">Add To <%= @collection.title %></button>
+
+	<div ng-show="upload">
+	<%= link_to "Add Art", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'art') %>
+	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'writing') %>
+	</div>

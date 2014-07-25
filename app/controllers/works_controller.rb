@@ -11,7 +11,7 @@ class WorksController < ApplicationController
 		@user = User.find params[:user_id]
 		@collection = @user.collections.find params[:collection_id]
 		@work = @collection.works.create work_params
-		render "collections/index"
+		redirect_to user_collection_path(@user, @collection)
 	end
 
 	private
