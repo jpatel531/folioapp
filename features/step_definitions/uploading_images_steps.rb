@@ -16,19 +16,20 @@ Given(/^I specify that I wish to upload art$/) do
 end
 
 When(/^I attach an image$/) do
-  attach_file 'Upload', Rails.root.join('features/images/art.jpg')
+
+  attach_file 'Image', Rails.root.join('features/images/art.jpg')
 end
 
 When(/^I give it a title, medium, genre and captions$/) do
   fill_in 'Title', with: 'Samurai'
-  fill_in 'Medium', with: 'Digital Art'
-  fill_in 'Genre', with: 'Fantasy, Japanese tings'
+  fill_in 'Media', with: 'Digital Art'
+  fill_in 'Genres', with: 'Fantasy, Japanese tings'
   fill_in 'Caption', with: 'Hello, here is some Art'
 end
 
 
 When(/^I click submit$/) do
-  click_button 'Save'
+  click_button 'Create Work'
 end
 
 Then(/^I should see the image in the default group$/) do
