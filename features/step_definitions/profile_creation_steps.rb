@@ -37,7 +37,9 @@ Given(/^I have filled in my name, type of creative, network, and attached a prof
 end
 
 Then(/^I should see them on my newly created profile$/) do
+
   visit current_path
+
   page.find('h1.name').should have_text('Laurie Lewis')
   page.find('p.profession').should have_text "Artist, Writer & Illustrator"
   page.find('p.network').should have_text "Cambridge"
@@ -48,6 +50,7 @@ end
 
 
 When(/^I click the 'Toggle Edit' button$/) do
+
   click_button 'Toggle Edit'
 end
 

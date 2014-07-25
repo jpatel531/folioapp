@@ -2,6 +2,7 @@ class WorksController < ApplicationController
 
 	def create
 		@user = User.find params[:user_id]
+		# @user = current_user
 		@work = @user.works.create work_params
 	end
 
