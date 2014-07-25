@@ -29,5 +29,5 @@ Feature: uploading images
 		When I fail to specify a title
 		Then I should not be allowed to submit
 
-	#Scenario: not specifying a medium
+
 
