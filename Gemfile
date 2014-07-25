@@ -31,6 +31,8 @@ gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem 'rspec-collection_matchers'
+
 gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'

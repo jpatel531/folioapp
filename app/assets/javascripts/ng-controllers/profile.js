@@ -58,4 +58,4 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
 
 
 
-}]);
+}])
