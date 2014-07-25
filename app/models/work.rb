@@ -1,5 +1,9 @@
 class Work < ActiveRecord::Base
-  belongs_to :user
+  
+	belongs_to :user
+	belongs_to :collections
+  
+
   has_and_belongs_to_many :media
   has_and_belongs_to_many :genres
 

@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook, :twitter]
 
-  has_many :works
+  has_many :collections
+  has_many :works, through: :collections
+
   has_attached_file :avatar, 
   									 styles: { thumb: "100x100>" }, 
   									 storage: :s3, 

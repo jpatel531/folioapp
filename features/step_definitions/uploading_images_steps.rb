@@ -8,19 +8,23 @@ Given(/^on my profile$/) do
 end
 
 Given(/^I click the 'Work' button on my profile cover$/) do
-  click_button 'Work'
+  click_link 'Work'
 end
 
 Given(/^I specify that I wish to upload art$/) do
-  click_link 'Upload Art'
+  expect(current_path).to eq "/users/#{@user.id}/collections"
+  within 'div.my-collection' do 
+    click_button 'Add To My Collection'
+    click_button 'Add Image'
+  end
 end
 
 When(/^I attach an image$/) do
-
   attach_file 'Image', Rails.root.join('features/images/art.jpg')
 end
 
 When(/^I give it a title, medium, genre and captions$/) do
+  click_button 'Add Details'
   fill_in 'Title', with: 'Samurai'
   fill_in 'Media', with: 'Digital Art'
   fill_in 'Genres', with: 'Fantasy, Japanese tings'
@@ -29,20 +33,15 @@ end
 
 
 When(/^I click submit$/) do
-  click_button 'Create Work'
+  click_button 'Publish'
 end
 
 Then(/^I should see the image in the default group$/) do
-  within 'div.my-collection.preview' do
-    expect(page).to have_css 'img.uploaded-image'
-  end
-
+  expect(current_path).to eq "/users/#{@user.id}/collections/my_collection"
 end
 
 Then(/^I should see the image in on its collection page$/) do
-  click_button 'View Collection'
   expect(page).to have_css 'img.uploaded-image'
-  click_button 'View Details'
   expect(page).to have_content 'Samurai'
   expect(page).to have_content 'Digitial Art'
   expect(page).to have_content 'Fantasy, Japanese tings'

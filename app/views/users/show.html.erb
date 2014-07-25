@@ -23,29 +23,10 @@
 
 <button>Work</button>
 
-<%= link_to 'Upload Art' %>
-
-<%= form_for [@user, @work], html: {multipart: true} do |f| %>
-
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<%= f.label :medium_names, 'Media' %>
-	<%= f.text_field :medium_names, value: '' %>
-
-	<%= f.label :genre_names, 'Genres' %>
-	<%= f.text_field :genre_names, value: '' %>
-
-	<%= f.label :caption %>
-	<%= f.text_field :caption %>
-
-	<%= f.submit %>
+<%= link_to 'Work', user_collections_path(@user) %>
 
 
-<% end %>
+
 
 
 </div>
