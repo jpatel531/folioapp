@@ -1,8 +1,16 @@
-<div ng-controller="CollectionsCtrl">
+<div>
 
-	<div ng-repeat="collection in collections" class="{{collection.title}}">
-	</div>
 
+
+	<% @user.collections.each do |collection| %>
+
+		<div class="<%= collection.title %>">
+			<%= collection.title %>
+
+		<%= link_to "Add To Collection", new_user_collection_work_path(collection_id: collection.id) %>
+		</div>
+
+	<% end %>
 
 </div>
 
