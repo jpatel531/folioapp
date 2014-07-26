@@ -5,5 +5,5 @@ Feature: signing up
 	Scenario: Visiting ffolio for the first time
 	Given that I arrive on the ffolio site
 	And I register for a ffolio account
-	Then I should see "Welcome to ffol.io"
+	Then I should be on my profile
 	And I should be invited to fill in my profile details

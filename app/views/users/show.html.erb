@@ -3,24 +3,15 @@
 
 <div>
 
-<% if current_user.sign_in_count == 1 %>
-	<h1>Please fill in your profile details</h1>
-<% end %>
 
-
-
- <%= render "profile_picture" %>
-
- 
-
+<%= render "profile_picture" %>
 
 <%= render "information" %>
 
-
 <%= link_to 'Work', user_collections_path(@user) %>
 
-
 </div>
+
 <button ng-click="changeUrl()">Hello World</button>
 
 <div ng-include="url"></div>

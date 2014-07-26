@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find params[:id]
+		flash[:notice] = "Please fill in your profile details" if @user.sign_in_count == 1
 		@work = Work.new
 	end
 

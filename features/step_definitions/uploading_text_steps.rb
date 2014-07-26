@@ -1,9 +1,7 @@
 Given(/^I specify that I wish to upload text$/) do
   expect(current_path).to eq "/users/#{@user.id}/collections"
-  within 'div.My.Collection' do 
-    click_button 'Add To My Collection'
-    click_link 'Add Writing'
-  end
+  click_button 'Add To My Collection'
+  click_link 'Add Writing'
 end
 
 When(/^I enter text$/) do

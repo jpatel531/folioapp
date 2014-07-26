@@ -39,7 +39,6 @@ end
 Then(/^I should see them on my newly created profile$/) do
 
   visit current_path
-      save_and_open_page
   page.find('h1.name').should have_text('Laurie Lewis')
   page.find('p.profession').should have_text "Artist, Writer & Illustrator"
   page.find('p.network').should have_text "Cambridge"

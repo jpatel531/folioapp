@@ -10,8 +10,9 @@ Given(/^I register for a ffolio account$/) do
   click_button 'Sign up'
 end
 
-Then(/^I should see "(.*?)"$/) do |arg1|
-  expect(page).to have_content 'Welcome to ffol.io'
+Then(/^I should be on my profile$/) do
+	@user = User.find_by_email 'bla@bla.com'
+	expect(current_path).to eq "/users/#{@user.id}"
 end
 
 Then(/^I should be invited to fill in my profile details$/) do

@@ -1,7 +1,7 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
 app.config(function($locationProvider){
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 });
 
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
