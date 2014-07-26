@@ -16,8 +16,7 @@ Feature: uploading images
 		And I upload a thumbnail, add a title, genres and a short description
 		And I click submit
 		Then I should see the work's thumbnail, title, short description and genres in the default group
-		And if I click on the work's title
-		Then I should see the content of the work
+		And I should see the content of the work
 
 	Scenario: annotations/footnotes
 

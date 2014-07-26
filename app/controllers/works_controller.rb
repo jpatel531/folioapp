@@ -11,13 +11,14 @@ class WorksController < ApplicationController
 		@user = User.find params[:user_id]
 		@collection = @user.collections.find params[:collection_id]
 		@work = @collection.works.create work_params
+		# raise 'Hello'
 		redirect_to user_collection_path(@user, @collection)
 	end
 
 	private
 
 	def work_params
-		params.require(:work).permit(:image, :title, :medium_names, :genre_names, :caption)
+		params.require(:work).permit(:image, :title, :medium_names, :genre_names, :caption, :text)
 	end
 
 end

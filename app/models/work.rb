@@ -20,7 +20,12 @@ class Work < ActiveRecord::Base
   									 }
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+	after_save :work_format
 
+
+	def work_format
+		text.blank? ? "image" : "text"
+	end
 
 	def medium_names
 	end

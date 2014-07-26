@@ -1,17 +1,29 @@
-<% @collection.works.each do |work| %>
+<div ng-controller="CollectionCtrl">
 
-	<div>
-		<%= work.title %>
-		<%= image_tag work.image.url, class: 'uploaded-image' %>
-		<% work.media.each { |medium| %> <%= medium.name %> <% } %>
-		<% work.genres.each { |genre| %> <%= genre.name %> <% } %>
-		<%= work.caption %>
-	</div>
 
+
+
+<div ng-repeat="work in collection.works">
+
+	{{work.title}}
+	<img ng-src="{{work.image}}" ng-class="{'uploaded-image': work.format == 'image', 'text-thumbnail': work.format == 'text' }">
+	<li ng-repeat="medium in work.media">{{medium}}</li>	
+	<li ng-repeat="genre in work.genres">{{medium}}</li>
+	{{work.caption}}
+
+	<div ng-show="work.format == 'text'">{{work.text}}</div>
 
 </div>
 
-<% end %>
+
+
+
+
+
+
+
+
+
 
 	<button ng-click="upload = true">Add To <%= @collection.title %></button>
 
@@ -19,3 +31,8 @@
 	<%= link_to "Add Art", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'art') %>
 	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'writing') %>
 	</div>
+
+
+
+
+ </div>

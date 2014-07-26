@@ -50,4 +50,28 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
 
 
 
+}]).controller('CollectionCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+
+  $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
+  
+
+  var returnCollectionById = function(){
+    var collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);
+    for (var i = 0; i < $scope.user.collections.length ; i++) {
+      if ($scope.user.collections[i].id == collectionId) {
+        $scope.collection = $scope.user.collections[i];
+      }
+    }
+  };
+
+  $http.get('/users/' + $scope.userId + '.json').success(function(data){
+    $scope.user = data;
+  }).then(function(){
+    returnCollectionById();
+  });
+
+
+
+
+
 }])

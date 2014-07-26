@@ -1,6 +1,41 @@
 <div id="container" style="max-width: 70%;">
-	    <h1>Medium Editor is Awesome!</h1>
-	    <form name="demo">
+	  
+	    <form name="demo" id="text-upload">
 	        <div ng-model="text" medium-editor></div>
 	    </form>
 </div>
+
+
+<%= form_for @new_work, url: user_collection_works_path do |f| %>
+
+	<div id="test" style="visibility: hidden; text-indent: -9999px;">
+
+	<%= f.label :text %>
+	<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
+	</div>
+
+	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
+
+
+	<div ng-show="details">
+
+
+	<%= f.label :title %>
+	<%= f.text_field :title, required: true %>
+
+	<%= f.label :image, 'Thumbnail' %>
+	<%= f.file_field :image, required: true %>
+
+	<%= f.label :genre_names, 'Genres' %>
+	<%= f.text_field :genre_names, value: '' %>
+
+	<%= f.label :caption, 'Short Description' %>
+	<%= f.text_field :caption %>
+
+	<%= f.submit 'Publish' %>
+
+
+	</div>
+
+
+<% end %>

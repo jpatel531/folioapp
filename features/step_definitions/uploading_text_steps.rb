@@ -7,7 +7,7 @@ Given(/^I specify that I wish to upload text$/) do
 end
 
 When(/^I enter text$/) do
-  fill_in "text_field", with: "The apparition of the faces in the crowd \n Petals on a wet black bough"
+  find(:css, "#texteditor").set "The apparition of the faces in the crowd <br> Petals on a wet black bough"
 end
 
 When(/^I upload a thumbnail, add a title, genres and a short description$/) do
@@ -25,9 +25,6 @@ Then(/^I should see the work's thumbnail, title, short description and genres in
   expect(page).to have_content 'an intellectual and emotional complex in an instant of time.'
 end
 
-Then(/^if I click on the work's title$/) do
-  click_link 'In A Station of the Metro'
-end
 
 Then(/^I should see the content of the work$/) do
   expect(page).to have_content "The apparition of the faces in the crowd \n Petals on a wet black bough"

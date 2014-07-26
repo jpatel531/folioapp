@@ -10,12 +10,17 @@ json.userImage @user.avatar.url
 
 
 json.collections(@user.collections) do |collection|
-	json.title collection.title
 	json.id collection.id
+	json.title collection.title
 	json.description collection.description
 	json.works(collection.works) do |work|
 		json.title work.title
-		json.format work.format
+		json.format work.work_format
+		json.image work.image.url
+		json.genres work.genres
+		json.media work.media
+		json.caption work.caption
+		json.text work.text
 	end
 end
 
