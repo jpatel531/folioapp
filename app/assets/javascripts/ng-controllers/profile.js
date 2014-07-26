@@ -1,4 +1,4 @@
-var app = angular.module('app', ['xeditable','angularFileUpload']);
+var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor']);
 
 
 app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {

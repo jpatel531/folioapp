@@ -10,6 +10,7 @@ Feature: uploading images
 		And I click the 'Work' link on my profile cover
 		And I specify that I wish to upload text
 
+	@javascript
 	Scenario:
 		When I enter text
 		And I upload a thumbnail, add a title, genres and a short description
