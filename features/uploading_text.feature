@@ -18,3 +18,9 @@ Feature: uploading images
 		Then I should see the work's thumbnail, title, short description and genres in the default group
 		And if I click on the work's title
 		Then I should see the content of the work
+
+	Scenario: annotations/footnotes
+
+	Scenario: poems
+
+	
