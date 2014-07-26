@@ -17,8 +17,12 @@ json.collections(@user.collections) do |collection|
 		json.title work.title
 		json.format work.work_format
 		json.image work.image.url
-		json.genres work.genres
-		json.media work.media
+		json.genres do
+			json.array! work.genre_names
+		end
+		json.media do
+			json.array! work.medium_names
+		end
 		json.caption work.caption
 		json.text work.text
 	end

@@ -28,6 +28,9 @@ class Work < ActiveRecord::Base
 	end
 
 	def medium_names
+		names = []
+		media.each {|medium| names << medium.name}
+		names
 	end
 
 	def medium_names=(medium_list)
@@ -37,6 +40,9 @@ class Work < ActiveRecord::Base
 	end
 
 	def genre_names
+		names = []
+		genres.each {|genre| names << genre.name}
+		names
 	end
 
 	def genre_names=(genre_list)

@@ -8,7 +8,7 @@
 	{{work.title}}
 	<img ng-src="{{work.image}}" ng-class="{'uploaded-image': work.format == 'image', 'text-thumbnail': work.format == 'text' }">
 	<li ng-repeat="medium in work.media">{{medium}}</li>	
-	<li ng-repeat="genre in work.genres">{{medium}}</li>
+	<li ng-repeat="genre in work.genres">{{genre}}</li>
 	{{work.caption}}
 
 	<div ng-show="work.format == 'text'">
