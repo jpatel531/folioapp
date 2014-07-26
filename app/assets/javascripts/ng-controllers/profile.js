@@ -46,14 +46,7 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
     
   }
 
-
-
-
-
-
-
-
-
+}]).controller('UploadCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {
 
 
 
