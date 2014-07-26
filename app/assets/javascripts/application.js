@@ -19,4 +19,5 @@
 //= require angular-resource.min
 //= require medium-editor
 //= require angular-medium-editor
+//= require angular-sanitize
 //= require_tree .
