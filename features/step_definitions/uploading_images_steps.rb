@@ -42,7 +42,6 @@ Then(/^I should see the image in the default group$/) do
 end
 
 Then(/^I should see the image in on its collection page$/) do
-  save_and_open_page
   expect(page).to have_css 'img.uploaded-image'
   expect(page).to have_content 'Samurai'
   expect(page).to have_content 'Digital Art'

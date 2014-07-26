@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 		[:name, :short_bio, :profession, :network].each do |attr|
 			if params[attr]
 				@user.update!(attr => params[attr])
-				puts params[attr]
 			end
 		end
 
