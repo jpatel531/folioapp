@@ -4,6 +4,7 @@ class WorksController < ApplicationController
 		@user = User.find params[:user_id]
 		# @user = current_user
 		@work = @user.works.create work_params
+		render json: [@user,@work]
 	end
 
 	private

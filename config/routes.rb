@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 	
   root :to => "home#index"
 
+  scope '/api' do
+    get '/s3' => 's3#index'
+  end
+
 end

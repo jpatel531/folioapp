@@ -2,9 +2,9 @@
 <html ng-app="app">
 <head>
   <title>Folioapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js" %>
-  <%= javascript_include_tag 'application'%>
+
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,6 +14,12 @@
 
 <%= yield %>
 
+
 <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+
+	<%= javascript_include_tag src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js" %>
+  <%= javascript_include_tag src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js" %>
+  <%= javascript_include_tag 'application'%>
+
 </body>
 </html>

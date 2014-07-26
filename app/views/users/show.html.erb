@@ -1,51 +1,88 @@
+
+<div ng-controller="ProfileCtrl" class='profile-info'>
+
 <div>
 
-<% if current_user.sign_in_count == 1 %>
-	<h1>Please fill in your profile details</h1>
-<% end %>
+	<% if current_user.sign_in_count == 1 %>
+		<h1>Please fill in your profile details</h1>
+	<% end %>
 
 
 
-<%= form_for @user, html: {multipart: true} do |f| %>
+		
+		<%= form_for @user, html: {multipart: true} do |f| %>
 
-	<%= f.label :avatar %>
-	<%= f.file_field :avatar %>
-	<%= f.submit %>
+			<%= f.label :avatar %>
+			<%= f.file_field :avatar %>
+			<%= f.submit %>
 
-<% end %>
+		<% end %>
 
-<% if current_user.avatar.present? %>
-	<%= image_tag current_user.avatar.url(:thumb), class: 'profile-pic' %>
-<% end %>
-
-
-<%= render "information" %>
-
-<button>Work</button>
-
-<%= link_to 'Upload Art' %>
-
-<%= form_for [@user, @work], html: {multipart: true} do |f| %>
-
-	<%= f.label :image %>
-	<%= f.file_field :image %>
-
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-
-	<%= f.label :medium_names, 'Media' %>
-	<%= f.text_field :medium_names, value: '' %>
-
-	<%= f.label :genre_names, 'Genres' %>
-	<%= f.text_field :genre_names, value: '' %>
-
-	<%= f.label :caption %>
-	<%= f.text_field :caption %>
-
-	<%= f.submit %>
+		<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">drop picture here</div>
 
 
-<% end %>
+
+	<%= render "information" %>
+
+		<% if current_user.avatar.present? %>
+	 		<img class="profile-pic" ng-src="{{user.userImage}}" style="height: 100px; width: auto">
+		<% end %>
+
+
+	<button>Work</button>
+
+	<%= button_tag 'Upload Art', 'ng-model' => 'radioModel', 'btn-radio' => "'Art'" %>
+	<%= button_tag 'Upload Text', 'ng-model' => 'radioModel', 'btn-radio' => "'Text'" %>
+
+		<div class="text-inputs">
+
+
+	  <a class="name" ng-show="editable" href="#" name="profile[name]" editable-text="user.name" onaftersave="updateProfile('name', $data)"><h1 class="name">{{user.name || "Name" }}</h1></a>
+		<h1 class="name" ng-hide="editable">{{user.name || "Name" }}</h1>  
+
+
+
+	<%= form_for [@user, @work], html: {multipart: true, 'ng-model' => 'radioModel', 'ng-show' => "radioModel === 'Art' || radioModel === 'Text' "} do |f| %>
+
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+
+		<%= f.label :medium_names, 'Media', 'ng-hide' => "radioModel === 'Text'" %>
+		<%= f.text_field :medium_names, value: '', 'ng-hide' => "radioModel === 'Text'" %>
+
+		<%= f.label :genre_names, 'Genres' %>
+		<%= f.text_field :genre_names, value: '' %>
+
+		<%= f.label :caption %>
+		<%= f.text_field :caption %>
+
+
+		<%= f.submit "onclick" => "event.preventDefault();", 'ng-model' => 'radioModel', 'btn-radio' => "''" %>
+
+
+	<% end %>
+
+	
+	 <div id="container" style="max-width: 70%;">
+	    <h1>Medium Editor is Awesome!</h1>
+	    <form name="demo">
+	        <div ng-model="text" medium-editor></div>
+	    </form>
+	</div>
+	<p style="text-align: center;"><small><a style="color: #333;" target="_blank" href="http://www.goodreads.com/reader/475-great-expectations">Source</a></small></p>
+
+	{{text}}
+
+
+
+		</div>
+
+	</div>
+
+
 
 
 </div>
