@@ -17,12 +17,11 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
   var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
       $scope.user = data
-      $scope.editable = ($scope.user.signInCount === 1) ? true : false
      });
     };
 
   getProfileProperties();
-
+  $scope.editable = ($scope.user.signInCount === 1) ? true : false
 
 
   $scope.updateProfile = function(property, value) {
