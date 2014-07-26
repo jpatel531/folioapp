@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find params[:id]
-		# @user = current_user
 		@work = Work.new
 	end
 
@@ -18,19 +17,13 @@ class UsersController < ApplicationController
 			end
 		end
 
-		
 		if params[:file]
 			@user.update!(avatar: params[:file])
 		else
 			@user.update(avatar_params)
 		end
 
-		# if params[:avatar]
-		# 	@user.update(avatar_params)
-		# end
-
-		render :show
-
+		redirect_to user_path(id: current_user.id, editable: true)
 	end
 
 	private

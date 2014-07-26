@@ -1,7 +1,8 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
 
-app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {
+app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location','$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+
 
   $scope.user = {
     name: 'Name',
@@ -9,7 +10,6 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
     network: 'Network',
     shortBio: 'Short Bio'
   };  
-
 
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
@@ -21,7 +21,9 @@ app.controller('ProfileCtrl', ['$scope', '$http', '$location','$upload','$rootSc
     };
 
   getProfileProperties();
-  $scope.editable = ($scope.user.signInCount === 1) ? true : false
+
+  $scope.editable = ($window.location.search === "?editable=true") ? true : false
+
 
 
   $scope.updateProfile = function(property, value) {

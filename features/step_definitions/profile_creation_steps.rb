@@ -9,7 +9,6 @@ end
 
 Given(/^I have filled in my name, type of creative, network, and attached a profile picture$/) do
   within '.text-inputs' do
-
     find('a.name').trigger(:click)
 
     find(:css, "input").set "Laurie Lewis"
@@ -49,7 +48,6 @@ end
 
 
 When(/^I click the 'Toggle Edit' button$/) do
-
   click_button 'Toggle Edit'
 end
 
@@ -71,7 +69,6 @@ end
 
 When(/^I visit my profile$/) do
   visit "/users/#{@user.id}"
-
 end
 
 Then(/^my profile should be uneditable by default$/) do
