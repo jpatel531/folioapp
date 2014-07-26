@@ -1,5 +1,7 @@
 class WorksController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def new
 		@upload_type = params[:upload_type]
 		@user = User.find params[:user_id]

@@ -9,6 +9,7 @@ end
 
 Given(/^I have filled in my name, type of creative, network, and attached a profile picture$/) do
   within '.text-inputs' do
+
     find('a.name').trigger(:click)
 
     find(:css, "input").set "Laurie Lewis"
@@ -25,7 +26,7 @@ Given(/^I have filled in my name, type of creative, network, and attached a prof
     click_button 'save'
 
     # click_link 'Short Bio'
-    find('a.short-bio').trigger(:click)
+    find('a.shortBio').trigger(:click)
     find(:css, "input").set "Lorem Ipsum"
     click_button 'save'
   
@@ -36,12 +37,12 @@ Given(/^I have filled in my name, type of creative, network, and attached a prof
 end
 
 Then(/^I should see them on my newly created profile$/) do
-
+  save_and_open_page
   visit current_path
-  page.find('h1.name').should have_text('Laurie Lewis')
+  page.find('p.name').should have_text('Laurie Lewis')
   page.find('p.profession').should have_text "Artist, Writer & Illustrator"
   page.find('p.network').should have_text "Cambridge"
-  page.find('p.short-bio').should have_text "Lorem Ipsum"
+  page.find('p.shortBio').should have_text "Lorem Ipsum"
 
   expect(page).to have_css 'img.profile-pic'
 end

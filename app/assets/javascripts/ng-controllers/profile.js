@@ -1,8 +1,12 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
+app.config(function($locationProvider){
+  $locationProvider.html5Mode(true);
+});
 
-app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location','$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
 
+  $scope.attributes = ["name", "profession", "network", "shortBio"]
 
   $scope.user = {
     name: 'Name',
@@ -13,6 +17,11 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location','$uploa
 
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
+
+  $scope.changeUrl = function() {
+    $location.path('/users/' + $scope.id + '/collections');
+    $scope.url = '/users/' + $scope.id + '/collections';
+  };
 
   var getProfileProperties = function(){
     $http.get('/users/' + $scope.id + '.json').success(function(data){
