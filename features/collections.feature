@@ -13,3 +13,7 @@ Feature: collections
 		And I give it a title, description and pick a cover image
 		Then I should see that collection on my collections page
 		
+	Scenario: editing a collection
+		When I click the 'Toggle Edit' button
+		And I have clicked and edited the collection's title and description
+		Then I should see the new properties on my collections page

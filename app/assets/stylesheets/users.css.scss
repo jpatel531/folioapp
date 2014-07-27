@@ -47,7 +47,15 @@ div.body-wrapper {
 	padding-top: 10%
 }
 
+
+button:focus {
+	outline: none;
+}
+
 button.toggle-edit {
+	position: fixed;
+	top: 0;
+	left: 0;
 	align-self: flex-start;
 	width: 40px;
 	height: 40px;
@@ -63,6 +71,10 @@ button.toggle-edit::before {
 	font-size: 40px;
 	vertical-align: top;
 	color: white;
+}
+
+button.toggle-edit p {
+	text-indent: -9999px;
 }
 
 /*FIXED LOGO-MENU*/

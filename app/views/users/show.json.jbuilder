@@ -13,6 +13,7 @@ json.collections(@user.collections) do |collection|
 	json.id collection.id
 	json.title collection.title
 	json.description collection.description
+	json.image collection.image.url
 	json.works(collection.works) do |work|
 		json.title work.title
 		json.format work.work_format

@@ -18,3 +18,13 @@ Then(/^I should see that collection on my collections page$/) do
 	expect(page).to have_content "This is a collection of pastiches of famous vorticist poems"
 	expect(page).to have_css "img.collection-image"
 end
+
+When(/^I have clicked and edited the collection's title and description$/) do
+	# within 'div.My.Collection' do 
+	# find('a.collection-title').trigger(:click)
+	# find(:css, "input").set ""
+end
+
+Then(/^I should see the new properties on my collections page$/) do
+  pending # express the regexp above with the code you wish you had
+end

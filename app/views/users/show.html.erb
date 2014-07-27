@@ -2,7 +2,7 @@
 <div class="profile-wrapper" ng-controller="ProfileCtrl as profile">
 
 <!------------------ PROFILE COVER ------------------------------------>
-	<button ng-click="editable = !editable", class="toggle-edit"></button>
+	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
 	<div class="body-wrapper section">
 
 
@@ -30,7 +30,7 @@
 			<div class="profile-options summary-column">
 
 				<div class="options-wrapper">
-					<div class="option" id="portfolio" ng-mouseenter="profile.selection = workPreview"><p><%= link_to 'Work', user_collections_path(@user) %><p></div>
+					<div class="option" id="portfolio" ng-mouseenter="profile.selection = workPreview"><p>Work<p></div>
 					<div class="option" id="social" ng-mouseenter="profile.selection = pickPreview"><p>Picks</p></div>
 					<div class="option" id="bio" ng-mouseenter="profile.selection = storyPreview"><p>Story</p></div>
 				</div>

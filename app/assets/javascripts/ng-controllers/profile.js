@@ -89,5 +89,15 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
 
+}]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
-}])
+  $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
+
+  $http.get('/users/' + $scope.userId + '.json').success(function(data){
+    $scope.user = data;
+  });
+
+  $scope.hi = "Hello World"
+
+
+  }])

@@ -1,28 +1,32 @@
-<div>
+<div ng-controller="CollectionIndexCtrl">
+	
+	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
 
-<% @user.collections.each do |collection| %>
+	<br><br><br><br>
 
-<div class="<%= collection.title %>">
-<%= image_tag collection.image.url, class: 'collection-image' %>
-<%= collection.title %>
-<%= collection.description %>
+	<div ng-repeat="collection in user.collections" class="{{collection.title}}">
+
+		<img ng-show="{{collection.image}}" ng-src="{{collection.image}}" class="{{collection-image}}">
+
+		{{collection.title}}
+		{{collection.description}}
+
+		<button class="details" ng-click="upload = collection.title">
+			Add To {{collection.title}}
+		</button>
 
 
-<button class="details" ng-click="upload = <%= collection.id %>">Add To <%= collection.title %></button>
+		<div class="upload-options" ng-show = "upload == collection.title">
+			<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=art">Add Art</a>
+					<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing">Add Writing</a>
+		</div>
 
-	<div class="upload-options" ng-show="upload == <%= collection.id %>">
-	<%= link_to "Add Art", new_user_collection_work_path(collection_id: collection.id, upload_type: 'art') %>
-	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: collection.id, upload_type: 'writing') %>
 	</div>
 
+	<a href="users/{{user.id}}/collections/new">Add A New Collection</a>
+
+
 </div>
-
-<% end %>
-
-<%= link_to 'Add A New Collection', new_user_collection_path %>
-
-
-
 
 
 
