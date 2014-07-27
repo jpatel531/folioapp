@@ -24,7 +24,9 @@
 	<%= f.text_field :title, required: true %>
 
 	<%= f.label :image, 'Thumbnail' %>
-	<%= f.file_field :image, required: true %>
+	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"} %>
+
+	 <img ng-src="{{imageSrc}}" />
 
 	<%= f.label :genre_names, 'Genres' %>
 	<%= f.text_field :genre_names, value: '' %>

@@ -59,7 +59,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     }
   }
 
-}]).controller('UploadCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload','$rootScope', function($scope, $http, $location, fileReader, $upload, $rootScope) {
+}]).controller('UploadCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
 
   $scope.getFile = function () {
@@ -70,29 +70,9 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                       });
     };
  
-    $scope.$on("fileProgress", function(e, progress) {
-        $scope.progress = progress.loaded / progress.total;
-    });
 
 
-
-}]).directive("ngFileSelect",function(){
-
-  return {
-    link: function($scope,el){
-      
-      el.bind("change", function(e){
-      
-        $scope.file = (e.srcElement || e.target).files[0];
-        $scope.getFile();
-      })
-      
-    }
-    
-  }
-  
-  
-}).controller('CollectionCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+}]).controller('CollectionShowCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
   

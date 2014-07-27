@@ -3,17 +3,14 @@
 <%= form_for @new_work, html: {multipart: true} , url: user_collection_works_path do |f| %>
 
 
-<!-- 	<div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
-		DRAG FILES HERE
-	</div> -->
 
 	<%= f.label :image %>
 	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"} %>
 
-	 <i ng-hide="imageSrc">No image choosed</i>
-   <img ng-src="{{imageSrc}}" /><br/>
 
-	<img ng-src="">
+   <img ng-src="{{imageSrc}}" />
+
+
 
 
 	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
