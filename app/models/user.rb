@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   after_initialize :give_default_collection
 
   has_attached_file :avatar, 
-  									 styles: { thumb: "100x100>" }, 
+  									 # styles: { thumb: "100x100>" }, 
   									 storage: :s3, 
   									 s3_credentials: {
   									 	bucket: 'ffolioapp',

@@ -42,19 +42,21 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     getProfileProperties();
    }
 
-  $scope.onFileSelect = function($files) {
 
-    for (var i = 0; i < $files.length; i++) {
-      var file = $files[i];
-      $scope.upload = $upload.upload({
-        url: '/users/' + $scope.id,
-        method: 'PUT',
-        file: file
-      }).then(function(){
-        getProfileProperties();
-      })
+  $scope.onFileSelect = function($files) {
+    var currentImage = $scope.user.userImage
+    if ($scope.editable) {
+      for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        $scope.upload = $upload.upload({
+          url: '/users/' + $scope.id,
+          method: 'PUT',
+          file: file
+        }).then(function(){
+            getProfileProperties();
+          })
+      }
     }
-    
   }
 
 }]).controller('UploadCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {

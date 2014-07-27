@@ -16,3 +16,10 @@
  *= require_tree .
  *= require_self
  */
+
+
+.log-out {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
