@@ -6,22 +6,17 @@
 	<div class="body-wrapper section">
 
 
-			<div ng-show="editable">
-	<%= form_for @user, html: {multipart: true} do |f| %>
-
-		<%= f.label :avatar %>
-		<%= f.file_field :avatar %>
-		<%= f.submit %>
-
-	<% end %>
-	</div>
 
 
 		<div class="summary" id="summary-section">
 
 			<div class="profile-info summary-column">
 				<div class="info-wrapper">
+							<div class="change-profile-pic" ng-show="editable">
+								<%= render "new_profile_pic" %>
+							</div>
 					<div class="pic-wrapper" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+
 						<%= render "profile_picture" %>
 					</div>
 
