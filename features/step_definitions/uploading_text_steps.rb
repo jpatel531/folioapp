@@ -1,5 +1,6 @@
 Given(/^I specify that I wish to upload text$/) do
-  expect(current_path).to eq "/users/#{@user.id}/collections"
+  # expect(current_path).to eq "/users/#{@user.id}/collections"
+  # save_and_open_page
   click_button 'Add To My Collection'
   click_link 'Add Writing'
 end

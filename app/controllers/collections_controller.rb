@@ -20,6 +20,17 @@ class CollectionsController < ApplicationController
 		render "index"
 	end
 
+	def update
+		@collection = Collection.find params[:id]
+		[:title, :description].each do |attr|
+			if params[attr]
+				@collection.update!(attr => params[attr])
+			end
+		end
+		render json: {success: 200}
+
+	end
+
 	private
 
 	def collection_params

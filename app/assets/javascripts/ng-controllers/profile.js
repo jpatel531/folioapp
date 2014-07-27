@@ -18,7 +18,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
-      $scope.url = '/users/' + $scope.id + '/collections';
+  $scope.url = '/users/' + $scope.id + '/collections';
 
 
   $scope.changeUrl = function() {
@@ -97,7 +97,12 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     $scope.user = data;
   });
 
-  $scope.hi = "Hello World"
+  $scope.updateCollection = function(property, value, collectionId) {
+    var data = {}
+    data[property] = value
+    $http.put('/users/' + $scope.userId + '/collections/' + collectionId, data);
+    // getProfileProperties();
+   }  
 
 
   }])

@@ -11,7 +11,6 @@ Given(/^I have filled in my name, type of creative, network, and attached a prof
   within '.text-inputs' do
 
     find('a.name').trigger(:click)
-
     find(:css, "input").set "Laurie Lewis"
     click_button 'save'
 

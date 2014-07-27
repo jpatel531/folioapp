@@ -4,6 +4,7 @@ Feature: uploading images
 	I want to upload text to a collection on my profile
 	And specify title, thumbnail, genres and a short description
 
+
 	Background:
 		Given I am a user
 		And on my profile
@@ -18,8 +19,8 @@ Feature: uploading images
 		Then I should see the work's thumbnail, title, short description and genres in the default group
 		And I should see the content of the work
 
-	Scenario: annotations/footnotes
+	#Scenario: annotations/footnotes
 
-	Scenario: poems
+	#Scenario: poems
 
 	

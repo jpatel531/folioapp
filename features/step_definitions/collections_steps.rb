@@ -20,11 +20,16 @@ Then(/^I should see that collection on my collections page$/) do
 end
 
 When(/^I have clicked and edited the collection's title and description$/) do
-	# within 'div.My.Collection' do 
-	# find('a.collection-title').trigger(:click)
-	# find(:css, "input").set ""
+	find('a.collection-title').trigger(:click)
+	find(:css, "input").set "Hello World"
+	click_button 'save'
+
+	find('a.collection-description').trigger(:click)
+	find(:css, "input").set "This is the truth"
+	click_button 'save'
 end
 
 Then(/^I should see the new properties on my collections page$/) do
-  pending # express the regexp above with the code you wish you had
+	page.find('h1.collection-title').should have_text 'Hello World'
+	page.find('p.collection-description').should have_text 'This is the truth'
 end
