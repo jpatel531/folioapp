@@ -21,4 +21,5 @@
 //= require angular-medium-editor
 //= require angular-sanitize
 //= require jquery.fullPage.min
+
 //= require_tree .

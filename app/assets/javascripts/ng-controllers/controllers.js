@@ -1,8 +1,5 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
-app.config(function($locationProvider){
-  // $locationProvider.html5Mode(true);
-});
 
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
 
@@ -62,11 +59,40 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     }
   }
 
-}]).controller('UploadCtrl', ['$scope', '$http', '$location','$upload','$rootScope', function($scope, $http, $location, $upload, $rootScope) {
+}]).controller('UploadCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload','$rootScope', function($scope, $http, $location, fileReader, $upload, $rootScope) {
+
+
+  $scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
+ 
+    $scope.$on("fileProgress", function(e, progress) {
+        $scope.progress = progress.loaded / progress.total;
+    });
 
 
 
-}]).controller('CollectionCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+}]).directive("ngFileSelect",function(){
+
+  return {
+    link: function($scope,el){
+      
+      el.bind("change", function(e){
+      
+        $scope.file = (e.srcElement || e.target).files[0];
+        $scope.getFile();
+      })
+      
+    }
+    
+  }
+  
+  
+}).controller('CollectionCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
   
