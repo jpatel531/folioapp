@@ -2,9 +2,10 @@
 <div class="profile-wrapper" ng-controller="ProfileCtrl as profile">
 
 <!------------------ PROFILE COVER ------------------------------------>
+	<% if @user == current_user %>
 	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
 	<div class="body-wrapper section">
-
+	<% end %>
 
 
 
