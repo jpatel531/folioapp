@@ -1,6 +1,6 @@
 <div>
 
-<%= form_for @new_work, url: user_collection_works_path do |f| %>
+<%= form_for @new_work, html: {multipart: true} , url: user_collection_works_path do |f| %>
 
 	<%= f.label :image %>
 	<%= f.file_field :image, required: true %>

@@ -3,6 +3,7 @@
 <% @user.collections.each do |collection| %>
 
 <div class="<%= collection.title %>">
+<%= image_tag collection.image.url, class: 'collection-image' %>
 <%= collection.title %>
 <%= collection.description %>
 
@@ -18,8 +19,7 @@
 
 <% end %>
 
-
-
+<%= link_to 'Add A New Collection', new_user_collection_path %>
 
 
 
