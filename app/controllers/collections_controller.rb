@@ -1,6 +1,8 @@
 class CollectionsController < ApplicationController
 
 	before_action :authenticate_user!
+	before_action :verify_page_owner, only: [:new, :create, :update]
+
 
 	def index
 		@user = User.find params[:user_id]
@@ -37,6 +39,11 @@ class CollectionsController < ApplicationController
 
 	def collection_params
 		params.require(:collection).permit(:title, :description, :image)
+	end
+
+	def verify_page_owner
+		@user = User.find params[:user_id]
+		redirect_to user_path(@user) if current_user != @user 
 	end
 
 end
