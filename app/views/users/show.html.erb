@@ -1,9 +1,9 @@
 
-<div ng-controller="ProfileCtrl as profile">
+<div class="profile-wrapper" ng-controller="ProfileCtrl as profile">
 
 <!------------------ PROFILE COVER ------------------------------------>
 	<button ng-click="editable = !editable", class="toggle-edit"></button>
-	<div class="body-wrapper">
+	<div class="body-wrapper section">
 
 
 			<div ng-show="editable">
@@ -35,7 +35,7 @@
 			<div class="profile-options summary-column">
 
 				<div class="options-wrapper">
-					<div class="option" id="portfolio" ng-mouseenter="profile.selection = workPreview"><%= link_to 'Work', user_collections_path(@user) %></div>
+					<div class="option" id="portfolio" ng-mouseenter="profile.selection = workPreview"><p><%= link_to 'Work', user_collections_path(@user) %><p></div>
 					<div class="option" id="social" ng-mouseenter="profile.selection = pickPreview"><p>Picks</p></div>
 					<div class="option" id="bio" ng-mouseenter="profile.selection = storyPreview"><p>Story</p></div>
 				</div>
@@ -76,3 +76,14 @@
 			</div>
 		</div>	
 	</div>
+
+<!-- ---------------PORTFOLIO----------- -->
+
+	<div class="portfolio" id="work-section" ng-keydown="togglePortfolio($event)" tabindex="0">
+
+		<div ng-include="url"></div>
+
+
+	</div>
+</div>
+

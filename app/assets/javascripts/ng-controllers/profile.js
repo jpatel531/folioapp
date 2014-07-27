@@ -18,6 +18,9 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
+      $scope.url = '/users/' + $scope.id + '/collections';
+
+
   $scope.changeUrl = function() {
     $location.path('/users/' + $scope.id + '/collections');
     $scope.url = '/users/' + $scope.id + '/collections';
