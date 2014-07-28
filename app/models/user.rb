@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :collections
   has_many :works, through: :collections
+  has_and_belongs_to_many :organisations
 
   after_initialize :give_default_collection
 

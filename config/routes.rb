@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 		end
 	end
 	
+  resources :organisations
+
   root :to => "home#index"
 
   scope '/api' do
