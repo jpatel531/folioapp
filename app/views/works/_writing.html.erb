@@ -1,8 +1,7 @@
-<div id="container" style="max-width: 70%;">
+<div id="container" style="max-width: 70%;" ng-repeat="editor in editors">
 	  
-	    <form name="demo" id="text-upload">
-	        <div ng-model="text" medium-editor></div>
-	    </form>
+	<div ng-model="editors.body" ng-change="saveEditor(editor.id)" medium-editor></div>
+
 </div>
 
 

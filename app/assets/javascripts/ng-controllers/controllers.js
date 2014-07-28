@@ -1,12 +1,39 @@
-var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
+var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize','firebase']);
 
 
-app.controller('FfolioCtrl', ['$scope','$http', function ($scope,$http) {
+app.controller('FfolioCtrl', ['$scope','$http','$location','$firebase', function ($scope,$http,$location,$firebase) {
+
+  
+
+  $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
+  $scope.collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);  
+
+  $scope.editors = $firebase(new Firebase('https://testffolioapp.firebaseio.com/'+$scope.id+'/editor/'+$scope.collectionId));
+
+
+  $scope.addEditor = function(){ 
+
+
+    var data = {body: ''};
+    $scope.editors.$add(data)
+    .then(function(ref) { 
+      var id = ref.name(); 
+      data.id = id;
+      ref.set(data);
+    });
+
+  }
+
+  $scope.saveEditor = function(id){
+    $scope.editors.$save(id);
+  }
+
 
   $http.get('/users.json').success(function(data){
     $scope.users = data;
-    console.log(data);
+    // console.log(data);
   })
+
 }]);
 
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
