@@ -16,9 +16,15 @@
 
 <% if user_signed_in? %>
 <input type="search" class="search" ng-model="search" placeholder="Search...">
-<div ng-repeat="user in users | filter:search" class="users">
-	<p>{{user}}</p> <br />
-</div>
+
+	<div ng-show="search" ng-repeat="user in users | filter:search" class="users">
+		<p>{{user.name}}</p>
+		<p>{{user.profession}}</p>
+		<p>{{user.network}}</p>
+		<p>{{user.shortBio}}</p>
+	
+	</div>
+
 <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'log-out' %>
 
 <% end %>
