@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728175528) do
+ActiveRecord::Schema.define(version: 20140728222213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,25 @@ ActiveRecord::Schema.define(version: 20140728175528) do
     t.integer "organisation_id", null: false
   end
 
+  create_table "submissions", force: true do |t|
+    t.integer  "opportunity_id"
+    t.integer  "organisation_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "message"
+    t.string   "status"
+  end
+
+  add_index "submissions", ["opportunity_id"], name: "index_submissions_on_opportunity_id", using: :btree
+  add_index "submissions", ["organisation_id"], name: "index_submissions_on_organisation_id", using: :btree
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id", using: :btree
+
+  create_table "submissions_works", id: false, force: true do |t|
+    t.integer "work_id",       null: false
+    t.integer "submission_id", null: false
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -139,9 +158,11 @@ ActiveRecord::Schema.define(version: 20140728175528) do
     t.integer  "collection_id"
     t.string   "format"
     t.text     "text"
+    t.integer  "submission_id"
   end
 
   add_index "works", ["collection_id"], name: "index_works_on_collection_id", using: :btree
+  add_index "works", ["submission_id"], name: "index_works_on_submission_id", using: :btree
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
 end

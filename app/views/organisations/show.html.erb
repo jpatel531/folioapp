@@ -41,7 +41,8 @@
 					{{opp.title}}
 					{{opp.description}}
 					Accepting {{opp.requirements}}
-					<img class="opportunity-image" ng-src="{{opp.image}}">
+					<img ng-show="{{opp.image}}" class="opportunity-image" ng-src="{{opp.image}}">
+					<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submission/new">Submit To Opportunity</a>
 				</div>
 
 			</div>

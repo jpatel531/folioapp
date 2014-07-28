@@ -1,0 +1,15 @@
+<%= form_for @submission, url: organisation_opportunity_submission_path do |f| %>
+
+	
+
+	
+		<%= f.label :work, 'Select Work' %>
+
+		<%= f.select(:work, @available_works) %>
+
+	<%= f.label :message %>
+	<%= f.text_area :message %>
+
+	<%= f.submit 'Submit' %>
+
+<% end %>

@@ -1,6 +1,8 @@
 class Organisation < ActiveRecord::Base
 	has_many :memberships
 	has_many :users, through: :memberships
+
+	has_many :submissions, through: :opportunities
 	# belongs_to :users
 
 	has_many :opportunities

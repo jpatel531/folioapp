@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 	end
 	
   resources :organisations do 
-    resources :opportunities
+    resources :opportunities do
+      resource :submission
+    end
   end
 
   root :to => "home#index"

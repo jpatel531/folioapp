@@ -1,6 +1,6 @@
 class Opportunity < ActiveRecord::Base
   belongs_to :organisation
-
+  has_many :submissions
 
 	has_attached_file :image, 
   									 styles: { thumb: "500x500>" }, 

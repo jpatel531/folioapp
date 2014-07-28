@@ -3,6 +3,7 @@ Given(/^I am a user$/) do
   login_as @user
 end
 
+
 Given(/^on my profile$/) do
   visit "/users/#{@user.id}"
 end
