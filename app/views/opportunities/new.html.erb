@@ -1,0 +1,23 @@
+<div ng-controller="OpportunityNewCtrl">
+
+<%= form_for @opportunity, html: {multipart: true} do |f| %>
+
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<%= f.label :image %>
+	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}  %>
+
+	<img ng-src="{{imageSrc}}" />
+
+	<%= f.select(:opportunity, :requirements, [["Image", 1], ["Text", 2], ["Both Image and Text", 3]]) 
+
+
+	<%= f.submit 'Submit' %>
+
+<% end %>
+
+</div>

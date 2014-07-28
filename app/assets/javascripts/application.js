@@ -20,6 +20,5 @@
 //= require medium-editor
 //= require angular-medium-editor
 //= require angular-sanitize
-//= require jquery.fullPage.min
-
+//= require ui-bootstrap.min
 //= require_tree .
