@@ -14,7 +14,7 @@
 	<%= f.label :network %>
 	<%= f.text_field :network %>
 
-	<%= f.label :organisation_type %>
+	<%= f.label :organisation_type, 'Type of Organisation' %>
 	<%= f.text_field :organisation_type %>
 
 	<%= f.label :image %>
@@ -22,7 +22,7 @@
 
 	<img ng-src="{{imageSrc}}" />
 
-	<%= f.label 'Your Role' %>
+	<%= f.label :creator_role, 'Your Role' %>
 	<%= f.text_field :creator_role %>
 
 

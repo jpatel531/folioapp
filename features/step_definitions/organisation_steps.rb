@@ -11,6 +11,7 @@ Given(/^I click 'Create Organisation'$/) do
 end
 
 Given(/^I specify its name, profile\-image, network and organisation type$/) do
+	# save_and_open_page
 	fill_in 'Name', with: 'Notes'
 	attach_file 'Image', Rails.root.join('features/images/art.jpg')
 	fill_in 'Network', with: 'University of Cambridge'
