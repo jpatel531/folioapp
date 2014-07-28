@@ -1,4 +1,5 @@
 Given(/^I have works$/) do
+	visit '/'
   visit "/users/#{@user.id}"
   click_link 'Work'
   click_button 'Add To My Collection'
@@ -36,12 +37,14 @@ end
 
 When(/^I go on my homepage$/) do
 	visit '/'
+	# visit '/'
 end
 
 Then(/^I should see a thumbnail of my submission along with an acceptance status$/) do
+	# save_and_open_page
 	expect(page).to have_content 'Your Submissions'
 	expect(page).to have_content 'Hello World'
-	expect(page).to have_content 'Response Pending'
+	expect(page).to have_content 'Status: Pending'
 	expect(page).to have_css 'img.submitted-pic'
 end
 

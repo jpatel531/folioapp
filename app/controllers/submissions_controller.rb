@@ -10,10 +10,8 @@ class SubmissionsController < ApplicationController
 	def create
 		@opportunity = Opportunity.find params[:opportunity_id]
 		work = Work.find params[:submission].permit(:work)["work"]
-		submission = @opportunity.submissions.create message: params[:submission].permit(:message)["message"], work: work
 		@organisation = Organisation.find params[:organisation_id]
-		submission.recipient = @organisation
-		submission.sender = current_user
+		submission = @opportunity.submissions.create message: params[:submission].permit(:message)["message"], work: work, user: current_user, organisation: @organisation 
 		submission.save!
 		redirect_to "/organisations/#{@organisation.id}"
 	end

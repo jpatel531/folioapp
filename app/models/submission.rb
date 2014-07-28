@@ -6,20 +6,24 @@ class Submission < ActiveRecord::Base
 
   accepts_nested_attributes_for :work
 
+
+  after_create :set_status
+
   validates :work, presence: true
 
-  def sender=(user)
+  def sender
   	user
   end
 
-  def recipient=(organisation)
+  def recipient
   	organisation
   end
 
-  def sender
-  end
 
-  def recipient
+  private
+
+  def set_status
+  	update(status: "Pending")
   end
 
 end
