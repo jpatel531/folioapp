@@ -9,6 +9,7 @@ Feature: creating an organisation
 		And I click 'Create Organisation'
 		And I specify its name, profile-image, network and organisation type
 
+		@javascript
 		Scenario: Having entered these details
 			Then I should see these details on my newly created profile
 			And on my own profile I should be able to see my profile role

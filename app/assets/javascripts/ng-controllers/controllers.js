@@ -124,4 +124,46 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
  
 
 
+}]).controller('OrganisationShowCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+
+
+  $scope.id = (/organisations\/(\d+)/.exec($location.absUrl())[1]);
+
+
+  var getOrganisationProperties = function(){
+    $http.get('/organisations/' + $scope.id + '.json').success(function(data){
+      $scope.organisation = data
+      console.log($scope.organisation)
+     });
+    };
+
+  getOrganisationProperties();
+
+
+  $scope.editable = false;
+
+  $scope.updateProfile = function(property, value) {
+    var data = {}
+    data[property] = value
+    $http.put('/organisations/' + $scope.id, data);
+    getOrganisationProperties();
+   }
+
+
+  $scope.onFileSelect = function($files) {
+    var currentImage = $scope.user.userImage
+    if ($scope.editable) {
+      for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        $scope.upload = $upload.upload({
+          url: '/users/' + $scope.id,
+          method: 'PUT',
+          file: file
+        }).then(function(){
+            getProfileProperties();
+          })
+      }
+    }
+  }
+
 }])

@@ -25,7 +25,7 @@ Then(/^I should see these details on my newly created profile$/) do
   page.find('h1.name').should have_text 'Notes'
   page.find('p.profession').should have_text 'Magazine'
   page.find('p.network').should have_text 'Cambridge'
-  page.find('p.description').should have_text 'A fortnightly magazine of essays, art and writing'
+  page.find('p.short-bio').should have_text 'A fortnightly magazine of essays, art and writing'
   expect(page).to have_css 'img.profile-pic'
 end
 
