@@ -3,6 +3,8 @@ class Organisation < ActiveRecord::Base
 	has_many :users, through: :memberships
 	# belongs_to :users
 
+	has_many :opportunities
+
 	# has_and_belongs_to_many :users
 
 

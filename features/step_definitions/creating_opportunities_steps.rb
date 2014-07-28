@@ -22,7 +22,7 @@ When(/^I give my opportunity a title, image, description and deadline, and requi
 	attach_file 'Image', Rails.root.join('features/images/art.jpg')
 	fill_in 'Description', with: 'Now accepting submissions of all kinds for the upcoming issue'
 	# click_button '30' DEADLINE INFO GOES HERE
-	select 'Both Images and Text', from: 'Requirements'
+	select 'Both Image and Text', from: 'Requirements'
 end
 
 Then(/^I should see my opportunity on my organisation page$/) do
