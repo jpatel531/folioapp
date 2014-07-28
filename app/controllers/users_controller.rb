@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
 	before_action :authenticate_user!
 
+	def index
+		@users = User.all
+	end
+
 	def show
 		@user = User.find params[:id]
 		flash[:notice] = "Please fill in your profile details" if params[:editable] === "true"
