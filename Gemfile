@@ -45,6 +45,7 @@ group :test, :development do
   gem "selenium-webdriver"
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'protractor-rails'
 end
 
 group :production do 
