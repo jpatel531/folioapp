@@ -1,7 +1,9 @@
 <div id="container" style="max-width: 70%;">
 	  
-	    <form name="demo" id="text-upload">
-	        <div ng-model="text" medium-editor></div>
+	    <form name="demo" autofocus class="text-editor" id="text-upload">
+	        <p ng-model="text" tabindex="1" class="text-editor" medium-editor
+					options="{'placeholder': 'Write here' }"
+	        >Write here...</p>
 	    </form>
 </div>
 

@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 	end
 
 	def verify_page_owner
-		@user = User.find params[:user_id]
+		@user = User.find params[:id]
 		redirect_to user_path(@user) if current_user != @user
 	end
 

@@ -1,3 +1,40 @@
 // Place all the styles related to the collections controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img {
+	height: 150px;
+	width: 150px;
+	border-radius: 100%;
+	overflow: hidden;
+}
+
+div.collection-wrapper {
+	margin: 0 auto;
+	width: 80%;
+}
+
+h1.collection-title {
+	font-family: 'Lato', sans-serif;	
+	font-size: 22px;
+}
+
+p {
+	font-family: 'Merriweather', serif;
+}
+
+button.toggle-edit-collection {
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	border: none;
+}
+
+i.fa-pencil-square-o {
+	font-size: 30px;
+}
+
+div.collection {
+	margin-bottom: 20px;
+}
+
