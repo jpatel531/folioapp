@@ -51,7 +51,7 @@
 
 		<div class="upload-options" ng-show = "upload == collection.title">
 			<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=art">Add Art</a>
-					<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing" ng-click="addEditor()">Add Writing</a>
+					<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing" ng-click="addEditor($event)">Add Writing</a>
 		</div>
 
 <% end %>

@@ -1,6 +1,8 @@
 <div id="container" style="max-width: 70%;" ng-repeat="editor in editors">
-	  
-	<div ng-model="editors.body" ng-change="saveEditor(editor.id)" medium-editor></div>
+	
+ 	<form name="demo">
+		<div ng-model="editors.body" id="editor.id" ng-change="saveEditor(editor.id,$event)" medium-editor></div>
+	</form>
 
 </div>
 

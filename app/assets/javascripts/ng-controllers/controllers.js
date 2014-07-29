@@ -2,17 +2,21 @@ var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-mediu
 
 
 app.controller('FfolioCtrl', ['$scope','$http','$location','$firebase', function ($scope,$http,$location,$firebase) {
-
   
 
-  $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
-  $scope.collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);  
 
-  $scope.editors = $firebase(new Firebase('https://testffolioapp.firebaseio.com/'+$scope.id+'/editor/'+$scope.collectionId));
+  $scope.addEditor = function(click){ 
 
+    var url = click.target.href
 
-  $scope.addEditor = function(){ 
+    var id = /users\/(\d+)/.exec(url)[1]
+    var collectionId = /collections\/(\d+)/.exec(url)[1]
 
+    console.log(id, collectionId)
+
+    $scope.editors = $firebase(new Firebase('https://testffolioapp.firebaseio.com/'+id+'/editor/'+collectionId));
+
+    
 
     var data = {body: ''};
     $scope.editors.$add(data)
@@ -24,8 +28,20 @@ app.controller('FfolioCtrl', ['$scope','$http','$location','$firebase', function
 
   }
 
-  $scope.saveEditor = function(id){
+  $scope.saveEditor = function(id,click){
+    var url = click.target.href
+
+    var id = /users\/(\d+)/.exec(url)[1]
+    var collectionId = /collections\/(\d+)/.exec(url)[1]
+
+    console.log(id, collectionId)
+
+    $scope.editors = $firebase(new Firebase('https://testffolioapp.firebaseio.com/'+id+'/editor/'+collectionId));
+
+    console.log($scope.editors);
+
     $scope.editors.$save(id);
+
   }
 
 
