@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728222213) do
+ActiveRecord::Schema.define(version: 20140729122008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 20140728222213) do
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
   add_index "collections", ["work_id"], name: "index_collections_on_work_id", using: :btree
+
+  create_table "follows", force: true do |t|
+    t.integer  "followable_id",                   null: false
+    t.string   "followable_type",                 null: false
+    t.integer  "follower_id",                     null: false
+    t.string   "follower_type",                   null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+  add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
   create_table "genres", force: true do |t|
     t.string   "name"
@@ -140,10 +153,25 @@ ActiveRecord::Schema.define(version: 20140728222213) do
     t.datetime "avatar_updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "work_selection_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["work_selection_id"], name: "index_users_on_work_selection_id", using: :btree
+
+  create_table "users_work_selections", id: false, force: true do |t|
+    t.integer "user_id",           null: false
+    t.integer "work_selection_id", null: false
+  end
+
+  create_table "work_selections", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "work_selections", ["user_id"], name: "index_work_selections_on_user_id", using: :btree
 
   create_table "works", force: true do |t|
     t.integer  "user_id"
@@ -159,10 +187,22 @@ ActiveRecord::Schema.define(version: 20140728222213) do
     t.integer  "collection_id"
     t.text     "text"
     t.integer  "submission_id"
+    t.integer  "work_selection_id"
   end
 
   add_index "works", ["collection_id"], name: "index_works_on_collection_id", using: :btree
   add_index "works", ["submission_id"], name: "index_works_on_submission_id", using: :btree
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
+  add_index "works", ["work_selection_id"], name: "index_works_on_work_selection_id", using: :btree
+
+  create_table "workselections", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "work_id"
+  end
+
+  add_index "workselections", ["user_id"], name: "index_workselections_on_user_id", using: :btree
+  add_index "workselections", ["work_id"], name: "index_workselections_on_work_id", using: :btree
 
 end

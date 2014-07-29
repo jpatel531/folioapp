@@ -1,8 +1,8 @@
 class Work < ActiveRecord::Base
   
-	belongs_to :user
+	# belongs_to :user
 	belongs_to :collection
-  
+  belongs_to :work_selection
 	belongs_to :submission
 
   has_and_belongs_to_many :media
@@ -23,6 +23,9 @@ class Work < ActiveRecord::Base
 
 	after_save :work_format
 
+	def user
+		collection.user
+	end
 
 	def work_format
 		text.blank? ? "image" : "text"

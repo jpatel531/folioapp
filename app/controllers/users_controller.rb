@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :verify_page_owner, only: [:update]
 
+	def index
+		@users = User.all
+	end
+
 	def show
 		# (current_user.sign_in_count += 1) if current_user.sign_in_count == 1
 		@user = User.find params[:id]
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find params[:id]
 		@work = Work.new
-		[:name, :short_bio, :profession, :network].each do |attr|
+		[:name, :short_bio, :profession, :network, :workSelection].each do |attr|
 			if params[attr]
 				@user.update!(attr => params[attr])
 			end
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
 	private
 
 	def avatar_params
-		params.require(:user).permit(:avatar)
+		params[:user].permit(:avatar)
 	end
 
 	def verify_page_owner

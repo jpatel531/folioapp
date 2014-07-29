@@ -1,6 +1,7 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
 
+
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
@@ -91,6 +92,14 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
   }).then(function(){
     returnCollectionById();
   });
+
+  $scope.sendSelection = function(id){
+    var data = {}
+    data["workSelection"] = []
+    data["workSelection"].push(id)
+    $http.put('/users/' + $scope.userId + '.json', data);
+  };
+
 
 
 
