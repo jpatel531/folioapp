@@ -2,16 +2,101 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*.text-editor input {
-	background-color: salmon;
-}*/
+div#test {
+	position: fixed;
+	left: -999999px;
+}
 
-p.text-editor {
-	margin-left: 200px;
-	background-color: salmon;
+div.container {
+	/*background-color: blue;*/
+	/*opacity: 0.4;*/
+}
+
+form.work-form {
+	margin-top: 10%;
+	/*background-color: blue;*/
+}
+div.texteditor {
+	/*background-color: salmon;*/
+	/*opacity: 0.4;*/
+	margin: 0 auto;
+	min-height: 100vh;
+	/*width: 100%;*/
+	outline: none;
+}
+
+div.input-wrapper {
+	/*text-align: center;*/
+	margin: 0 auto;
+}
+
+div.texteditor p {
+	font-size: 22px;
+	color: black;
+	font-weight: 300;
+	letter-spacing: 0.01rem;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 1.8em;
+	text-align: justify;
+}
+
+
+div.form-wrapper {
+	margin: 0 auto;
+}
+
+div.submit-details {
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+.file-field{
+  position:relative;
+  display:inline-block;    
+	border-radius:8px;
+  border:#ebebeb solid 1px;
+  width:250px; 
+  padding: 4px 6px 4px 8px;
+  font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+  color: #7f7f7f;
+  margin-top: 2px;
+	background:white
+}
+.file-field input[type="file"]{
+    -webkit-appearance:none; 
+    position:absolute;
+    top:0; left:0;
+    opacity:0; 
+}
+
+
+
+a.add-details::before {
+	content: '\2712';
+	font-family: 'Entypo';
+	font-size: 50px;
 	color: black;
 }
 
-data-placeholder {
+div.submit-ready {
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	outline: none;
+}
+
+a.add-details {
+	text-decoration: none;
 	color: black;
+}
+
+img{
+	border: none;
+}
+
+a.add-details p {
+	text-indent: -99999999px;
 }

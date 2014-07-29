@@ -1,4 +1,4 @@
 $(document).ready(function(){
-	$('div.text-editor').focus().click()
+	$('div.texteditor').focus().click()
 	$('form.work-form').focus().click()
 });

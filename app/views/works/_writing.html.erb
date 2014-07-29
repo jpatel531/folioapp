@@ -1,43 +1,78 @@
-<div id="container" style="max-width: 70%;">
+<div class="container">
 	
- 	<form name="demo" class="work-form">
-		<div class="texteditor" ng-model="text" medium-editor></div>
-	</form>
+	<div class="row">
+	
+		<div class="col-md-2"></div>
+			<div class="input-wrapper col-md-8">
+			 	<form name="demo" class="work-form col-md-12">
+					<div class="texteditor col-md-12" ng-model="text" medium-editor options="{'placeholder': ''}"></div>
+				</form>
+			</div>
+		<div class="col-md-2"></div>
 
-
-
-<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
-
-	<div id="test" style="visibility: hidden; text-indent: -9999px;">
-
-	<%= f.label :text %>
-	<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
+		</div>
 	</div>
+	
+	<div class="submit-details">
+		<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
 
-	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
+			<div id="test" style="visibility: hidden; text-indent: -9999px;">
 
+			<%= f.label :text %>
+			<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
+			</div>
 
-	<div ng-show="details">
-
-
-	<%= f.label :title %>
-	<%= f.text_field :title, required: true %>
-
-	<%= f.label :image, 'Thumbnail' %>
-	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"} %>
-
-	 <img ng-src="{{imageSrc}}" />
-
-	<%= f.label :genre_names, 'Genres' %>
-	<%= f.text_field :genre_names, value: '' %>
-
-	<%= f.label :caption, 'Short Description' %>
-	<%= f.text_field :caption %>
-
-	<%= f.submit 'Publish' %>
+			<div class="submit-ready" ng-init="details = false" ng-click="details = !details">
+				<a href="#" class="add-details"><p>Add Details</p></a>
+			</div>
 
 
+			<div ng-show="details" class="form-wrapper col-md-12">
+
+				<div class="row pull-left">
+					<div class="col-md-12">
+						<%= f.label :title %>
+						<%= f.text_field :title, required: true %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="file-field">
+						<div class="col-md-12">
+							<%= f.label :image, 'Thumbnail' %>
+							<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}%>
+						</div>
+					</div>
+				</div>
+
+				<div class="row" ng-show="{{imageSrc}}">
+					<div class="col-md-12">
+						<img ng-src="{{imageSrc}}" />
+					</div>
+					
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-12">
+						<%= f.label :genre_names, 'Genres' %>
+						<%= f.text_field :genre_names, value: '' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<%= f.label :caption, 'Short Description' %>
+						<%= f.text_field :caption %>
+					</div>
+				</div>
+
+				<%= f.submit 'Publish' %>
+			</div>
+
+		</div>
 	</div>
+</div>
 
 
 <% end %>
