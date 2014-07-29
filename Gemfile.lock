@@ -264,8 +264,8 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
-  font-awesome-rails
   factory_girl_rails
+  font-awesome-rails
   heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails

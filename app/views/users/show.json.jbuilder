@@ -4,25 +4,27 @@ json.profession @user.formatted_profession
 json.network @user.network
 json.shortBio @user.short_bio
 json.signInCount @user.sign_in_count
-json.workSelection(@user.work_selection.works) do |work|
-		json.id work.id
-		json.collection work.collection.title
-		json.title work.title
-		json.format work.work_format
-		json.image work.image.url
-		json.genres do
-			json.array! work.genre_names
-		end
-		json.media do
-			json.array! work.medium_names
-		end
-		json.caption work.caption
-end
-json.memberships(@user.memberships) do |membership|
-	json.organisation membership.organisation.name
-	json.organisationRole membership.role
-end
 
+if !@user.work_selection.nil? 
+	json.workSelection(@user.work_selection.works) do |work|
+			json.id work.id
+			json.collection work.collection.title
+			json.title work.title
+			json.format work.work_format
+			json.image work.image.url
+			json.genres do
+				json.array! work.genre_names
+			end
+			json.media do
+				json.array! work.medium_names
+			end
+			json.caption work.caption
+	end
+	json.memberships(@user.memberships) do |membership|
+		json.organisation membership.organisation.name
+		json.organisationRole membership.role
+	end
+end
 
 json.collections(@user.collections) do |collection|
 	json.id collection.id

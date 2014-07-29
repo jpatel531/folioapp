@@ -1,8 +1,13 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
+app.controller('FfolioCtrl', ['$scope', '$http', function($scope, $http) {
+  
+  $http.get('/users.json').success(function(data){
+    $scope.users = data;
+    // console.log(data);
+  })
 
-
-app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+}]).controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
 
