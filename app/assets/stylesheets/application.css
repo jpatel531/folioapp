@@ -23,3 +23,13 @@
 	top: 0;
 	right: 0;
 }
+
+.search {
+	position: fixed;
+	top: 0;
+	right: 15em;
+}
+
+.users {
+	background: #eee;
+}

@@ -5,6 +5,10 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :verify_page_owner, only: [:update]
 
+	def index
+		@users = User.all
+	end
+
 	def show
 		# (current_user.sign_in_count += 1) if current_user.sign_in_count == 1
 		@user = User.find params[:id]

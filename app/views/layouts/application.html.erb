@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
   <!-- <base href="/" /> -->
 </head>
-<body>
+<body ng-controller="FfolioCtrl">
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
@@ -14,9 +14,25 @@
 <%= yield %>
 
 
+<% if user_signed_in? %>
+<input type="search" class="search" ng-model="search" placeholder="Search...">
+
+	<div ng-show="search" ng-repeat="user in users | filter:search" class="users">
+		<p>{{user.name}}</p>
+		<p>{{user.profession}}</p>
+		<p>{{user.network}}</p>
+		<p>{{user.shortBio}}</p>
+	
+	</div>
+
 <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'log-out' %>
 
+<% end %>
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
+	<%= javascript_include_tag src="https://cdn.firebase.com/js/client/1.0.18/firebase.js" %>
+  <%= javascript_include_tag src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js" %>
   <%= javascript_include_tag 'application'%>
 
 </body>
