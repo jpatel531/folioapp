@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   acts_as_followable
 
   after_initialize :give_default_collection
-  # after_initialize :set_work_selection
+  after_initialize :set_work_selection
 
   has_attached_file :avatar, 
   									 # styles: { thumb: "100x100>" }, 
@@ -106,8 +106,8 @@ end
     end
   end
 
-  # def set_work_selection
-  #   update work_selection: WorkSelection.new
-  # end
+  def set_work_selection
+    update work_selection: WorkSelection.create
+  end
 
 end

@@ -22,7 +22,7 @@
 						<%= render "profile_picture" %>
 					</div>
 
-					<%= render "information" %>
+					<div class="text-inputs"><%= render "information" %></div>
 					<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}</p>
 					<span><button id="follow"></button>
 					<button id="message" ng-show="user.messageable"></button></span>
