@@ -1,0 +1,54 @@
+<div class="profile-wrapper" ng-controller="OrganisationShowCtrl">
+
+<!------------------ PROFILE COVER ------------------------------------>
+	<% if @organisation.users.include? current_user %>
+	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
+	<div class="body-wrapper section">
+		<p ng-show="editable">Please fill in your profile details</p>
+	<% end %>
+
+
+
+		<div class="summary" id="summary-section">
+
+			<div class="profile-info summary-column">
+				<div class="info-wrapper">
+							<div class="change-profile-pic" ng-show="editable">
+								<%= render "new_profile_pic" %>
+							</div>
+					<div class="pic-wrapper" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+
+						<%= render "profile_picture" %>
+					</div>
+
+					<%= render "information" %>
+					<!-- <p class="organisations">Co-Founder of <a href="#">Notes</a></p> -->
+					<span><button id="follow"></button>
+					<button id="message" ng-show="user.messageable"></button></span>
+				</div>
+			</div>
+
+			<div class="profile-options summary-column">
+				<div class="options-wrapper">
+					<div class="option" id="opportunities" ng-mouseenter="profile.selection = workPreview"><a class="opportunities" href="#">Opportunities</a>
+					</div>
+				</div>
+			</div>	
+
+			<div class="profile-preview">
+				<%= link_to 'Create Opportunity', new_organisation_opportunity_path(@organisation) %>
+				<div ng-repeat="opp in organisation.opportunities">
+					{{opp.title}}
+					{{opp.description}}
+					Accepting {{opp.requirements}}
+					<img ng-show="{{opp.image}}" class="opportunity-image" ng-src="{{opp.image}}">
+					<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submission/new">Submit To Opportunity</a>
+				</div>
+
+			</div>
+
+
+<!-- ---------------PORTFOLIO----------- -->
+
+
+</div>

@@ -4,7 +4,13 @@ class HomeController < ApplicationController
 
 	def index
 		flash[:notice] = "Welcome to ffol.io"
-		redirect_to user_path(id: current_user.id, editable: true) if current_user.sign_in_count == 1
+		if current_user.sign_in_count == 1
+			current_user.sign_in_count += 1
+			current_user.save
+			redirect_to user_path(id: current_user.id, editable: true) 
+		else
+			render :index
+		end
 	end
 
 end

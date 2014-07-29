@@ -3,10 +3,12 @@ class UsersController < ApplicationController
 	respond_to :json
 
 	before_action :authenticate_user!
+	before_action :verify_page_owner, only: [:update]
 
 	def show
+		# (current_user.sign_in_count += 1) if current_user.sign_in_count == 1
 		@user = User.find params[:id]
-		flash[:notice] = "Please fill in your profile details" if params[:editable] === "true"
+
 		@work = Work.new
 	end
 
@@ -32,6 +34,11 @@ class UsersController < ApplicationController
 
 	def avatar_params
 		params.require(:user).permit(:avatar)
+	end
+
+	def verify_page_owner
+		@user = User.find params[:user_id]
+		redirect_to user_path(@user) if current_user != @user
 	end
 
 end

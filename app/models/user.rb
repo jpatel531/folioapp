@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   has_many :collections
   has_many :works, through: :collections
+  # has_and_belongs_to_many :organisations
+  has_many :memberships
+  has_many :organisations, through: :memberships
+  has_many :submissions
 
   after_initialize :give_default_collection
 
