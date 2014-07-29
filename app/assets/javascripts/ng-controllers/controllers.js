@@ -1,6 +1,7 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
 
+
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
