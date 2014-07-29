@@ -22,14 +22,14 @@
 			<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
 			</div>
 
-			<div class="submit-ready" ng-init="details = false" ng-click="details = !details">
+			<div class="submit-ready pull-right" ng-init="details = false" ng-click="details = !details">
 				<a href="#" class="add-details"><p>Add Details</p></a>
 			</div>
 
 
 			<div ng-show="details" class="form-wrapper col-md-12">
 
-				<div class="row pull-left">
+				<div class="row">
 					<div class="col-md-12">
 						<%= f.label :title %>
 						<%= f.text_field :title, required: true %>
