@@ -102,6 +102,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
 
+
 }]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
