@@ -4,6 +4,9 @@ json.profession @user.formatted_profession
 json.network @user.network
 json.shortBio @user.short_bio
 json.signInCount @user.sign_in_count
+json.workSelection do
+	json.array! @user.work_selection.works if !@user.work_selection.nil?
+end
 json.memberships(@user.memberships) do |membership|
 	json.organisation membership.organisation.name
 	json.organisationRole membership.role
@@ -16,6 +19,7 @@ json.collections(@user.collections) do |collection|
 	json.description collection.description
 	json.image collection.image.url if collection.image.present?
 	json.works(collection.works) do |work|
+		json.id work.id
 		json.title work.title
 		json.format work.work_format
 		json.image work.image.url

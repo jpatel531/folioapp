@@ -25,6 +25,7 @@ Feature: uploading images
 		Then I should not be allowed to submit
 
 
+	@javascript
 	Scenario: not specifying a title
 		When I fail to specify a title
 		Then I should not be allowed to submit

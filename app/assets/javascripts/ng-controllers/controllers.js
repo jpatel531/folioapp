@@ -92,6 +92,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     returnCollectionById();
   });
 
+  $scope.sendSelection = function(id){
+    var data = {}
+    data["workSelection"] = []
+    data["workSelection"].push(id)
+    $http.put('/users/' + $scope.userId + '.json', data);
+  };
+
 
 
 

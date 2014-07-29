@@ -14,6 +14,8 @@ end
 
 Given(/^I specify that I wish to upload art$/) do
   # expect(current_path).to eq "/users/#{@user.id}/collections"
+  # save_and_open_page
+  # save_and_open_page
   click_button 'Add To My Collection'
   click_link 'Add Art'
 end
@@ -46,10 +48,12 @@ Then(/^I should see the image in on its collection page$/) do
   expect(page).to have_content 'Digital Art'
   expect(page).to have_content 'Fantasy Japanese tings'
   expect(page).to have_content 'Hello, here is some Art'
+
 end
 
 
 When(/^I fail to attach an image$/) do
+  # save_and_open_page
   click_link 'Add Details'
   fill_in 'Title', with: 'Samurai'
   fill_in 'Media', with: 'Digital Art'
@@ -71,6 +75,7 @@ When(/^I fail to specify a title$/) do
   fill_in 'Genres', with: 'Fantasy, Japanese tings'
   fill_in 'Caption', with: 'Hello, here is some Art'
 end
+
 
 
 

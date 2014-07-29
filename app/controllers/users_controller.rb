@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find params[:id]
 		@work = Work.new
-		[:name, :short_bio, :profession, :network].each do |attr|
+		[:name, :short_bio, :profession, :network, :workSelection].each do |attr|
 			if params[attr]
 				@user.update!(attr => params[attr])
 			end
@@ -33,11 +33,11 @@ class UsersController < ApplicationController
 	private
 
 	def avatar_params
-		params.require(:user).permit(:avatar)
+		params[:user].permit(:avatar)
 	end
 
 	def verify_page_owner
-		@user = User.find params[:user_id]
+		@user = User.find params[:id]
 		redirect_to user_path(@user) if current_user != @user
 	end
 

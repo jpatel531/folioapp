@@ -6,12 +6,18 @@ class User < ActiveRecord::Base
 
   has_many :collections
   has_many :works, through: :collections
+  # has_many :works, through: :work_selection
   # has_and_belongs_to_many :organisations
   has_many :memberships
   has_many :organisations, through: :memberships
   has_many :submissions
+  has_one :work_selection
+
+  acts_as_follower
+  acts_as_followable
 
   after_initialize :give_default_collection
+  # after_initialize :set_work_selection
 
   has_attached_file :avatar, 
   									 # styles: { thumb: "100x100>" }, 
@@ -22,11 +28,21 @@ class User < ActiveRecord::Base
   									 	secret_access_key: Rails.application.secrets.s3_secret_key
   									 }
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  # after_initialize :set_work_selection
 
   def formatted_profession
     if profession
       profession.split(", ").map(&:capitalize).to_sentence.gsub(" and ", " & ").gsub(", &", " &")
     end
+  end
+
+
+  def workSelection=(work_id_array)
+    work_id_array.each do |id| 
+      work_selection.works << Work.find(id)
+      # raise Work.where(user: self).find(id).inspect
+      # work_selection.works << works.find(id) 
+    end 
   end
 
 
@@ -89,5 +105,9 @@ end
       collections << Collection.create(title: "My Collection", description: "This is your default collection")
     end
   end
+
+  # def set_work_selection
+  #   update work_selection: WorkSelection.new
+  # end
 
 end
