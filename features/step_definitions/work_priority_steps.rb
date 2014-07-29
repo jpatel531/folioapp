@@ -11,9 +11,9 @@ Given(/^I am on the collection page for an image$/) do
 end
 
 Given(/^I specify that I wish to show it on my cover$/) do
-	puts page.html
+	# puts page.html
 	within 'div.Hello.World' do 
-		check 'Show on Cover'
+		find(:css, "#select-work").set(true)
 	end
 end
 

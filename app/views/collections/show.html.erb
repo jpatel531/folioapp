@@ -15,7 +15,7 @@
 		<div ng-bind-html="work.text"></div>
 	</div>
 
-	<input type="checkbox" name="selected" value="{{work.id}}" ng-click="sendSelection(work.id)" ng-model="selected" ng-true-value="{{work.id}}">Show on profile cover?
+	<input id="select-work" type="checkbox" name="selected" value="{{work.id}}" ng-click="sendSelection(work.id)" ng-model="selected" ng-true-value="{{work.id}}">Show on profile cover?
 
 	{{selected}}
 
