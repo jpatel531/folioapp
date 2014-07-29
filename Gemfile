@@ -30,9 +30,14 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'omniauth-twitter'
+
 gem 'acts_as_follower'
 
 gem 'factory_girl_rails'
+
+gem 'bootstrap-sass'
+gem "font-awesome-rails"
+
 
 gem 'rspec-collection_matchers'
 
