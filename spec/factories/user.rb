@@ -15,7 +15,7 @@ FactoryGirl.define do
 
 	factory :work do 
 		title 'Hello World'
-		image { fixture_file_upload(Rails.root.join('features/images/art.jpg'), 'image/jpg')}
+		image { fixture_file_upload(Rails.root.join('features/images/art.jpg'), 'image/jpeg')}
 	end
 
 end

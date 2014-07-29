@@ -3,7 +3,9 @@ Given(/^I have a piece of work$/) do
 	login_as @user
 	@work = create(:work)
 	@collection = @user.collections.first
+	@user.update(work_selection: WorkSelection.create)
 	@collection.works << @work
+	# puts "£$£$£$£$£$£---#{@user.collections.first.works.count}----$R£$£$£"
 end
 
 Given(/^I am on the collection page for an image$/) do
@@ -11,15 +13,13 @@ Given(/^I am on the collection page for an image$/) do
 end
 
 Given(/^I specify that I wish to show it on my cover$/) do
-	# puts page.html
-	within 'div.Hello.World' do 
 		find(:css, "#select-work").set(true)
-	end
 end
 
 Then(/^I should see that work and its details on my profile cover\.$/) do
-	visit "users/#{@user.id}"
-	expect(page).to have_content 'Hello World'
-	expect(page).to have_content 'Paintings'
-	expect(page).to have_css 'img.selection'
+	visit "/users/#{@user.id}"
+	# save_and_open_page
+	page.find('h1.preview-title').should have_content 'HELLO WORLD'
+	expect(page).to have_content 'from My Collection'
+	# expect(page).to have_css 'img.selection'
 end

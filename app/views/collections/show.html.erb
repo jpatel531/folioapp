@@ -3,7 +3,7 @@
 
 
 
-<div ng-repeat="work in collection.works" class="{{work.title}}		">
+<div ng-repeat="work in collection.works" class="{{work.title}}">
 
 	{{work.title}}
 	<img ng-src="{{work.image}}" ng-class="{'uploaded-image': work.format == 'image', 'text-thumbnail': work.format == 'text' }">
