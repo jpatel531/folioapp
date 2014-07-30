@@ -1,8 +1,9 @@
+
 <div class="container">
 	
 	<div class="row">
 	
-		<div class="col-md-2"></div>
+		<div class="col-md-2" ng-hide="details"></div>
 			<div class="input-wrapper col-md-8">
 			 	<form name="demo" class="work-form col-md-12">
 					<div class="texteditor col-md-12" ng-model="text" medium-editor options="{'placeholder': ''}"></div>
@@ -13,7 +14,7 @@
 		</div>
 	</div>
 	
-	<div class="submit-details">
+	<div class="submit-details col-md-4">
 		<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
 
 			<div id="test" style="visibility: hidden; text-indent: -9999px;">
@@ -66,7 +67,7 @@
 
 				<div class="row">
 					<div class="col-md-12 submit-button">
-						<%= f.submit 'Publish', class: 'form-submit btn btn-default' %>
+						<%= f.submit 'Publish', class: 'form-submit' %>
 					</div>
 				</div>
 			</div>

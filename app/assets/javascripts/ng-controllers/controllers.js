@@ -2,6 +2,7 @@ var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-mediu
 
 
 
+
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($scope, $window, $http, $location, $upload, $rootScope, fileReader) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
@@ -85,6 +86,8 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
   
+    // $scope.portfolioSelection = (/#\/(\d+)/.exec($location.absUrl())[1]) || 0;
+
 
   var returnCollectionById = function(){
     var collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);
@@ -108,9 +111,53 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     $http.put('/users/' + $scope.userId + '.json', data);
   };
 
+  $scope.portfolioSelection = 0;
+
+  $scope.currentWork = function(){
+    return $scope.collection.works[$scope.portfolioSelection];
+  };
+
+ $scope.displayFull = function(work){
+    $scope.portfolioSelection = $scope.collection.works.indexOf(work);
+  };
+
+  $scope.togglePortfolio = function(e){
+    console.log("HELLO WORLD!!!!")
+    if (e.keyCode === 39) {
+      e.preventDefault();
+      // angular.element(".nav").fadeTo('fast', 1)
+      if ($scope.portfolioSelection < $scope.collection.works.length - 1) {
+        $scope.portfolioSelection += 1
+      }
+      else {
+        return;
+      }
+    }
+    else if (e.keyCode === 37) {
+      e.preventDefault();
+      // angular.element(".nav").fadeTo('fast', 1)
+      if ($scope.portfolioSelection > 0) {
+        $scope.portfolioSelection -= 1
+      } 
+      else {
+        return;
+      }   
+    }
+
+  };
+  
+  $scope.changePath = function(number){
+    $location.path('/' + number)
+  };
+
+  $scope.changePath($scope.portfolioSelection)
+
+  $scope.$watch('portfolioSelection', function(){
+    $scope.changePath($scope.portfolioSelection)
+  })
 
 
-
+  
 
 }]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
 
@@ -130,15 +177,8 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   }]).controller('CollectionInstanceCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
+    $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
-  $scope.getFile = function () {
-        $scope.progress = 0;
-        fileReader.readAsDataUrl($scope.file, $scope)
-                      .then(function(result) {
-                          $scope.imageSrc = result;
-                      });
-    };
- 
 
    $scope.getFile = function () {
     $scope.progress = 0;
