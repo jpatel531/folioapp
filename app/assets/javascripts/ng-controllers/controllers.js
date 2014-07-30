@@ -86,6 +86,8 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
   
+    // $scope.portfolioSelection = (/#\/(\d+)/.exec($location.absUrl())[1]) || 0;
+
 
   var returnCollectionById = function(){
     var collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);
@@ -116,7 +118,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
   };
 
  $scope.displayFull = function(work){
-    $scope.portfolioSelection = $scope.workSelection.indexOf(work);
+    $scope.portfolioSelection = $scope.collection.works.indexOf(work);
   };
 
   $scope.togglePortfolio = function(e){
@@ -144,10 +146,18 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   };
   
+  $scope.changePath = function(number){
+    $location.path('/' + number)
+  };
+
+  $scope.changePath($scope.portfolioSelection)
+
+  $scope.$watch('portfolioSelection', function(){
+    $scope.changePath($scope.portfolioSelection)
+  })
 
 
-
-
+  
 
 }]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
 

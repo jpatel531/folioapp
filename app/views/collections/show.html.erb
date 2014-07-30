@@ -3,10 +3,22 @@
 		<ul class="work-selector">
 			<li 
 				ng-repeat="work in collection.works">
-				<img ng-src="{{work.image}}" class="img-circle thumb" ng-class="{'active' : portfolioSelection == $index}">
+
+				<img ng-src="{{work.image}}" 
+				ng-click="displayFull(work)"
+				class="img-circle thumb" 
+				ng-class="{'active' : portfolioSelection == $index}">
 			</li>
 
 		</ul>
+	</div>
+
+	<div class="col-md-2 pull-right">
+		{{currentWork().title}}
+		<li ng-repeat="medium in currentWork().media">{{medium}}</li	
+		<li ng-repeat="genre in currentWork().genres">{{genre}}</li>
+		{{work.caption}}
+		<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
 	</div>
 
 	<div class="work-container row">
