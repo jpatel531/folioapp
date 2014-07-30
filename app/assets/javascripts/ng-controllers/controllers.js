@@ -2,7 +2,7 @@ var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-mediu
 
 
 
-app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($scope, $window, $http, $location, $upload, $rootScope, fileReader) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
 
@@ -34,7 +34,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false
 
-
+    $scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
 
   $scope.updateProfile = function(property, value) {
     var data = {}
