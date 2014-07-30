@@ -14,13 +14,29 @@
 
 			<div class="profile-info summary-column">
 				<div class="info-wrapper">
+			
+					<div class="pic-wrapper">
 							<div class="change-profile-pic" ng-show="editable">
-								<%= render "new_profile_pic" %>
-							</div>
-					<div class="pic-wrapper" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+								
+								<%= form_for @user, html: {multipart: true} do |f| %>
 
-						<%= render "profile_picture" %>
-					</div>
+									<div class="file-field profile-image">
+										<%= f.file_field :avatar, data: {:"ng-file-select" => "onFileSelect($files)"} %>
+										<img ng-show="editable" class="profile-pic editable-pic" id="profile-pic" ng-src="{{imageSrc || user.userImage}}">
+									</div>
+
+
+								<%= f.submit class: 'image-submit' %>
+
+								<% end %>
+
+
+							</div>
+						<% if current_user.avatar.present? %>
+							<img class="profile-pic" ng-hide="imageSrc" id="profile-pic" ng-src="{{user.userImage}}">
+						<% end %>
+							<img ng-show="imageSrc" class="profile-pic" id="profile-pic" ng-src="{{imageSrc}}">
+						</div>
 
 					<div class="text-inputs"><%= render "information" %></div>
 					<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}</p>

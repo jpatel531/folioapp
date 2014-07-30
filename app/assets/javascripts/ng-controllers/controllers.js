@@ -2,7 +2,7 @@ var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-mediu
 
 
 
-app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($scope, $window, $http, $location, $upload, $rootScope, fileReader) {
 
   $scope.attributes = ["name", "profession", "network", "shortBio"]
 
@@ -34,7 +34,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false
 
-
+    $scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
 
   $scope.updateProfile = function(property, value) {
     var data = {}
@@ -45,6 +51,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
   $scope.onFileSelect = function($files) {
+    console.log('c')
     var currentImage = $scope.user.userImage
     if ($scope.editable) {
       for (var i = 0; i < $files.length; i++) {
@@ -105,7 +112,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
 
-}]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+}]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
@@ -118,10 +125,48 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     data[property] = value
     $http.put('/users/' + $scope.userId + '/collections/' + collectionId, data);
     // getProfileProperties();
-   }  
+   } 
 
 
-  }]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
+  }]).controller('CollectionInstanceCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
+
+
+  $scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
+ 
+
+   $scope.getFile = function () {
+    $scope.progress = 0;
+    fileReader.readAsDataUrl($scope.file, $scope)
+                  .then(function(result) {
+                      $scope.imageSrc = result;
+                  });
+};
+
+
+    $scope.onFileSelect = function($files, collectionId) {
+      console.log('Hello')
+      // console.log($files)
+    // if ($scope.editable) {
+      console.log("hi")
+      for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        $scope.upload = $upload.upload({
+          url: '/users/' + $scope.userId + '/collections/' + collectionId + '/',
+          method: 'PUT',
+          file: file
+        })
+      }
+    // }
+  }
+
+
+}]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
 
   $scope.getFile = function () {
@@ -161,12 +206,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
   $scope.onFileSelect = function($files) {
+    console.log('yo')
     var currentImage = $scope.user.userImage
     if ($scope.editable) {
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
         $scope.upload = $upload.upload({
-          url: '/users/' + $scope.id,
+          url: '/organisations/' + $scope.id,
           method: 'PUT',
           file: file
         }).then(function(){

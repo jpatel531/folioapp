@@ -31,6 +31,11 @@ class CollectionsController < ApplicationController
 				@collection.update!(attr => params[attr])
 			end
 		end
+		# raise 'Hello'
+		if params[:file]
+			@collection.update!(image: params[:file])
+		end
+
 		render json: {success: 200}
 
 	end
