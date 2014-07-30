@@ -107,7 +107,7 @@ end
   end
 
   # def set_work_selection
-  #   update work_selection: WorkSelection.new
+  #   update work_selection: WorkSelection.create
   # end
 
 end
