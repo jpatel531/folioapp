@@ -59,10 +59,11 @@
         <% if @user == current_user %>
 	        <div class="col-xs-2">
 	          <button class="add-details" type="button" class="btn btn-default" ng-click="upload = collection.title">
+	       
 	          	<p class="add-button">Add To {{collection.title}}</p>
 	            <span class="glyphicon glyphicon glyphicon-edit"></span>
 	          </button>
-						<div class="upload-options" ng-show = "upload == collection.title">
+						<div class="upload-options" ng-show="upload == collection.title">
 							<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=art">Add Art</a>
 							<br>
 							<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing">Add Writing</a>

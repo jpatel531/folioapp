@@ -124,7 +124,9 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     data[property] = value
     $http.put('/users/' + $scope.userId + '/collections/' + collectionId, data);
     // getProfileProperties();
-   }  
+   } 
+
+
 
 
   }]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
