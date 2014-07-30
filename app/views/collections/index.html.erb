@@ -1,85 +1,89 @@
-<div ng-controller="CollectionIndexCtrl">
-	
-
-	<% if @user == current_user %>
-	<button ng-init="editable = false" ng-click="editable = !editable", class="toggle-edit-collection"><i class="fa fa-pencil-square-o"></i></button>
-	<% end %>
-	<br><br><br><br>
-
-
-
-	<div class="collection-wrapper">
-		<div ng-repeat="collection in user.collections" class="{{collection.title}} collection">
-
-		<div class="row">
-
-			<div class="col-md-4">
-			<img ng-src="{{collection.image}}" class="collection-image pull-right">
-			</div>
-
-			<div class="col-md-6">
-
-				<a class="collection-title"
-				ng-show="editable"
-				editable-text="collection.title"
-				onaftersave="updateCollection('title', $data, collection.id)"
-				href="#">
-				<h1 class="collection-title">
-					{{collection.title}}
-				</h1>
-				</a>
-
-				<h1 class="collection-title"
-				ng-hide="editable"><a href="/users/{{userId}}/collections/{{collection.id}}">
-					{{collection.title}}
-					</a>
-					<!-- </a> -->
-				</h1>		
-
-
-
-				<a href="#"
-				class="collection-description"
-				ng-show="editable"
-				editable-text="collection.description"
-				onaftersave="updateCollection('description', $data, collection.id)"
-				>
-				<p class="collection-description">
-					{{collection.description}}
-				</p>
-				</a>
-
-				<p ng-hide="editable" class="collection-description">
-					{{collection.description}}
-				</p>
-		</div>			
-			<div class="col-md-2">
-				<% if @user == current_user %> 
-						<button class="details btn btn-primary" ng-click="upload = collection.title">
-							Add To {{collection.title}}
-						</button>
-
-
-						<div class="upload-options" ng-show = "upload == collection.title">
-							<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=art">Add Art</a>
-									<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing" ng-click="addEditor($event)">Add Writing</a>
-						</div>
-
-				<% end %>
-			</div>
-		
-
-	</div> <!-- ng-repeat finishes -->
-
-</div>
-
-</div>
-
-<% if @user == current_user %>
-	<a href="/users/{{user.id}}/collections/new">Add A New Collection</a>
-<% end %>
-
-</div>
+<div class="container">
+    <!-- NAVBAR -->
+    <header class="navbar navbar-static-top navbar-center col-xs-11 col-xs-offset-1" role="banner">
+      <div class="container">
+        <ul class="nav navbar-nav" role="navigation">
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Random</a></li>
+          <li><a href="#">Popular</a></li>
+          <li><a href="#">All</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- END NAVBAR -->
+    <!-- MAIN CONTENT -->
+    <div class="row collection-row">
+      <div class="collection-">
+        <div class="col-xs-3 col-xs-offset-1">
+          <img src="/assets/purple_hands.jpg" class="collection-preview img-circle">
+        </div>
+        <div class="col-xs-5">
+          <h2>Photography 2014</h2>
+          <p>Haruki MurakamiOmmod que molupta spedit, eos am, as sa doluptati iuntiberum, sin eicate lam sedio vit, voluptatur, velendi ut et qui tent omnistotatur sam  simi.</p>
+          <div class="collection-samples">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+          </div>
+          <a href="#" class="visit-collection">more</a>
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus add-images"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row collection-row">
+      <div class="collection-">
+        <div class="col-xs-3 col-xs-offset-1">
+          <img src="/assets/purple_hands.jpg" class="collection-preview img-circle">
+        </div>
+        <div class="col-xs-5">
+          <h2>Illustration 2014</h2>
+          <p>Haruki MurakamiOmmod que molupta spedit, eos am, as sa doluptati iuntiberum, sin eicate lam sedio vit, voluptatur, velendi ut et qui tent omnistotatur sam  simi.</p>
+          <div class="collection-samples">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+          </div>
+          <a href="#" class="visit-collection">more</a>
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus add-images"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row collection-row">
+      <div class="collection-">
+        <div class="col-xs-3 col-xs-offset-1">
+          <img src="/assets/purple_hands.jpg" class="collection-preview img-circle">
+        </div>
+        <div class="col-xs-5">
+          <h2>Writing 2014</h2>
+          <p>Haruki MurakamiOmmod que molupta spedit, eos am, as sa doluptati iuntiberum, sin eicate lam sedio vit, voluptatur, velendi ut et qui tent omnistotatur sam  simi.</p>
+          <div class="collection-samples">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+            <img src="/assets/thumb.jpg" class="img-circle thumb">
+          </div>
+          <a href="#" class="visit-collection">more</a>
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-plus add-images"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+  </div>
 
 
 

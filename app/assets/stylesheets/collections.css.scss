@@ -2,39 +2,66 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-	height: 150px;
-	width: 150px;
-	border-radius: 100%;
-	overflow: hidden;
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
+
+.container{
+  max-width: 970px !important;
 }
 
-div.collection-wrapper {
-	margin: 0 auto;
-	width: 80%;
+body, a{
+  color: black !important;
+}
+.navbar-nav{
+  margin-bottom:2em;
+}
+.navbar-nav > li > a, .navbar-nav > li > a:hover {
+  padding-right:5em !important;
+  font-size: 1.125em !important;
+  backgroundcolor: none !important;
+}
+.navbar-nav a, a.visit-collection{
+  font-family: 'Merriweather', serif!important;
+  font-style: italic;
+  font-weight: 700 !important;
 }
 
-h1.collection-title {
-	font-family: 'Lato', sans-serif;	
-	font-size: 22px;
+.collection-{
+  font-family: 'Merriweather', serif!important;
 }
-
-p {
-	font-family: 'Merriweather', serif;
+.collection-row{
+  margin-bottom: 6em;
 }
-
-button.toggle-edit-collection {
-	width: 40px;
-	height: 40px;
-	background-color: white;
-	border: none;
+.collection- h2{
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: .25em 0 .75em 0;
 }
-
-i.fa-pencil-square-o {
-	font-size: 30px;
+.collection- p{
+  font-size: .9em;
+  width: 25em;
+  margin: 0 0 1em 0;
 }
-
-div.collection {
-	margin-bottom: 20px;
+.collection-preview {
+  width: 200px;
 }
-
+.thumb{
+  width: 60px;
+  margin-right: .75em;
+}
+.add-images{
+  font-size: 2em !important;
+  font-weight: bolder;
+}
+.btn, .btn:hover, .btn:visited{
+  border-radius: 0px !important;
+  border: 0px;
+  background-color: #000;
+  color: #fff;
+}
+a.visit-collection{
+  width: 20em;
+  margin-top: .5em;
+  text-align: center;
+  display: block;
+}
