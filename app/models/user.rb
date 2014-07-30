@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   acts_as_followable
 
   after_initialize :give_default_collection
-  after_initialize :set_work_selection
+  # after_initialize :set_work_selection
 
   has_attached_file :avatar, 
   									 # styles: { thumb: "100x100>" }, 
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   									 	secret_access_key: Rails.application.secrets.s3_secret_key
   									 }
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-  after_initialize :set_work_selection
+  # after_initialize :set_work_selection
 
   def formatted_profession
     if profession
@@ -106,8 +106,8 @@ end
     end
   end
 
-  def set_work_selection
-    update work_selection: WorkSelection.create
-  end
+  # def set_work_selection
+  #   update work_selection: WorkSelection.create
+  # end
 
 end
