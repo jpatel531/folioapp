@@ -1,44 +1,79 @@
-<div id="container" style="max-width: 70%;" ng-repeat="editor in editors">
+<div class="container">
 	
- 	<form name="demo">
-		<div medium-editor></div>
-	</form>
+	<div class="row">
+	
+		<div class="col-md-2"></div>
+			<div class="input-wrapper col-md-8">
+			 	<form name="demo" class="work-form col-md-12">
+					<div class="texteditor col-md-12" ng-model="text" medium-editor options="{'placeholder': ''}"></div>
+				</form>
+			</div>
+		<div class="col-md-2"></div>
 
+		</div>
+	</div>
+	
+	<div class="submit-details">
+		<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
+
+			<div id="test" style="visibility: hidden; text-indent: -9999px;">
+
+			<%= f.label :text %>
+			<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
+			</div>
+
+			<div class="submit-ready pull-right col-md-2" ng-init="details = false" ng-click="details = !details">
+				<a href="#" class="add-details"><p>Add Details</p></a>
+			</div>
+
+
+			<div ng-show="details" class="form-wrapper col-md-12">
+
+				<div class="row">
+					<div class="col-md-12 title-field">
+						<%= f.text_field :title, required: true, placeholder: 'Title' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="field-wrapper col-md-12">
+						<div class="file-field">
+							<!-- <div class="col-md-12"> -->
+								<%= f.label :image, 'Thumbnail', class: 'thumbnail-label' %>
+								<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}%>
+									<img ng-show="imageSrc" ng-src="{{imageSrc}}" />
+							<!-- </div> -->
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<div class="row">
+					<div class="col-md-12">
+
+						<%= f.text_field :genre_names, value: '', placeholder: 'Genre' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+
+						<%= f.text_area :caption, placeholder: 'Short Description' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 submit-button">
+						<%= f.submit 'Publish', class: 'form-submit btn btn-default' %>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
-
-
-<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
-
-	<div id="test" style="visibility: hidden; text-indent: -9999px;">
-
-	<%= f.label :text %>
-	<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
-	</div>
-
-	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
-
-
-	<div ng-show="details">
-
-
-	<%= f.label :title %>
-	<%= f.text_field :title, required: true %>
-
-	<%= f.label :image, 'Thumbnail' %>
-	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"} %>
-
-	 <img ng-src="{{imageSrc}}" />
-
-	<%= f.label :genre_names, 'Genres' %>
-	<%= f.text_field :genre_names, value: '' %>
-
-	<%= f.label :caption, 'Short Description' %>
-	<%= f.text_field :caption %>
-
-	<%= f.submit 'Publish' %>
-
-
-	</div>
 
 
 <% end %>

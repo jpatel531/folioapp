@@ -62,6 +62,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 }]).controller('UploadCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
+  $scope.text = "Write here..."
 
   $scope.getFile = function () {
         $scope.progress = 0;

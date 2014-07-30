@@ -21,4 +21,5 @@
 //= require angular-medium-editor
 //= require angular-sanitize
 //= require ui-bootstrap.min
+//= require bootstrap-sprockets
 //= require_tree .

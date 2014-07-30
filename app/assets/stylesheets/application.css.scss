@@ -13,10 +13,14 @@
  *= require xeditable
  *= require medium-editor
  *= require medium-flat.min
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
 
 .log-out {
 	position: fixed;
@@ -32,4 +36,8 @@
 
 .users {
 	background: #eee;
+}
+
+p {
+	font-family: 'Merriweather', serif;
 }
