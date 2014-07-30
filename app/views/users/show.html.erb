@@ -5,14 +5,13 @@
 	<% if @user == current_user %>
 	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
 	<div class="body-wrapper section">
-		<p ng-show="editable">Please fill in your profile details</p>
 	<% end %>
 
 
-
+	<div class="container">
 		<div class="summary row" id="summary-section">
-
-			<div class="profile-info summary-column">
+	
+			<div class="profile-info summary-column text-center col-md-6">
 				<div class="info-wrapper">
 							<div class="change-profile-pic" ng-show="editable">
 								<%= render "new_profile_pic" %>
@@ -23,32 +22,18 @@
 					</div>
 
 					<div class="text-inputs"><%= render "information" %></div>
-					<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}</p>
-					<span><button id="follow"></button>
-					<button id="message" ng-show="user.messageable"></button></span>
+					<p ng-repeat="membership in user.memberships" class="organisations text-center">{{membership.organisationRole}} of {{membership.organisation}}</p>
 				</div>
-			</div>
+			</div> <!-- end of .profile-info -->
 
-			<div class="profile-options summary-column">
 
-				<div class="options-wrapper">
-
-					<div class="option" id="portfolio" ng-mouseenter="profile.selection = user.workSelection"><a href="#"><<p>Work<p></a></div>
-
-					<div class="option" id="social" ng-mouseenter="profile.selection = pickPreview"><p>Picks</p></div>
-					<div class="option" id="bio" ng-mouseenter="profile.selection = storyPreview"><p>Story</p></div>
-				</div>
-			</div>
-
-			<div class="profile-preview summary-column">
+			<div class="profile-preview summary-column col-md-6">
 
 				<div class="info-wrapper preview-wrapper">
 
 					<div class="work-preview">
 						<div class="work-preview-header">
-							<h3 id="selections" ng-show="profile.selection == user.workSelection">Selections of Laurie's Work</h3>
-							<h3 id="selections" >What Laurie Likes</h3>
-							<h3 id="selections" >Laurie's Stories</h3>
+							<h3 id="selections">Selections of Laurie's Work</h3>
 						</div>
 
 						<div class="work-wrapper" ng-repeat="work in user.workSelection">
@@ -65,7 +50,7 @@
 								</div>
 							</div>
 
-							<div class="preview-pic pic-wrapper" ng-show="profile.selection ">
+							<div class="preview-pic pic-wrapper">
 								<img class="selection" id="profile-pic" ng-src="{{work.image}}">
 							</div>
 						</div>	
@@ -74,8 +59,10 @@
 					</div>
 				</div>
 			</div>
-		</div>	
-	</div>
+		</div>	<!-- end of .profile-preview  -->
+
+	</div> <!-- end of .summary .row -->
+</div> <!-- end of .container -->	
 
 <!-- ---------------PORTFOLIO----------- -->
 
