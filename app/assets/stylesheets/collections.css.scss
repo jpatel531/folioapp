@@ -106,7 +106,17 @@ input.image-submit {
 	display: none;
 }
 
-/*div.file-field.profile-image {
-	top 
-}*/
+div.upload-options {
+	font-family: 'Lato', sans-serif;
+}
+
+div.upload-options a {
+	font-weight: 300 !important;
+}
+
+img.collection-preview, div.collection-samples img.thumb {
+	border: solid;
+	border-width: thin;
+	border-color: rgba(0,0,0,0.2);
+}
 

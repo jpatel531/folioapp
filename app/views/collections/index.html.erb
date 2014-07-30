@@ -18,7 +18,7 @@
     <div ng-repeat="collection in user.collections" class="row collection-row {{collection.title}}">
       <div class="collection-">
         <div class="col-xs-3 col-xs-offset-1">
-          <img ng-src="{{collection.image}}" class="collection-preview img-circle">
+          <img ng-show="collection.image" ng-src="{{collection.image}}" class="collection-preview img-circle">
         </div>
         <div class="col-xs-5">
 
