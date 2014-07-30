@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   									 	secret_access_key: Rails.application.secrets.s3_secret_key
   									 }
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-  # after_initialize :set_work_selection
+  after_initialize :set_work_selection
 
   def formatted_profession
     if profession
