@@ -10,15 +10,12 @@ div#test {
 
 
 form.work-form {
-	margin-top: 10%;
-	/*background-color: blue;*/
+	margin-top: 30%;
 }
 div.texteditor {
-	/*background-color: salmon;*/
-	/*opacity: 0.4;*/
+
 	margin: 0 auto;
 	min-height: 100vh;
-	/*width: 100%;*/
 	outline: none;
 }
 
@@ -27,27 +24,25 @@ div.input-wrapper {
 	margin: 0 auto;
 }
 
+div.title-field textarea {
+	/*min-height: 2em;*/
+	resize: none;
+	border: none;
+}
 
-/*div.title-field p {
+div.title-field textarea::-webkit-input-placeholder, div.title-field textarea {
+	font-family: 'Lato', serif;
 	color: black;
+	font-size: 18px;
 	font-weight: 700;
-}*/
-
-input::-webkit-input-placeholder {
-   color: black;
 }
 
-input:-moz-placeholder { /* Firefox 18- */
-   color: black;  
+
+div.genre-field input::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
+	font-family: Merriweather, serif;
 }
 
-input::-moz-placeholder {  /* Firefox 19+ */
-   color: black;  
-}
 
-input:-ms-input-placeholder {  
-   color: black;  
-}
 
 div.texteditor {
 	font-family: 'Merriweather', serif !important ;
@@ -64,6 +59,11 @@ div.texteditor {
 
 div.form-wrapper {
 	margin: 0 auto;
+}
+
+
+div.form-wrapper {
+	font-family: Merriweather, serif;
 }
 
 div.submit-details {
@@ -93,7 +93,7 @@ div.submit-details {
   vertical-align: middle;
   color: #7f7f7f;
   margin-top: 2px;
-	background:white
+	background: transparent;
 }
 
 .file-field input[type="file"]{
@@ -169,15 +169,13 @@ div.form-wrapper input {
 div.form-wrapper textarea {
 	resize: none;
 	border: none;
-	font-family: 'Lato', sans-serif;
-	height: 15em;
+	height: 8em;
 }
 
 div.form-wrapper textarea:focus {
 	outline: none;
 	resize: none;
 	border: none;
-	font-family: 'Lato', sans-serif;
 }
 
 div.form-wrapper div.submit-button {
@@ -190,7 +188,7 @@ div.form-wrapper input.form-submit {
 	margin: 0 auto;
 	border: 1px solid rgba(0,0,0,0.4);
 	/*background-color: salmon;*/
-	padding: 3em 3em 3em 3em;
+	padding: 1em 1em 1em 1em;
 }
 
 div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
@@ -200,7 +198,13 @@ div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
 
 
 
+img.profile-pic {
+	z-index: 1;
+}
 
+img.to-edit {
+	opacity: 0.2;
+}
 
 
 

@@ -2,39 +2,121 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-	height: 150px;
-	width: 150px;
-	border-radius: 100%;
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic);
+
+.container{
+  max-width: 970px !important;
+}
+
+body, a{
+  color: black !important;
+}
+.navbar-nav{
+  margin-bottom:2em;
+  /*margin: 0 auto;*/
+  float:none !important;
+  margin: 0 auto !important;
+
+}
+.navbar-nav > li > a, .navbar-nav > li > a:hover {
+  padding-right:5em !important;
+  font-size: 1.125em !important;
+  background-color: none !important;
+}
+.navbar-nav a, a.visit-collection{
+  font-family: 'Lato', sans-serif!important;
+  /*font-style: italic;*/
+  font-weight: 300 !important;
+}
+
+.collection-{
+  font-family: 'Merriweather', serif!important;
+}
+.collection-row{
+  margin-bottom: 6em;
+}
+.collection- h2{
+  /*font-style: italic;*/
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: .25em 0 .75em 0;
+}
+.collection- p{
+  font-size: .9em;
+  width: 25em;
+  margin: 0 0 1em 0;
+}
+.collection-preview {
+  width: 200px;
+}
+.thumb{
+  width: 60px;
+  height: 60px;
+  margin-right: .75em;
+  overflow: hidden;
+}
+.add-images{
+  font-size: 2em !important;
+  font-weight: bolder;
+}
+.btn, .btn:hover, .btn:visited{
+  border-radius: 0px !important;
+  border: 0px;
+  background-color: #000 !important;
+  color: #fff;
+}
+a.visit-collection{
+  width: 20em;
+  margin-top: .5em;
+  text-align: center;
+  display: block;
+}
+
+p.add-button {
+	text-indent: -99999px;
+	width: 0px;
+	height: 0px;
 	overflow: hidden;
 }
 
-div.collection-wrapper {
-	margin: 0 auto;
-	width: 80%;
+h2.collection-title {
+	font-family: Lato, sans-serif;
+	text-transform: uppercase;
+	font-size: 1.25em;
 }
 
-h1.collection-title {
-	font-family: 'Lato', sans-serif;	
-	font-size: 22px;
+p.collection-description {
+	color: #b3b2b5;
+	letter-spacing: 0.01rem;
+	font-weight: 300;
 }
 
-p {
-	font-family: 'Merriweather', serif;
-}
-
-button.toggle-edit-collection {
-	width: 40px;
-	height: 40px;
-	background-color: white;
+button.add-details {
 	border: none;
+	background: none;
+	font-weight: 300;
 }
 
-i.fa-pencil-square-o {
-	font-size: 30px;
+span.glyphicon-edit {
+	font-size: 20px;
+	/*font-weight: 100;*/
 }
 
-div.collection {
-	margin-bottom: 20px;
+input.image-submit {
+	display: none;
+}
+
+div.upload-options {
+	font-family: 'Lato', sans-serif;
+}
+
+div.upload-options a {
+	font-weight: 300 !important;
+}
+
+img.collection-preview, div.collection-samples img.thumb {
+	border: solid;
+	border-width: thin;
+	border-color: rgba(0,0,0,0.2);
 }
 

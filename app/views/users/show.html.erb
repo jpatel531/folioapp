@@ -13,11 +13,14 @@
 	
 			<div class="profile-info summary-column col-md-6">
 				<div class="info-wrapper">
+
 					<div class="change-profile-pic" ng-show="editable">
 						<%= render "new_profile_pic" %>
 					</div>
 					<div class="pic-wrapper" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class-name-or-function">
+
 						<%= render "profile_picture" %>
+
 					</div>
 				
 					<div class="text-inputs text-center"><%= render "information" %></div>
