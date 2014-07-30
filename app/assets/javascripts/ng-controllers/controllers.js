@@ -109,7 +109,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     $http.put('/users/' + $scope.userId + '.json', data);
   };
 
-  $scope.portfolioSelection = 1;
+  $scope.portfolioSelection = 0;
 
   $scope.currentWork = function(){
     return $scope.collection.works[$scope.portfolioSelection];

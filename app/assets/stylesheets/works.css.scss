@@ -2,18 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*---TEXT EDITOR ITSELF---*/
+
 div#test {
 	position: fixed;
 	left: -999999px;
 }
 
 
-
 form.work-form {
 	margin-top: 30%;
-}
-div.texteditor {
 
+}
+
+div.texteditor {
 	margin: 0 auto;
 	min-height: 100vh;
 	outline: none;
@@ -23,26 +25,6 @@ div.input-wrapper {
 	/*text-align: center;*/
 	margin: 0 auto;
 }
-
-div.title-field textarea {
-	/*min-height: 2em;*/
-	resize: none;
-	border: none;
-}
-
-div.title-field textarea::-webkit-input-placeholder, div.title-field textarea {
-	font-family: 'Lato', serif;
-	color: black;
-	font-size: 18px;
-	font-weight: 700;
-}
-
-
-div.genre-field input::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
-	font-family: Merriweather, serif;
-}
-
-
 
 div.texteditor {
 	font-family: 'Merriweather', serif !important ;
@@ -54,22 +36,57 @@ div.texteditor {
 	font-size: 20px;
 	line-height: 1.8em;
 	text-align: justify;
+	/*margin-right: -20%;*/
 }
+
+
+/*READY BUTTON*/
+
+a.add-details::before {
+	content: '\2712';
+	font-family: 'Entypo';
+	font-size: 50px;
+	color: black;
+}
+
+div.submit-ready {
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	vertical-align: middle;
+	outline: none;
+	margin-bottom: 3em;
+}
+
+a.add-details {
+	text-decoration: none;
+	color: black;
+}
+
+
+
+/*SUBMIT FORM*/
+
+
+
 
 
 div.form-wrapper {
 	margin: 0 auto;
+
 }
 
 
 div.form-wrapper {
 	font-family: Merriweather, serif;
+	/*border-left: 1px solid black;*/
 }
 
 div.submit-details {
 	position: fixed;
 	right: 0;
 	top: 0;
+	/*width: 100%;*/
 }
 
 .field-wrapper {
@@ -121,28 +138,6 @@ div.file-field img {
 }
 
 
-
-a.add-details::before {
-	content: '\2712';
-	font-family: 'Entypo';
-	font-size: 50px;
-	color: black;
-}
-
-div.submit-ready {
-	height: 50px;
-	width: 50px;
-	text-align: center;
-	vertical-align: middle;
-	outline: none;
-	margin-bottom: 3em;
-}
-
-a.add-details {
-	text-decoration: none;
-	color: black;
-}
-
 img{
 	border: none;
 }
@@ -151,9 +146,27 @@ a.add-details p {
 	text-indent: -99999999px;
 }
 
+div.title-field textarea {
+	/*min-height: 2em;*/
+	resize: none;
+	border: none;
+}
+
+div.title-field textarea::-webkit-input-placeholder, div.title-field textarea {
+	font-family: 'Lato', serif;
+	color: black;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+
+div.genre-field input::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
+	font-family: Merriweather, serif;
+}
+
 div.form-wrapper div.row {
 	margin: 0 auto;
-	margin-bottom: 2em;
+	/*margin-bottom: 2em;*/
 }
 
 div.form-wrapper p {
@@ -169,7 +182,7 @@ div.form-wrapper input {
 div.form-wrapper textarea {
 	resize: none;
 	border: none;
-	height: 8em;
+	/*height: 8em;*/
 }
 
 div.form-wrapper textarea:focus {
@@ -188,13 +201,13 @@ div.form-wrapper input.form-submit {
 	margin: 0 auto;
 	border: 1px solid rgba(0,0,0,0.4);
 	/*background-color: salmon;*/
-	padding: 1em 1em 1em 1em;
+	/*padding: 1em 1em 1em 1em;*/
 }
 
-div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
-	background-color: white;
+/*div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
+	background-color: white !important;
 	border-color: black;
-}
+}*/
 
 
 
