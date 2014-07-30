@@ -31,7 +31,7 @@
 
           <img ng-hide="imageSrc || editable" ng-src="{{collection.image}}" class="collection-preview img-circle">
 
-          <img ng-hide="editable" ng-class="{'waiting-for-image': !editable}" class="collection-preview img-circle" ng-src="{{imageSrc}}">
+          <img ng-hide="editable || !imageSrc" ng-class="{'waiting-for-image': editable}" class="collection-preview img-circle" ng-src="{{imageSrc || collection.image}}">
 
 
         </div>
