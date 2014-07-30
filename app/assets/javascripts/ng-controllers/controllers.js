@@ -109,6 +109,42 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     $http.put('/users/' + $scope.userId + '.json', data);
   };
 
+  $scope.portfolioSelection = 1;
+
+  $scope.currentWork = function(){
+    return $scope.collection.works[$scope.portfolioSelection];
+  };
+
+ $scope.displayFull = function(work){
+    $scope.portfolioSelection = $scope.workSelection.indexOf(work);
+  };
+
+  $scope.togglePortfolio = function(e){
+    console.log("HELLO WORLD!!!!")
+    if (e.keyCode === 39) {
+      e.preventDefault();
+      // angular.element(".nav").fadeTo('fast', 1)
+      if ($scope.portfolioSelection < $scope.collection.works.length - 1) {
+        $scope.portfolioSelection += 1
+      }
+      else {
+        return;
+      }
+    }
+    else if (e.keyCode === 37) {
+      e.preventDefault();
+      // angular.element(".nav").fadeTo('fast', 1)
+      if ($scope.portfolioSelection > 0) {
+        $scope.portfolioSelection -= 1
+      } 
+      else {
+        return;
+      }   
+    }
+
+  };
+  
+
 
 
 

@@ -1,9 +1,75 @@
-<div ng-controller="CollectionShowCtrl">
+<div class="container" ng-controller="CollectionShowCtrl" ng-keydown="togglePortfolio($event)" tabindex="0" class="collection-display">
+	<div class="portfolio-nav nav">
+		<ul class="work-selector">
+			<li 
+				ng-repeat="work in collection.works">
+				<img ng-src="{{work.image}}" class="img-circle thumb" ng-class="{'active' : portfolioSelection == $index}">
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="work-container row">
+		<div class="magnify col-md-12" ng-show="currentWork().format == 'image' ">
+			<div class="large" style="background:url({{currentWork().image}}) no-repeat"></div>
+			<img class="small select" ng-src="{{currentWork().image}}">
+		</div>
+
+		<div class="text-work" ng-show="currentWork().format == 'text'">
+			<div class="text-wrapper" ng-repeat="work in currentWork().text">
+				<div ng-class="{'first': $first}">
+					<p class="work-paragraph" ng-repeat="paragraph in work">
+						{{paragraph}}
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
 
 
 
 
-<div ng-repeat="work in collection.works" class="{{work.title}}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div ng-repeat="work in collection.works" class="{{work.title}}">
 
 	{{work.title}}
 	<img ng-src="{{work.image}}" ng-class="{'uploaded-image': work.format == 'image', 'text-thumbnail': work.format == 'text' }">
@@ -26,7 +92,7 @@
 	<div ng-show="upload">
 	<%= link_to "Add Art", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'art') %>
 	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'writing') %>
-	</div>
+	</div> -->
 
 
 
