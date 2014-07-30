@@ -1,5 +1,6 @@
 json.name @user.name
 json.id @user.id
+json.userImage @user.avatar.url
 json.profession @user.formatted_profession
 json.network @user.network
 json.shortBio @user.short_bio
