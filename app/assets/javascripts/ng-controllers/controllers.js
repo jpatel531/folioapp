@@ -51,6 +51,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
   $scope.onFileSelect = function($files) {
+    console.log('c')
     var currentImage = $scope.user.userImage
     if ($scope.editable) {
       for (var i = 0; i < $files.length; i++) {
@@ -111,7 +112,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
 
-}]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+}]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
@@ -126,7 +127,34 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     // getProfileProperties();
    } 
 
+   $scope.getFile = function () {
+    $scope.progress = 0;
+    fileReader.readAsDataUrl($scope.file, $scope)
+                  .then(function(result) {
+                      $scope.imageSrc = result;
+                  });
+};
 
+    $scope.testing = function() {
+      alert('hi');
+    }
+    $scope.onFileSelect = function($files, collectionId) {
+      console.log('Hello')
+      // console.log($files)
+    // if ($scope.editable) {
+      console.log("hi")
+      for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        $scope.upload = $upload.upload({
+          url: '/users/' + $scope.userId + '/collections/' + collectionId + '/',
+          method: 'PUT',
+          file: file
+        }).then(function(){
+            getProfileProperties();
+          })
+      }
+    // }
+  }
 
 
   }]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
@@ -169,12 +197,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
   $scope.onFileSelect = function($files) {
+    console.log('yo')
     var currentImage = $scope.user.userImage
     if ($scope.editable) {
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
         $scope.upload = $upload.upload({
-          url: '/users/' + $scope.id,
+          url: '/organisations/' + $scope.id,
           method: 'PUT',
           file: file
         }).then(function(){
