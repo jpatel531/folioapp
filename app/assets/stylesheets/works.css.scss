@@ -27,7 +27,30 @@ div.input-wrapper {
 	margin: 0 auto;
 }
 
-div.texteditor p {
+
+/*div.title-field p {
+	color: black;
+	font-weight: 700;
+}*/
+
+input::-webkit-input-placeholder {
+   color: black;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+
+input:-ms-input-placeholder {  
+   color: black;  
+}
+
+div.texteditor {
+	font-family: 'Merriweather', serif !important ;
 	font-size: 22px;
 	color: black;
 	font-weight: 300;
@@ -49,23 +72,52 @@ div.submit-details {
 	top: 0;
 }
 
+.field-wrapper {
+	/*position: relative;*/
+	float: none;
+	margin: 0 auto;
+}
+
 .file-field{
+	float: none;
+	margin: 0 auto;
+	margin: 0 auto;
   position:relative;
-  display:inline-block;    
-	border-radius:8px;
+	border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:250px; 
-  padding: 4px 6px 4px 8px;
-  font: normal 14px Myriad Pro, Verdana, Geneva, sans-serif;
+  width:150px; 
+  height: 150px;
+  /*padding: 4px 6px 4px 8px;*/
+  font: normal 14px 'Lato' sans-serif;
+  text-align: center;
+  vertical-align: middle;
   color: #7f7f7f;
   margin-top: 2px;
 	background:white
 }
+
 .file-field input[type="file"]{
-    -webkit-appearance:none; 
-    position:absolute;
-    top:0; left:0;
-    opacity:0; 
+
+  -webkit-appearance:none; 
+  position:absolute;
+  top:0; left:0;
+  opacity:0; 
+  border-radius: 100%;
+  border:#ebebeb solid 1px;
+  width:150px; 
+  height: 150px;
+  z-index: 1;
+}
+
+label.thumbnail-label {
+	padding-top: 62px;
+}
+
+div.file-field img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
 }
 
 
@@ -83,6 +135,7 @@ div.submit-ready {
 	text-align: center;
 	vertical-align: middle;
 	outline: none;
+	margin-bottom: 3em;
 }
 
 a.add-details {
@@ -97,3 +150,58 @@ img{
 a.add-details p {
 	text-indent: -99999999px;
 }
+
+div.form-wrapper div.row {
+	margin: 0 auto;
+	margin-bottom: 2em;
+}
+
+div.form-wrapper p {
+	color: black;
+}
+
+div.form-wrapper input {
+	outline: none;
+	border: none;
+	font-family: 'Lato', sans-serif;
+}
+
+div.form-wrapper textarea {
+	resize: none;
+	border: none;
+	font-family: 'Lato', sans-serif;
+	height: 15em;
+}
+
+div.form-wrapper textarea:focus {
+	outline: none;
+	resize: none;
+	border: none;
+	font-family: 'Lato', sans-serif;
+}
+
+div.form-wrapper div.submit-button {
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+div.form-wrapper input.form-submit {
+	margin: 0 auto;
+	border: 1px solid rgba(0,0,0,0.4);
+	/*background-color: salmon;*/
+	padding: 3em 3em 3em 3em;
+}
+
+div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
+	background-color: white;
+	border-color: black;
+}
+
+
+
+
+
+
+
+
