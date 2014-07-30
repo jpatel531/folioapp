@@ -1,4 +1,4 @@
-<div class="container" ng-controller="CollectionShowCtrl" ng-keydown="togglePortfolio($event)" tabindex="0" class="collection-display">
+<div class="container collection-display" ng-controller="CollectionShowCtrl" ng-keydown="togglePortfolio($event)" tabindex="0">
 	<div class="portfolio-nav nav">
 		<ul class="work-selector">
 			<li 
@@ -16,13 +16,20 @@
 		</div>
 
 		<div class="text-work" ng-show="currentWork().format == 'text'">
-			<div class="text-wrapper" ng-repeat="work in currentWork().text">
+
+			<div class="col-md-2"></div>
+			<div class="col-md-8 text-proper" ng-bind-html="currentWork().text">
+			</div>
+			<div class="col-md-2"></div>
+
+
+			<!-- <div class="text-wrapper" ng-repeat="work in currentWork().text">
 				<div ng-class="{'first': $first}">
 					<p class="work-paragraph" ng-repeat="paragraph in work">
 						{{paragraph}}
 					</p>
 				</div>
-			</div>
+			</div> -->
 
 		</div>
 	</div>
