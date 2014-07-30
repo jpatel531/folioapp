@@ -30,12 +30,11 @@ h1 {
 }
 
 div.profile-wrapper {
-	width: 100%;
-	align-items: center;
+
 }
 
 div.body-wrapper {
-	width: 100%;
+
 	/*height: 100%;*/
 	padding-top: 10%
 }
@@ -77,18 +76,17 @@ button.toggle-edit p {
 
 div.summary {
 	height: 100%;
-	width: 100%;
+
 	/*background-size: cover;*/
 }
 
 .profile-info {
 	height: 100%;
-	width: 46%;
 }
 
 .profile-options {
 	height: 100%;
-	width: 90px;
+
 	/*background-color: blue;*/
 	padding-top: 10px;
 	margin-right: 5%
@@ -96,20 +94,20 @@ div.summary {
 
 .profile-preview {
 	height: 100%;
-	width: 46%;
+
 }
 
 
 /*------PROFILE INFO SUMMARY----*/
 
+
 div.info-wrapper {
-	width: 70%;
 	height: 325px;
 	margin-top: -4.5%;
 }
 
 div.preview-wrapper {
-	height: 400px;
+	height: 100%;
 	/*border: 1px solid black;*/
 }
 
@@ -124,6 +122,8 @@ div.pic-wrapper {
 	border-width: thin;
 	border-color: rgba(0,0,0,0.2);
 	overflow: hidden;
+	position: relative;
+	left: 37%;
 }
 
 img#profile-pic {
@@ -156,7 +156,7 @@ p.profession {
 
 p.short-bio, p.network, p.organisations, p.featured-in {
 	font-size: 10px;
-	width: 65%;
+	
 	line-height: 15px;
 	font-family: 'Merriweather', serif;
 	font-weight: 300;
@@ -177,9 +177,11 @@ p.organisations {
 
 hr {
 	color: black;
-/*	margin: 12px 0 0 0;*/
 	padding: 0;
 	width: 50px;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 div.info-wrapper button {
@@ -227,7 +229,7 @@ div.info-wrapper.preview-wrapper, div.work-preview {
 }
 
 div.work-preview {
-	width: 100%;
+
 	margin-bottom: 0;
 }
 
@@ -235,7 +237,7 @@ div.work-preview {
 
 div.work-preview div.work-preview-header {
 	height: 10%;
-	width: 100%;
+
 	margin-bottom: 20px;
 }
 
@@ -258,10 +260,9 @@ div.work-wrapper {
 
 
 div.work {
-	width: 100%;
+
 	height: 30%;
-/*	margin-bottom: 25px;
-	margin-top: 25px;*/
+
 }
 
 /*PICTURES*/
@@ -282,20 +283,19 @@ div.preview-pic.pic-wrapper{
 /*PREVIEW TEXT LAYOUT*/
 
 div.work-preview-info {
-	width: 65%;
+
 	font-size: 10px;
-	width: 65%;
 	line-height: 15px;
 	font-family: 'Merriweather', serif;
 	font-weight: 300;
 }
 
 div.work-preview-info#info {
-	width: 100%;
+
 }
 
 div.work-preview-info.story {
-	width: 95%;
+
 }
 
 div#info p {
@@ -354,7 +354,7 @@ div.additional-info {
 }
 
 p.recommendation-number, p.cool-information, p.anthology, p.single-author {
-	width: 50%;
+
 }
 
 p.cool-information, p.anthology, p.single-author {
@@ -377,7 +377,6 @@ div.portfolio {
 	min-height: 100vh;
 	margin-top: 75vh;
 	/*height: 60px;*/
-	width: 100%;
 	/*background-color: salmon;*/
 	/*background-color: rgba(0,0,0,0.75);*/
 }
@@ -388,8 +387,7 @@ div.portfolio:focus {
 
 
 div.work-container {
-	align-items: center;
-	width: 75%;
+
 	height: 65%;
 }
 
@@ -544,7 +542,6 @@ p.work-paragraph {
 	font-style: normal;
 	font-size: 20px;
 	line-height: 1.8em;
-	text-align: justify;
 }
 
 div.first p.work-paragraph:first-child:first-letter {
@@ -586,7 +583,6 @@ div.work-footer {
 @media only screen and (max-width: 960px) {
 
 	div.summary {
-		align-items: center;
 		min-height: 100%;
 	}
 
