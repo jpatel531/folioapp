@@ -5,20 +5,17 @@
 	<% if @user == current_user %>
 	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
 	<div class="body-wrapper section">
-		<p ng-show="editable">Please fill in your profile details</p>
 	<% end %>
 
 
 
 		<div class="summary row" id="summary-section">
-
-			<div class="profile-info summary-column">
+	
+			<div class="profile-info summary-column col-md-6">
 				<div class="info-wrapper">
-			
-					<div class="pic-wrapper">
-							<div class="change-profile-pic" ng-show="editable">
-								
-								<%= form_for @user, html: {multipart: true} do |f| %>
+
+					<div class="change-profile-pic" ng-show="editable">
+							<%= form_for @user, html: {multipart: true} do |f| %>
 
 									<div class="file-field profile-image">
 										<%= f.file_field :avatar, data: {:"ng-file-select" => "onFileSelect($files)"} %>
@@ -29,48 +26,35 @@
 								<%= f.submit class: 'image-submit' %>
 
 								<% end %>
+					</div>
+					<div class="pic-wrapper">
 
-
-							</div>
-						<% if current_user.avatar.present? %>
+							<% if current_user.avatar.present? %>
 							<img class="profile-pic" ng-hide="imageSrc" id="profile-pic" ng-src="{{user.userImage}}">
 						<% end %>
 							<img ng-show="imageSrc" class="profile-pic" id="profile-pic" ng-src="{{imageSrc}}">
 						</div>
 
-					<%= render "information" %>
+					</div>
+				
+					<div class="text-inputs text-center"><%= render "information" %></div>
 					<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}</p>
-					<span><button id="follow"></button>
-					<button id="message" ng-show="user.messageable"></button></span>
-				</div>
-			</div>
+				</div>	
+		
+			</div> <!-- end of .profile-info -->
 
-			<div class="profile-options summary-column">
 
-				<div class="options-wrapper">
+			<div class="profile-preview summary-column col-md-6">
 
-					<div class="option" id="portfolio" ng-mouseenter="profile.selection = user.workSelection"><a href="#"><<p>Work<p></a></div>
 
-					<div class="option" id="social" ng-mouseenter="profile.selection = pickPreview"><p>Picks</p></div>
-					<div class="option" id="bio" ng-mouseenter="profile.selection = storyPreview"><p>Story</p></div>
-				</div>
-			</div>
-
-			<div class="profile-preview summary-column">
-
-				<div class="info-wrapper preview-wrapper">
-
-					<div class="work-preview">
-						<div class="work-preview-header">
-							<h3 id="selections" ng-show="profile.selection == user.workSelection">Selections of Laurie's Work</h3>
-							<h3 id="selections" ng-show="1 == 2">What Laurie Likes</h3>
-							<h3 id="selections" ng-show="1 == 2">Laurie's Stories</h3>
+						<div class="work-preview-header row">
+							<h3 class="col-md-12" id="selections">Selections of Laurie's Work</h3>
 						</div>
 
-						<div class="work-wrapper" ng-repeat="work in user.workSelection">
-							<div class="work">
-								<div class="work-preview-info" ng-class="{ 'story': profile.selection == storyPreview }">
-									<div id="info">
+						<div class="work-wrapper row" ng-repeat="work in user.workSelection">
+					
+							<div class="work-preview-info col-md-6" ng-class="{ 'story': profile.selection == storyPreview }">
+								<div id="info">
 										<h1 class="preview-title">{{work.title}}</h1>
 										from {{work.collection}}
 										<p class="short-description">{{work.caption}}</p>
@@ -81,17 +65,21 @@
 								</div>
 							</div>
 
-							<div class="preview-pic pic-wrapper" ng-show="profile.selection ">
-								<img class="selection" id="profile-pic" ng-src="{{work.image}}">
-							</div>
-						</div>	
-						<div class="hr-wrapper"><hr id="after-work" ng-show="!$last"></div>
+							<div class="col-md-6">	
+								<div class="preview-pic pic-wrapper">
+									<img class="selection" id="profile-pic" ng-src="{{work.image}}">
+								</div>
+
+							  <div class="hr-wrapper"><hr id="after-work" ng-show="!$last"></div>
+							</div>	
 
 					</div>
-				</div>
-			</div>
-		</div>	
-	</div>
+		
+
+		</div>	<!-- end of .profile-preview and col-md-6 -->
+
+	</div> <!-- end of .summary .row -->
+
 
 <!-- ---------------PORTFOLIO----------- -->
 
