@@ -11,11 +11,21 @@ div.new-organisation textarea, div.new-organisation input, div.new-organisation 
 
 div.org-image {
 	margin-bottom: 2em;
-	background-color: black;
+	background-color: black !important;
 }
 
-div.new-organisation input.org-submit {
+div.org-image input.org-submit {
 	width: 20%;
+}
+
+/*input#organisation_image.opp-file-field {
+	width: 150px;
+	height: 150px;
+}*/
+
+.org-image input[type="file"] {
+/*	width: 150px;
+	height: 150px;*/
 }
 
 

@@ -42,6 +42,7 @@ img.profile-pic {
 .file-field.profile-image {
 	width: 150px;
 	height: 150px;
+	background-color: white;
 }
 
 button:focus {
@@ -259,6 +260,7 @@ h1.preview-title {
 }
 
 h3#selections {
+	font-family: 'Lato', 'sans-serif';
 	font-size: 11px;
 	text-align: center;
 	vertical-align: center;
