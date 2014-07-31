@@ -190,15 +190,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     // getProfileProperties();
    } 
 
-<<<<<<< HEAD
+
 
   }]).controller('CollectionInstanceCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
-    $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
+  $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
 
-=======
->>>>>>> 2871eb116367d1c8ccbac630e9364f405afbc716
    $scope.getFile = function () {
     $scope.progress = 0;
     fileReader.readAsDataUrl($scope.file, $scope)

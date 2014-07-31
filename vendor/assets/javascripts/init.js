@@ -13,9 +13,11 @@ $(function () {
 	 * Background (Backstretch)
 	 */
 
-	$.backstretch([
-		"/assets/background/1.jpg"
+	if (window.location.pathname === "/users/sign_in"){
+		$.backstretch([
+			"/assets/background/1.jpg"
 	]);
+	}
 
 	/* ---------------------------------------------------------
 	 * Menu Button
