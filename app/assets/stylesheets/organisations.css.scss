@@ -31,3 +31,9 @@ div.new-organisation textarea:focus, div.new-organisation input:focus {
 	outline: none;
 }
 
+div.genre-field textarea::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
+	font-family: Merriweather, serif;
+	color: black !important;
+	opacity: 1;
+}
+

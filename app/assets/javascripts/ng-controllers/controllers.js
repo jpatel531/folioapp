@@ -68,6 +68,13 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     }
   }
 
+}]).controller('PortfolioSectionCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
+
+
+  $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
+
+  $scope.url = '/users/' + $scope.id + '/collections';
+
 }]).controller('UploadCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
   $scope.text = "Write here..."

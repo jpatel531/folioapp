@@ -9,7 +9,7 @@
 		<%= form_for @organisation, html: {multipart: true} do |f| %>
 
 			<div class="field-wrapper col-md-12">
-				<div class="file-field organisation-image collection-image">
+				<div class="file-field profile-image">
 					<%= f.label :image, 'Thumbnail', class: 'organisation-thumb-label' %>
 					<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}, class: 'organisation-file-field'%>
 					<img ng-show="imageSrc" ng-src="{{imageSrc}}" class="img-circle collection-preview" id="profile-pic" />
@@ -30,7 +30,7 @@
 
 
 			<div class="row">
-				<div class="col-md-12 genre-field">
+				<div class="col-md-12">
 			<%= f.text_field :network, placeholder: 'Network' %>
 				</div>	
 			</div>
@@ -45,7 +45,7 @@
 
 
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 genre-field">
 			<%= f.text_field :creator_role, placeholder: 'What is your role?' %>
 				</div>
 			</div>
