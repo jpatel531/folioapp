@@ -35,6 +35,10 @@ gem "font-awesome-rails"
 gem 'acts_as_follower'
 gem 'factory_girl_rails'
 gem 'rspec-collection_matchers'
+gem "ladda-rails", :git => "git://github.com/Promptus/ladda-rails.git"
+gem 'jquery-countdown-rails'
+gem 'backstretch-rails'
+gem 'angular-ui-bootstrap-rails'
 
 gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"

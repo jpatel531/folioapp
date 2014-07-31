@@ -20,6 +20,14 @@
 //= require medium-editor
 //= require angular-medium-editor
 //= require angular-sanitize
-//= require ui-bootstrap.min
 //= require bootstrap-sprockets
+//= require angular-ui-bootstrap-tpls
+//= require jquery.backstretch
+//= require jquery.countdown
+//= require bootstrapValidator.min
+//= require spin
+//= require ladda
+//= require wow.min
+//= require retina.min
 //= require_tree .
+//= require init
