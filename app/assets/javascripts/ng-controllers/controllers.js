@@ -1,11 +1,11 @@
 var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
 
-app.controller('FfolioCtrl', ['$scope', '$http', function($scope, $http) {
+// app.controller('FfolioCtrl', ['$scope', '$http', function($scope, $http) {
   
-  $http.get('/users.json').success(function(data){
-    $scope.users = data;
-    // console.log(data);
-  })
+//   $http.get('/users.json').success(function(data){
+//     $scope.users = data;
+//     // console.log(data);
+//   })
 
 
 
