@@ -44,7 +44,7 @@
 			<!-- </div> end of .profile-info -->
 
 		<div class="col-md-6 right-hand-side">
-			<div class="col-md-2"></div>
+			<div class="col-md-1"></div>
 			<div class="profile-preview summary-column col-md-8">
 				<div class="work-preview-header row">
 					<h3 class="col-md-12 text-center" id="selections">Selections of Laurie's Work</h3>
@@ -52,7 +52,7 @@
 
 				<div class="work-wrapper row" ng-repeat="work in user.workSelection">
 						
-					<div class="work-preview-info col-md-9" ng-class="{ 'story': profile.selection == storyPreview }">
+					<div class="work-preview-info col-md-8" ng-class="{ 'story': profile.selection == storyPreview }">
 						<div id="info">
 							<h1 class="preview-title">
 								<a href="/users/{{user.id}}/collections/{{work.collectionId}}/#/{{work.indexInCollection}}">{{work.title}}</a>
