@@ -1,43 +1,83 @@
-<div>
 
-<%= form_for @new_work, html: {multipart: true} , url: user_collection_works_path do |f| %>
+<div class="container">
+		<%= form_for @new_work, html: {multipart: true}, url: user_collection_works_path do |f| %>
+	<div class="row">
+	
+		<div class="col-md-2" ng-hide="details"></div>
+			<div class="input-wrapper col-md-8">
+			 	<div class="field-wrapper col-md-12">
+						<div class="file-field">
+							<!-- <div class="col-md-12"> -->
+								<%= f.label :image, 'Thumbnail', class: 'thumbnail-label' %>
+								<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}%>
+									<img ng-show="imageSrc" ng-src="{{imageSrc}}" />
+							<!-- </div> -->
+						</div>
+					</div>
+			</div>
+		<div class="col-md-2"></div>
 
-
-
-	<%= f.label :image %>
-	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"} %>
-
-
-   <img ng-src="{{imageSrc}}" />
-
-
-
-
-	<a href="#" class="add-details" ng-init="details = false" ng-click="details = !details">Add Details</a>
-
-
-
-	<div ng-show="details">
-
-
-	<%= f.label :title %>
-	<%= f.text_field :title, required: true %>
-
-	<%= f.label :medium_names, 'Media' %>
-	<%= f.text_field :medium_names, value: '' %>
-
-	<%= f.label :genre_names, 'Genres' %>
-	<%= f.text_field :genre_names, value: '' %>
-
-	<%= f.label :caption %>
-	<%= f.text_field :caption %>
-
-	<%= f.submit 'Publish' %>
-
-
+		</div>
 	</div>
+	
+	<div class="submit-details col-md-4">
+		
+
+			<div id="test" style="visibility: hidden; text-indent: -9999px;">
+
+			<%= f.label :text %>
+			<%= f.text_field :text, id: 'texteditor', data: { :'ng-model' => 'text'} %>
+			</div>
+
+			<div class="submit-ready pull-right col-md-2" ng-init="details = false" ng-click="details = !details">
+				<a href="#" class="add-details art-submit"><p>Add Details</p></a>
+			</div>
+
+
+			<div ng-show="details" class="form-wrapper col-md-12">
+
+				<div class="row">
+					<div class="col-md-12 title-field">
+						<%= f.text_area :title, required: true, placeholder: 'Title', class: 'col-md-12' %>
+					</div>
+				</div>
+
+				<div class="row">
+					
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 genre-field">
+
+						<%= f.text_area :medium_names, value: '', placeholder: 'Media', class: 'col-md-12' %>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-12 genre-field">
+
+						<%= f.text_area :genre_names, value: '', placeholder: 'Genre', class: 'col-md-12' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 description-field">
+
+						<%= f.text_area :caption, placeholder: 'Short Description', class: 'col-md-12' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 submit-button">
+						<%= f.submit 'Publish', class: 'form-submit' %>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
 
 
 <% end %>
-
-</div>

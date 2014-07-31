@@ -49,6 +49,10 @@ a.add-details::before {
 	color: black;
 }
 
+a.add-details.art-submit::before {
+	content: '\1F3A8';
+}
+
 div.submit-ready {
 	height: 50px;
 	width: 50px;
@@ -102,8 +106,8 @@ div.submit-details {
   position:relative;
 	border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:150px; 
-  height: 150px;
+  width:100px; 
+  height: 100px;
   /*padding: 4px 6px 4px 8px;*/
   font: normal 14px 'Lato' sans-serif;
   text-align: center;
@@ -121,13 +125,14 @@ div.submit-details {
   opacity:0; 
   border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:150px; 
-  height: 150px;
+  width:100px; 
+  height: 100px;
   z-index: 1;
 }
 
 label.thumbnail-label {
-	padding-top: 62px;
+	padding-top: 40px;
+	font-weight: 300px !important;
 }
 
 div.file-field img {
