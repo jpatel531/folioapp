@@ -1,0 +1,19 @@
+<div class="col-sm-4">
+	<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= submission.work.title %></h3>
+    </div>
+    <div class="panel-body text-center">
+    	<div class="image">
+				<%= image_tag submission.work.image.url, class: 'img-circle'%>
+			</div>
+			<div class="post-info">
+				<%= submission.work.caption %>
+				<% submission.work.genres.each do |genre| %>
+					<%= genre.name %>
+				<% end %>
+				By <%= submission.work.user.name %>
+			</div>
+		</div>
+	</div>
+</div>

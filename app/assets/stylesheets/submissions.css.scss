@@ -1,3 +1,26 @@
 // Place all the styles related to the submissions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.panel-body div.image img {
+	width: 250px;
+	height: 250px;
+	border: solid;
+	border-width: thin;
+	border-color: rgba(0,0,0,0.2);
+	margin: 0 auto;
+}
+
+h1.name.subs {
+	text-align: center;
+	margin-bottom: 3em;
+}
+
+div.panel-heading {
+	background: none !important;
+}
+
+div.panel-heading h3.panel-title {
+	font-family: 'Lato', sans-serif !important;
+	text-align: center;
+}

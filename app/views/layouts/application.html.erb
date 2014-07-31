@@ -15,7 +15,7 @@
 <p class="alert"><%= alert %></p>
 <% end %>
 
- <div class="logo-centered">
+ <div class="logo-centered" ng-click="blurred">
   	<button id="trigger-overlay" type="button"><img src="/assets/FfLogoBlack.png" class="logo-button">
   	</button>
  </div>
@@ -24,16 +24,22 @@
 	<button type="button" class="overlay-close">Close</button>
 	<nav>
 		<ul>
-			<li><a href="#">Profile</a></li>
+			<li><!-- <a href="#">Profile</a> -->
+			<%= link_to 'Profile', user_path(current_user.id) %>
+			</li>
 			<li><a href="#">Search</a></li>
 			<li><a href="#">Your Submissions</a></li>
-			<li><a href="#">Received Submissions</a></li>
+			<li>
+			<% if current_user.memberships.any? %>
+			<%= link_to 'Received Submissions', organisation_opportunity_submissions_path(current_user.organisations.first, current_user.organisations.first.opportunities.first) %></li>
+			<% end %>
 		</ul>
 	</nav>
 </div>
 
+<div>
 <%= yield %>
-
+</div>
 
 <% if user_signed_in? %>
 <input style="display: none" type="search" class="search" ng-model="search" placeholder="Search...">

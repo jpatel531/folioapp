@@ -5,12 +5,18 @@
 	width: 100%;
 }
 .logo-centered{
-	width: 100px;
-	margin: 20px auto 0 auto;
+	width: 60px;
+	/*margin: 20px auto 0 auto;*/
+	position: fixed;
+	/*top: 0;*/
+	right: -4px;
+	margin-top: -4px;
 }
 
 div.overlay.overlay-slidedown.open nav ul li a{
 	color: white !important;
+	font-family: Lato, sans-serif;
+	font-weight: 700;
 }
 
 div.overlay.overlay-slidedown.open {
@@ -24,7 +30,7 @@ div.overlay.overlay-slidedown.open {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(011,011,011,0.9);
+	background: rgba(011,011,011,0.8);
 }
 
 /* Overlay closing cross */
@@ -36,11 +42,12 @@ div.overlay.overlay-slidedown.open {
 	top: 20px;
 	overflow: hidden;
 	border: none;
-	background: url(../img/cross.png) no-repeat center center;
+	background: url(/assets/cross.png) no-repeat center center;
 	text-indent: 011%;
 	color: transparent;
 	outline: none;
-	z-index: 100;
+	z-index: 1000;
+	/*color: white;*/
 }
 
 /* Menu style */

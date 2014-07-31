@@ -1,6 +1,7 @@
 $(document).ready(function(){
-
 	(function() {
+
+
 	var triggerBttn = document.getElementById( 'trigger-overlay' ),
 		overlay = document.querySelector( 'div.overlay' ),
 		closeBttn = overlay.querySelector( 'button.overlay-close' );
@@ -15,6 +16,7 @@ $(document).ready(function(){
 		support = { transitions : Modernizr.csstransitions };
 
 	function toggleOverlay() {
+
 		if( classie.has( overlay, 'open' ) ) {
 			classie.remove( overlay, 'open' );
 			classie.add( overlay, 'close' );
