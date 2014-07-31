@@ -1,4 +1,11 @@
-				
+		<%- if devise_mapping.omniauthable? %>
+			<%- resource_class.omniauth_providers.each do |provider| %>
+				<%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-theme sign-in-#{provider}" do %>
+					<i class="fa fa-<%= provider %>"></i>
+				<% end %><br />
+		  <% end -%>
+		<% end -%>	
+
 		<!-- Preloader -->
 		<div id="preloader">
 			<div id="status" class="text-center">
@@ -134,9 +141,9 @@
 								<span style="color:white;" class="team-member-profession">Artistic Maker</span>
 								<p>Fusce pulvinar dui eu dignissim semper. Donec non tellus felis. Vivamus dapibus placerat.</p>
 								<div class="social">
-									<a href="#" class="btn btn-theme"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="btn btn-theme"><i class="fa fa-twitter"></i></a>
-									<a href="#‎" class="btn btn-theme"><i class="fa fa-google-plus"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-twitter"></i></a>
+									<a href="#‎" class="btn btn-theme social-btn"><i class="fa fa-google-plus"></i></a>
 								</div>
 							</div>
 						</div>
@@ -151,9 +158,9 @@
 								<span style="color:white;" class="text-muted team-member-profession">Algorithmic Maker</span>
 								<p>Sed posuere eu sem ac consectetur. Integer suscipit diam odio, in tincidunt dui aliquet eget.</p>
 								<div class="social">
-									<a href="#" class="btn btn-theme"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="btn btn-theme"><i class="fa fa-twitter"></i></a>
-									<a href="#‎" class="btn btn-theme"><i class="fa fa-google-plus"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-twitter"></i></a>
+									<a href="#‎" class="btn btn-theme social-btn"><i class="fa fa-google-plus"></i></a>
 								</div>
 							</div>
 						</div>
@@ -170,9 +177,9 @@
 									Donec sit amet justo eget dolor vehicula tincidunt eu ut est.
 								</p>
 								<div class="social">
-									<a href="#" class="btn btn-theme"><i class="fa fa-facebook"></i></a>
-									<a href="#" class="btn btn-theme"><i class="fa fa-twitter"></i></a>
-									<a href="#‎" class="btn btn-theme"><i class="fa fa-google-plus"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-facebook"></i></a>
+									<a href="#" class="btn btn-theme social-btn"><i class="fa fa-twitter"></i></a>
+									<a href="#‎" class="btn btn-theme social-btn"><i class="fa fa-google-plus"></i></a>
 								</div>
 							</div>
 						</div>
@@ -193,24 +200,6 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
-
-						<h2>Sign in</h2>
-
-						<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-						  <div><%= f.label :email %><br />
-						  <%= f.email_field :email, autofocus: true %></div>
-
-						  <div><%= f.label :password %><br />
-						    <%= f.password_field :password, autocomplete: "off" %></div>
-
-						  <% if devise_mapping.rememberable? -%>
-						    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-						  <% end -%>
-
-						  <div><%= f.submit "Sign in" %></div>
-						<% end %>
-						
-						<%= render "devise/shared/links" %>
 							
 					</div>
 
@@ -219,7 +208,8 @@
 					</div>
 
 					<div class="col-sm-4">
-	
+
+
 						
 
 					</div>
