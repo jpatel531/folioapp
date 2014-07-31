@@ -1,6 +1,4 @@
-var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize']);
-
-
+var app = angular.module('app', ['xeditable','angularFileUpload', 'angular-medium-editor', 'ngSanitize','ui.bootstrap']);
 
 
 app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($scope, $window, $http, $location, $upload, $rootScope, fileReader) {
@@ -192,12 +190,15 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     // getProfileProperties();
    } 
 
+<<<<<<< HEAD
 
   }]).controller('CollectionInstanceCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
     $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
 
+=======
+>>>>>>> 2871eb116367d1c8ccbac630e9364f405afbc716
    $scope.getFile = function () {
     $scope.progress = 0;
     fileReader.readAsDataUrl($scope.file, $scope)
@@ -206,7 +207,9 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                   });
 };
 
-
+    $scope.testing = function() {
+      alert('hi');
+    }
     $scope.onFileSelect = function($files, collectionId) {
       console.log('Hello')
       // console.log($files)
@@ -218,13 +221,15 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
           url: '/users/' + $scope.userId + '/collections/' + collectionId + '/',
           method: 'PUT',
           file: file
-        })
+        }).then(function(){
+            getProfileProperties();
+          })
       }
     // }
   }
 
 
-}]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
+  }]).controller('OrganisationNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
 
   $scope.getFile = function () {
