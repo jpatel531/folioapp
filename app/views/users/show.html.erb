@@ -55,7 +55,9 @@
 						
 					<div class="work-preview-info col-md-9" ng-class="{ 'story': profile.selection == storyPreview }">
 						<div id="info">
-							<h1 class="preview-title">{{work.title}}</h1>
+							<h1 class="preview-title">
+								<a href="/users/{{user.id}}/collections/{{work.collectionId}}/#/{{work.indexInCollection}}">{{work.title}}</a>
+							</h1>
 											from <a href="/users/{{user.id}}/collections/{{work.collectionId}}">{{work.collection}}</a>
 							<p class="short-description">{{work.caption}}</p>
 							<div class="additional-info">

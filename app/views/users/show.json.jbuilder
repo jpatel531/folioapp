@@ -12,6 +12,7 @@ if !@user.work_selection.nil?
 			json.id work.id
 			json.collection work.collection.title
 			json.collectionId work.collection.id
+			json.indexInCollection work.collection.works.index(work)
 			json.title work.title
 			json.format work.work_format
 			json.image work.image.url
