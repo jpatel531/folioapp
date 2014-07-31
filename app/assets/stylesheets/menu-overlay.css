@@ -1,53 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require xeditable
- *= require medium-editor
- *= require medium-flat.min
- *= require bootstrap
- *= require_tree .
- *= require_self
-
- */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
-
-.log-out {
-	position: fixed;
-	top: 0;
-	right: 0;
-}
-
-div.logo-centered {
-	position: fixed;
-	left: 50%;
-}
-
-.search {
-	position: fixed;
-	top: 0;
-	right: 15em;
-}
-
-.users {
-	background: #eee;
-}
-
-p {
-	font-family: 'Merriweather', serif;
-}
-
 .logo-button{
 	border: 0 !important;
 	-webkit-appearance: none;
@@ -57,6 +7,14 @@ p {
 .logo-centered{
 	width: 100px;
 	margin: 20px auto 0 auto;
+}
+
+div.overlay.overlay-slidedown.open nav ul li a{
+	color: white !important;
+}
+
+div.overlay.overlay-slidedown.open {
+	z-index: 10000;
 }
 
 /* Overlay style */
@@ -78,7 +36,7 @@ p {
 	top: 20px;
 	overflow: hidden;
 	border: none;
-	background: url(cross.png) no-repeat center center;
+	background: url(../img/cross.png) no-repeat center center;
 	text-indent: 011%;
 	color: transparent;
 	outline: none;
@@ -154,18 +112,3 @@ p {
 		min-height: 34px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

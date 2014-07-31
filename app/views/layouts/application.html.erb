@@ -15,6 +15,23 @@
 <p class="alert"><%= alert %></p>
 <% end %>
 
+ <div class="logo-centered">
+  	<button id="trigger-overlay" type="button"><img src="/assets/FfLogoBlack.png" class="logo-button">
+  	</button>
+ </div>
+
+<div class="overlay overlay-slidedown">
+	<button type="button" class="overlay-close">Close</button>
+	<nav>
+		<ul>
+			<li><a href="#">Profile</a></li>
+			<li><a href="#">Search</a></li>
+			<li><a href="#">Your Submissions</a></li>
+			<li><a href="#">Received Submissions</a></li>
+		</ul>
+	</nav>
+</div>
+
 <%= yield %>
 
 
