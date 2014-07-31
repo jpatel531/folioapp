@@ -40,7 +40,7 @@ div.profile-wrapper {
 div.body-wrapper {
 
 	/*height: 100%;*/
-	padding-top: 10%
+	/*padding-top: 10%*/
 }
 
 
@@ -79,9 +79,7 @@ button.toggle-edit p {
 /*------ LAYOUT  -------*/
 
 div.summary {
-	height: 100%;
-
-	/*background-size: cover;*/
+	height: 100vh;
 }
 
 .profile-info {
@@ -100,6 +98,14 @@ div.summary {
 .profile-preview {
 	height: 100%;
 	margin: 0 auto;
+}
+
+div.left-hand-side {
+	margin-top: 10%;
+}
+
+div.right-hand-side {
+	margin-top: 8%;
 }
 
 

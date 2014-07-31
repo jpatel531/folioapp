@@ -34,7 +34,7 @@ class OrganisationsController < ApplicationController
 			@organisation.update(image_params)
 		end
 
-		redirect_to user_path(id: current_user.id, editable: true)
+		render json: {success: 200}
 	end
 
 

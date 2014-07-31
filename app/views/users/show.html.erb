@@ -8,7 +8,7 @@
 	<% end %>
 
 	<div class="summary row" id="summary-section">
-		<div class="col-md-6">
+		<div class="col-md-6 left-hand-side">
 			<div class="col-md-3"></div>
 			<div class="profile-info summary-column col-md-3 col-md-offset-2">
 				<div class="info-wrapper row col-md-12">
@@ -44,7 +44,7 @@
 
 			<!-- </div> end of .profile-info -->
 
-		<div class="col-md-6">
+		<div class="col-md-6 right-hand-side">
 			<div class="col-md-2"></div>
 			<div class="profile-preview summary-column col-md-8">
 				<div class="work-preview-header row">
@@ -56,7 +56,7 @@
 					<div class="work-preview-info col-md-9" ng-class="{ 'story': profile.selection == storyPreview }">
 						<div id="info">
 							<h1 class="preview-title">{{work.title}}</h1>
-											from {{work.collection}}
+											from <a href="/users/{{user.id}}/collections/{{work.collectionId}}">{{work.collection}}</a>
 							<p class="short-description">{{work.caption}}</p>
 							<div class="additional-info">
 								<p class="recommendation-number" ng-class="{ 'story': profile.selection == storyPreview }">{{work.recommendations}}</p>

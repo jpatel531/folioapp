@@ -11,6 +11,7 @@ if !@user.work_selection.nil?
 	json.workSelection(@user.work_selection.works) do |work|
 			json.id work.id
 			json.collection work.collection.title
+			json.collectionId work.collection.id
 			json.title work.title
 			json.format work.work_format
 			json.image work.image.url
