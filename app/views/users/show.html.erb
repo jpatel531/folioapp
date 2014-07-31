@@ -4,9 +4,8 @@
 <!------------------ PROFILE COVER ------------------------------------>
 	<% if @user == current_user %>
 	<button ng-click="editable = !editable", class="toggle-edit"><p>Toggle Edit</p></button>
-	<div class="body-wrapper section">
 	<% end %>
-
+	<div class="body-wrapper section">
 	<div class="summary row" id="summary-section">
 		<div class="col-md-6 left-hand-side">
 			<div class="col-md-3"></div>
@@ -81,10 +80,11 @@
 		</div>
 	</div> <!-- end of .summary .row -->
 
-
+</div>
+</div>
 <!-- ---------------PORTFOLIO----------- -->
 
-	<div class="portfolio" id="work-section" ng-keydown="togglePortfolio($event)" tabindex="0">
+<div ng-controller="PortfolioSectionCtrl" class="portfolio" id="work-section" ng-keydown="togglePortfolio($event)" tabindex="0">
 
 		<div ng-include="url"></div>
 
