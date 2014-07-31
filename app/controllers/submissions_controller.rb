@@ -16,7 +16,9 @@ class SubmissionsController < ApplicationController
 		redirect_to "/organisations/#{@organisation.id}"
 	end
 
-
+	def index
+		@opportunity = Opportunity.find params[:opportunity_id]
+	end
 
 
 end

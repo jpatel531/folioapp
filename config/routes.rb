@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	
   resources :organisations do 
     resources :opportunities do
-      resource :submission
+      resources :submissions
     end
   end
 

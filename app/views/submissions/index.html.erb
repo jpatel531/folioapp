@@ -1,0 +1,4 @@
+<% @opportunity.submissions.each do |submission| %>
+	<%= submission.work.title %>
+	<%= submission.work.user.name %>
+<% end %>
