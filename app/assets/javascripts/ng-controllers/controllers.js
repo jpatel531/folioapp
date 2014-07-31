@@ -85,9 +85,28 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 }]).controller('CollectionShowCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
-  
-    // $scope.portfolioSelection = (/#\/(\d+)/.exec($location.absUrl())[1]) || 0;
 
+
+  var findPortfolioSelection = function(){
+    if ((/#\/(\d+)/.exec($location.absUrl())[1])) {
+      $scope.portfolioSelection = parseInt((/#\/(\d+)/.exec($location.absUrl())[1]), 10);
+      console.log($scope.portfolioSelection)
+    }else {
+      $scope.portfolioSelection = 0;
+    }
+  };
+
+  findPortfolioSelection();
+
+  $scope.changePath = function(number){
+    $location.path('/' + number)
+  };
+
+  $scope.changePath($scope.portfolioSelection)
+
+  $scope.$watch('portfolioSelection', function(){
+    $scope.changePath($scope.portfolioSelection)
+  })
 
   var returnCollectionById = function(){
     var collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);
@@ -111,7 +130,6 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     $http.put('/users/' + $scope.userId + '.json', data);
   };
 
-  $scope.portfolioSelection = 0;
 
   $scope.currentWork = function(){
     return $scope.collection.works[$scope.portfolioSelection];
@@ -146,15 +164,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   };
   
-  $scope.changePath = function(number){
-    $location.path('/' + number)
-  };
 
-  $scope.changePath($scope.portfolioSelection)
-
-  $scope.$watch('portfolioSelection', function(){
-    $scope.changePath($scope.portfolioSelection)
-  })
 
 
   
@@ -269,23 +279,6 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                           $scope.imageSrc = result;
                       });
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }]).controller('OpportunityNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
