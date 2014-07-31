@@ -14,6 +14,10 @@
  *= require medium-editor
  *= require medium-flat.min
  *= require bootstrap
+ *= require bootstrapValidator.min
+ *= require ladda-themeless.min
+ *= require animate.min
+ *= require app
  *= require_tree .
  *= require_self
  */
@@ -21,6 +25,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+body {
+	background: image-url('background/1.jpg')
+}
 
 .log-out {
 	position: fixed;
@@ -40,4 +48,46 @@
 
 p {
 	font-family: 'Merriweather', serif;
+}
+
+.sign-in-facebook {
+	position: fixed;
+	top: 40px;
+	right: 60px;
+	font-size: 40px;
+	z-index: 100;
+	i {
+		color: white;
+	}
+}
+
+.sign-in-facebook:hover i {
+	color: black;
+}
+
+
+.sign-in-twitter {
+	position: fixed;
+	top: 40px;
+	right: 120px;
+	font-size: 40px;
+	z-index: 100;
+	i {
+		color: white;
+	}
+}
+
+.sign-in-twitter:hover i {
+	color: black;
+}
+
+
+.social-btn {
+	i {
+		color: white;
+	}
+}
+
+.social-btn:hover i {
+	color: black;
 }
