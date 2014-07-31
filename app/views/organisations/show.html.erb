@@ -9,10 +9,10 @@
 
 	<div class="summary row" id="summary-section">
 		<div class="col-md-6 left-hand-side">
-			<div class="col-md-3"></div>
-			<div class="profile-info summary-column col-md-3 col-md-offset-2">
+			<div class="col-md-4"></div>
+			<div class="profile-info summary-column col-md-4 col-md-offset-1">
 				<div class="info-wrapper row col-md-12">
-					<div class="picture-options row">
+					<div class="picture-options row col-md-12">
 						<div class="change-profile-pic" ng-show="editable">
 							<%= form_for @organisation, html: {multipart: true} do |f| %>
 							<div class="file-field profile-image">
@@ -22,8 +22,8 @@
 							<%= f.submit class: 'image-submit' %>
 							<% end %>
 						</div>
-						<div class="pic-wrapper">
-							<% if current_user.avatar.present? %>
+						<div class="pic-wrapper" ng-hide="editable">
+							<% if @organisation.image.present? %>
 							<img class="profile-pic" ng-hide="imageSrc" id="profile-pic" ng-src="{{organisation.image}}">
 							<% end %>
 							<img ng-show="imageSrc" class="profile-pic" id="profile-pic" ng-src="{{imageSrc}}">
@@ -36,7 +36,7 @@
 						</p>
 					</div>	
 				</div>
-			<div class="col-md-3"></div>
+			<div class="col-md-4"></div>
 		</div>
 
 
@@ -59,7 +59,7 @@
 		
 							<p class="short-description">{{opp.description}}</p>
 							<div class="additional-info">
-								<p>Accepting{{opp.requirements}}</p>
+								<p>Accepting {{opp.requirements}}</p>
 								<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submissions/new">Submit To {{opp.title}}</a>
 								<br>
 								<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submissions">View Submissions for {{opp.title}}</a>
