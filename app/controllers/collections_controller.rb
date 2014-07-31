@@ -31,7 +31,7 @@ class CollectionsController < ApplicationController
 				@collection.update!(attr => params[attr])
 			end
 		end
-		raise 'Hello'
+		# raise 'Hello'
 		if params[:file]
 			@collection.update!(image: params[:file])
 		end

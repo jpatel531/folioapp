@@ -16,19 +16,23 @@
     </header>
     <!-- END NAVBAR -->
     <!-- MAIN CONTENT -->
-    <div ng-repeat="collection in user.collections" class="row collection-row {{collection.title}}">
+    <div ng-repeat="collection in user.collections" class="row collection-row {{collection.title}}" ng-controller="CollectionInstanceCtrl">
       <div class="collection-">
         <div class="col-xs-3 col-xs-offset-1">
-        	<h4 ng-click="testing()">Hi</h4>
- 
-      
+   
 
-  
+ 					<div class="file-field collection-image col-xs-12" ng-show="editable">
+        		<input type="file" accept="image/*" ng-file-select="onFileSelect($files, collection.id)" id="collection_image" name="collection[image]" >
 
-       <!--  		<img class="profile-pic editable-pic" id="profile-pic" ng-src="{{imageSrc}}"> -->
+        		
+	        	<img ng-show="editable" class="img-circle collection-preview editable-pic" ng-src="{{imageSrc || collection.image}}">
+  	       </div>
 
-          <img ng-show="collection.image" ng-src="{{collection.image}}" class="collection-preview img-circle">
 
+
+          <img ng-hide="imageSrc || editable" ng-src="{{collection.image}}" class="collection-preview img-circle">
+
+          <img ng-hide="editable || !imageSrc" ng-class="{'waiting-for-image': editable}" class="collection-preview img-circle" ng-src="{{imageSrc || collection.image}}">
 
 
         </div>
@@ -95,8 +99,8 @@
 
     <!-- END MAIN CONTENT -->
 
-        	<input type="file" accept="image/*" ng-file-select="onFileSelect($files)" id="collection_image" name="collection[image]" >
-    
+
+
   </div>
 
 

@@ -120,3 +120,18 @@ img.collection-preview, div.collection-samples img.thumb {
 	border-color: rgba(0,0,0,0.2);
 }
 
+img.collection-preview.waiting-for-image {
+  display: none;
+}
+
+img.collection-preview {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  
+}
+
+div.file-field.collection-image {
+  width: 200px;
+  height: 200px;
+}
