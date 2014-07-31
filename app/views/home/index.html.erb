@@ -16,3 +16,14 @@
 
 	<% end %>
 <% end %>
+
+<% if current_user.organisations.any? %>
+
+		<% current_user.organisations.each do |org| %>
+
+			<%= link_to org.name, organisation_path(org) %>
+			
+		<% end %>
+
+
+<% end %>
