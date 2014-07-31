@@ -39,11 +39,9 @@
 				<div class="row">
 					<div class="field-wrapper col-md-12">
 						<div class="file-field">
-							<!-- <div class="col-md-12"> -->
 								<%= f.label :image, 'Thumbnail', class: 'thumbnail-label' %>
 								<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}%>
 									<img ng-show="imageSrc" ng-src="{{imageSrc}}" />
-							<!-- </div> -->
 						</div>
 					</div>
 				</div>
@@ -65,7 +63,7 @@
 					</div>
 				</div>
 
-				<div class="row">
+				<div class="button-row row">
 					<div class="col-md-12 submit-button">
 						<%= f.submit 'Publish', class: 'form-submit' %>
 					</div>

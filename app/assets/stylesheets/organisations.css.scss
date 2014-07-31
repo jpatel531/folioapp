@@ -1,3 +1,33 @@
 // Place all the styles related to the organisations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.new-organisation textarea, div.new-organisation input, div.new-organisation label {
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+	margin-bottom: 1em;
+}
+
+div.new-organisation input.org-submit {
+	width: 20%;
+}
+
+div.new-organisation label {
+	text-align: center;
+}
+
+div.new-organisation {
+	margin-top: 5%;
+}
+
+div.new-organisation textarea, div.new-organisation input {
+	border: none;
+	color: black;
+	resize: none;
+}
+
+div.new-organisation textarea:focus, div.new-organisation input:focus {
+	outline: none;
+}
+

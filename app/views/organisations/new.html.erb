@@ -1,33 +1,65 @@
 
 
 
-<div ng-controller="OrganisationNewCtrl">
+<div class="new-organisation container" ng-controller="OrganisationNewCtrl">
 
-<%= form_for @organisation, html: {multipart: true} do |f| %>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="org-form-wrapper col-md-6">
+		<%= form_for @organisation, html: {multipart: true} do |f| %>
 
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+			<div class="field-wrapper col-md-12">
+				<div class="file-field organisation-image collection-image">
+					<%= f.label :image, 'Thumbnail', class: 'organisation-thumb-label' %>
+					<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}, class: 'organisation-file-field'%>
+					<img ng-show="imageSrc" ng-src="{{imageSrc}}" class="img-circle collection-preview" id="profile-pic" />
+				</div>
+			</div>
 
-	<%= f.label :description %>
-	<%= f.text_area :description %>
+			<div class="row">
+				<div class="col-md-12 title-field">
+				<%= f.text_area :name, placeholder: 'Name' %>
+				</div>
+			</div>
 
-	<%= f.label :network %>
-	<%= f.text_field :network %>
-
-	<%= f.label :organisation_type, 'Type of Organisation' %>
-	<%= f.text_field :organisation_type %>
-
-	<%= f.label :image %>
-	<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}  %>
-
-	<img ng-src="{{imageSrc}}" />
-
-	<%= f.label :creator_role, 'Your Role' %>
-	<%= f.text_field :creator_role %>
+			<div class="row">
+				<div class="col-md-12 description-field">
+			<%= f.text_area :description, placeholder: 'Describe your organisation' %>
+				</div>
+			</div>
 
 
-	<%= f.submit 'Submit' %>
+			<div class="row">
+				<div class="col-md-12 genre-field">
+			<%= f.text_field :network, placeholder: 'Network' %>
+				</div>	
+			</div>
 
-<% end %>
 
+			<div class="row">
+				<div class="col-md-12 genre-field">
+			<%= f.text_field :organisation_type, placeholder: 'Type of Organisation' %>
+				</div>
+			</div>
+
+
+
+			<div class="row">
+				<div class="col-md-12">
+			<%= f.text_field :creator_role, placeholder: 'What is your role?' %>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12">
+			<%= f.submit 'Submit', class: 'org-submit' %>
+				</div>
+			</div>
+
+		<% end %>
+
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>

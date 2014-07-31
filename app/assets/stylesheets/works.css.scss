@@ -204,7 +204,9 @@ div.form-wrapper textarea:focus {
 }
 
 div.button-row {
-	margin-top: 50% !important;
+	position: fixed;
+	bottom: 2em;
+	right: 17em;
 }
 
 div.form-wrapper input.form-submit {
@@ -249,10 +251,6 @@ img.profile-pic {
 	margin: 0 auto;
   position:relative;
 	border-radius: 0;
-  /*border:#ebebeb solid 1px;*/
-  /*width:100px; */
-  /*height: 100px;*/
-  /*padding: 4px 6px 4px 8px;*/
   font: normal 14px 'Lato' sans-serif;
   text-align: center;
   vertical-align: middle;
@@ -262,8 +260,6 @@ img.profile-pic {
 	width: 85%;
 	height: 50vh;
 	margin-top: 20%;
-	/*height: 75%;*/
-	/*border-radius: 6px;*/
 	border: none !important;
 }
 
@@ -279,12 +275,8 @@ label.call-to-drag {
   top:0; 
   left:0;
   opacity:0; 
-  /*border-radius: 100%;*/
-  /*border:#ebebeb solid 1px;*/
-  /*width:100px; */
 	width: 85%;
 	height: 50vh;
-  /*height: 100px;*/
   z-index: 1;
 }
 
