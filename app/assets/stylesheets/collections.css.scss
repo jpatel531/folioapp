@@ -8,6 +8,7 @@
   max-width: 970px !important;
 }
 
+
 body, a{
   color: black !important;
 }
@@ -143,6 +144,10 @@ div.work-container {
   width: 75%;
   margin: 0 auto;
   margin-top: 5%;
+}
+
+div.collection-display:focus {
+  outline: none;
 }
 
 

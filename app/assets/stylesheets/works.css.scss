@@ -90,6 +90,7 @@ div.submit-details {
 	position: fixed;
 	right: 0;
 	top: 0;
+	max-height: 100vh;
 	/*width: 100%;*/
 }
 
@@ -165,8 +166,14 @@ div.title-field textarea::-webkit-input-placeholder, div.title-field textarea {
 }
 
 
-div.genre-field input::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
+div.genre-field textarea::-webkit-input-placeholder, div.description-field textarea::-webkit-input-placeholder, div.genre-field textarea, div.description-field textarea {
 	font-family: Merriweather, serif;
+	color: black !important;
+	opacity: 1;
+}
+
+div.description-field textarea {
+	overflow: hidden;
 }
 
 div.form-wrapper div.row {
@@ -196,17 +203,30 @@ div.form-wrapper textarea:focus {
 	border: none;
 }
 
-div.form-wrapper div.submit-button {
-	margin: 0 auto;
-	text-align: center;
-
+div.button-row {
+	margin-top: 50% !important;
 }
 
 div.form-wrapper input.form-submit {
+	/*margin-top: 50%;*/
 	margin: 0 auto;
+	/*text-align: center;*/
+	background: none;
 	border: 1px solid rgba(0,0,0,0.4);
-	/*background-color: salmon;*/
-	/*padding: 1em 1em 1em 1em;*/
+	border-radius: 50px;
+	font-size: 15px;
+	color: rgba(0,0,0,0.4);
+	width: 60px;
+	height: 25px;
+	vertical-align: center;
+	cursor: pointer;
+	outline: none;
+}
+
+div.form-wrapper input.form-submit:hover {
+	color: black;
+	border: 1px solid black;
+
 }
 
 /*div.form-wrapper input.form-submit::hover, input.form-submit.btn.btn-default {
@@ -221,7 +241,57 @@ img.profile-pic {
 }
 
 
+/*----UPLOADING IMAGES -----*/
 
+.image-field.file-field{
+	display: inline-block;
+	float: none;
+	margin: 0 auto;
+  position:relative;
+	border-radius: 0;
+  /*border:#ebebeb solid 1px;*/
+  /*width:100px; */
+  /*height: 100px;*/
+  /*padding: 4px 6px 4px 8px;*/
+  font: normal 14px 'Lato' sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  color: #7f7f7f;
+  margin-top: 2px;
+	background: transparent;
+	width: 85%;
+	height: 50vh;
+	margin-top: 20%;
+	/*height: 75%;*/
+	/*border-radius: 6px;*/
+	border: none !important;
+}
+
+label.call-to-drag {
+	margin-top: 35%;
+	font-size: 50px;
+	color: black;
+}
+
+.image-field.file-field input[type="file"]{
+  -webkit-appearance:none; 
+  position:absolute;
+  top:0; 
+  left:0;
+  opacity:0; 
+  /*border-radius: 100%;*/
+  /*border:#ebebeb solid 1px;*/
+  /*width:100px; */
+	width: 85%;
+	height: 50vh;
+  /*height: 100px;*/
+  z-index: 1;
+}
+
+img.upload-preview {
+	width: 100%;
+	box-shadow: 0px 0px 5px #888888;
+}
 
 
 

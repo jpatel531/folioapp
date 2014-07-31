@@ -28,7 +28,12 @@ class Work < ActiveRecord::Base
 	end
 
 	def work_format
-		text.blank? ? "image" : "text"
+		# (text.blank? || text.include? "Write here...") ? "image" : "text"
+		if text.blank? || text == "Write here..."
+			"image"
+		else
+			"text"
+		end
 	end
 
 	def medium_names
