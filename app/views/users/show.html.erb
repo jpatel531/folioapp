@@ -7,77 +7,76 @@
 	<div class="body-wrapper section">
 	<% end %>
 
-
-
-		<div class="summary row" id="summary-section">
-	
-			<div class="profile-info summary-column col-md-6">
-				<div class="info-wrapper">
-
-					<div class="change-profile-pic" ng-show="editable">
+	<div class="summary row" id="summary-section">
+		<div class="col-md-6">
+			<div class="col-md-3"></div>
+			<div class="profile-info summary-column col-md-3 col-md-offset-2">
+				<div class="info-wrapper row col-md-12">
+					<div class="picture-options row">
+						<div class="change-profile-pic" ng-show="editable">
 							<%= form_for @user, html: {multipart: true} do |f| %>
-
-									<div class="file-field profile-image">
-										<%= f.file_field :avatar, data: {:"ng-file-select" => "onFileSelect($files)"} %>
-										<img ng-show="editable" class="profile-pic editable-pic" id="profile-pic" ng-src="{{imageSrc || user.userImage}}">
-									</div>
-
-
-								<%= f.submit class: 'image-submit' %>
-
-								<% end %>
-					</div>
-					<div class="pic-wrapper">
-
+							<div class="file-field profile-image">
+								<%= f.file_field :avatar, data: {:"ng-file-select" => "onFileSelect($files)"} %>
+								<img ng-show="editable" class="profile-pic editable-pic" id="profile-pic" ng-src="{{imageSrc || user.userImage}}">
+							</div>
+							<%= f.submit class: 'image-submit' %>
+							<% end %>
+						</div>
+						<div class="pic-wrapper">
 							<% if current_user.avatar.present? %>
 							<img class="profile-pic" ng-hide="imageSrc" id="profile-pic" ng-src="{{user.userImage}}">
-						<% end %>
+							<% end %>
 							<img ng-show="imageSrc" class="profile-pic" id="profile-pic" ng-src="{{imageSrc}}">
 						</div>
-
 					</div>
-				
-					<div class="text-inputs text-center"><%= render "information" %></div>
-					<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}</p>
-				</div>	
-		
-			</div> <!-- end of .profile-info -->
+					<div class="text-inputs row text-center">
+						<%= render "information" %>
+					</div>
+						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}
+						</p>
+					</div>	
+				</div>
+			<div class="col-md-3"></div>
+		</div>
 
 
-			<div class="profile-preview summary-column col-md-6">
+<!-- </div> -->
 
+			<!-- </div> end of .profile-info -->
 
-						<div class="work-preview-header row">
-							<h3 class="col-md-12" id="selections">Selections of Laurie's Work</h3>
-						</div>
+		<div class="col-md-6">
+			<div class="col-md-2"></div>
+			<div class="profile-preview summary-column col-md-8">
+				<div class="work-preview-header row">
+					<h3 class="col-md-12 text-center" id="selections">Selections of Laurie's Work</h3>
+				</div>
 
-						<div class="work-wrapper row" ng-repeat="work in user.workSelection">
-					
-							<div class="work-preview-info col-md-6" ng-class="{ 'story': profile.selection == storyPreview }">
-								<div id="info">
-										<h1 class="preview-title">{{work.title}}</h1>
-										from {{work.collection}}
-										<p class="short-description">{{work.caption}}</p>
-										<div class="additional-info">
-											<p class="recommendation-number" ng-class="{ 'story': profile.selection == storyPreview }">{{work.recommendations}}</p>
-											<p ng-class="{ 'cool-information' : work.commissionedOrFeatured, 'anthology' : work.anthology, 'single-author' : work.singleAuthor}">{{work.additionalInformation}}</p>
-										</div>
-								</div>
+				<div class="work-wrapper row" ng-repeat="work in user.workSelection">
+						
+					<div class="work-preview-info col-md-9" ng-class="{ 'story': profile.selection == storyPreview }">
+						<div id="info">
+							<h1 class="preview-title">{{work.title}}</h1>
+											from {{work.collection}}
+							<p class="short-description">{{work.caption}}</p>
+							<div class="additional-info">
+								<p class="recommendation-number" ng-class="{ 'story': profile.selection == storyPreview }">{{work.recommendations}}</p>
+								<p ng-class="{ 'cool-information' : work.commissionedOrFeatured, 'anthology' : work.anthology, 'single-author' : work.singleAuthor}">{{work.additionalInformation}}</p>
 							</div>
-
-							<div class="col-md-6">	
-								<div class="preview-pic pic-wrapper">
-									<img class="selection" id="profile-pic" ng-src="{{work.image}}">
-								</div>
-
-							  <div class="hr-wrapper"><hr id="after-work" ng-show="!$last"></div>
-							</div>	
-
+						</div>
 					</div>
-		
 
-		</div>	<!-- end of .profile-preview and col-md-6 -->
+					<div class="col-md-3">	
+						<div class="preview-pic pic-wrapper">
+							<img class="selection" id="profile-pic" ng-src="{{work.image}}">
+						</div>
+						<div class="hr-wrapper"><hr id="after-work" ng-show="!$last">
+						</div>
+					</div>	
 
+				</div>
+			</div>	<!-- end of .profile-preview and col-md-6 -->
+			<div class="col-md-2"></div>
+		</div>
 	</div> <!-- end of .summary .row -->
 
 

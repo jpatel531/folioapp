@@ -86,6 +86,7 @@ div.summary {
 
 .profile-info {
 	height: 100%;
+	margin: 0 auto;
 }
 
 .profile-options {
@@ -98,7 +99,7 @@ div.summary {
 
 .profile-preview {
 	height: 100%;
-
+	margin: 0 auto;
 }
 
 
@@ -107,7 +108,7 @@ div.summary {
 
 div.info-wrapper {
 	height: 325px;
-	margin-top: -4.5%;
+	/*margin-top: -4.5%;*/
 }
 
 div.preview-wrapper {
@@ -118,6 +119,7 @@ div.preview-wrapper {
 /*PROFILE PIC*/
 
 div.pic-wrapper {
+	margin: 0 auto;
 	border-radius: 50%;
 	width: 150px;
 	height: 0;
@@ -127,7 +129,6 @@ div.pic-wrapper {
 	border-color: rgba(0,0,0,0.2);
 	overflow: hidden;
 	position: relative;
-	left: 37%;
 }
 
 img#profile-pic {
@@ -146,6 +147,8 @@ div.info-wrapper p {
 
 h1.name {
 	font-size: 20px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
 	margin: 8px 0;
 }
 

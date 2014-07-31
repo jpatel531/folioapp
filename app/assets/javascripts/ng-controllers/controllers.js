@@ -35,7 +35,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false
 
-    $scope.getFile = function () {
+  $scope.getFile = function () {
         $scope.progress = 0;
         fileReader.readAsDataUrl($scope.file, $scope)
                       .then(function(result) {
@@ -219,7 +219,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
  
 
 
-}]).controller('OrganisationShowCtrl', ['$scope', '$window', '$http', '$location', '$upload','$rootScope', function($scope, $window, $http, $location, $upload, $rootScope) {
+}]).controller('OrganisationShowCtrl', ['$scope', '$window', '$http', '$location', '$upload', 'fileReader', '$rootScope', function($scope, $window, $http, $location, $upload, fileReader, $rootScope) {
 
 
   $scope.id = (/organisations\/(\d+)/.exec($location.absUrl())[1]);
@@ -228,7 +228,6 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
   var getOrganisationProperties = function(){
     $http.get('/organisations/' + $scope.id + '.json').success(function(data){
       $scope.organisation = data
-      console.log($scope.organisation)
      });
     };
 
@@ -247,7 +246,6 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
   $scope.onFileSelect = function($files) {
     console.log('yo')
-    var currentImage = $scope.user.userImage
     if ($scope.editable) {
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
@@ -261,6 +259,34 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
       }
     }
   }
+
+
+
+  $scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }]).controller('OpportunityNewCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
