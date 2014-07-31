@@ -88,8 +88,9 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
 
 
   var findPortfolioSelection = function(){
-    if ((/#\/(\d+)/.exec($location.absUrl())[1])) {
-      $scope.portfolioSelection = parseInt((/#\/(\d+)/.exec($location.absUrl())[1]), 10);
+    var workIndex;
+    if (workIndex = (/#\/(\d+)/.exec($location.absUrl()))) {
+      $scope.portfolioSelection = parseInt(workIndex[1], 10);
       console.log($scope.portfolioSelection)
     }else {
       $scope.portfolioSelection = 0;
