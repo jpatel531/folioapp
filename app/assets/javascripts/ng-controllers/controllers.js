@@ -321,4 +321,4 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
  
 
 
-}])
+}]);
