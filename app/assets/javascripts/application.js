@@ -28,6 +28,6 @@
 //= require jquery.countdown
 //= require spin
 //= require ladda
-//= require_tree .
 //= require angular-ui-bootstrap-tpls
 //= require init
+//= require_tree .
