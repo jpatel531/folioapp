@@ -1,5 +1,8 @@
 class SubmissionsController < ApplicationController
 
+	before_action :authenticate_user!
+	before_action :verify_organisation, only: [:create, :index]
+
 	def new
 		@opportunity = Opportunity.find params[:opportunity_id]
 		@submission = @opportunity.submissions.new
@@ -18,7 +21,14 @@ class SubmissionsController < ApplicationController
 
 	def index
 		@opportunity = Opportunity.find params[:opportunity_id]
+		@submissions = @opportunity.submissions
 	end
 
+	private
+
+	def verify_organisation
+		@organisation = Organisation.find params[:organisation_id]
+		redirect_to organisation_path(@organisation) if !@organisation.users.include? current_user
+	end
 
 end

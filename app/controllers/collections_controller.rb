@@ -20,7 +20,11 @@ class CollectionsController < ApplicationController
 
 	def create
 		@user = User.find params[:user_id]
-		@collection = @user.collections.create collection_params
+		if params[:createNewCollection]
+			@user.collections.create! title: "New Collection", description: "Enter your collection description here"
+		# else 
+			# @collection = @user.collections.create collection_params
+		end
 		render "index"
 	end
 
@@ -37,7 +41,12 @@ class CollectionsController < ApplicationController
 		end
 
 		render json: {success: 200}
+	end
 
+	def destroy
+		@collection = Collection.find params[:id]
+		@collection.destroy!
+		render json: {success: 200}
 	end
 
 	private

@@ -87,6 +87,8 @@
 							<a href="/users/{{user.id}}/collections/{{collection.id}}/works/new?upload_type=writing">Add Writing</a>
 							<br>
 							<a href="#" ng-init="editable = false" ng-click="editable = !editable", class="toggle-edit-collection">Edit Collection</a>
+              <br>
+              <a href="#" ng-click="deleteCollection(collection.id)">Delete Collection</a>
 						</div>
 	        </div>
 	       <% end %>
@@ -96,7 +98,7 @@
 
 
     <% if @user == current_user %>
-			<a href="/users/{{userId}}/collections/new">Add A New Collection</a>
+			<a href="#" ng-click="createCollection()">Add A New Collection</a>
 		<% end %>
 
     <!-- END MAIN CONTENT -->

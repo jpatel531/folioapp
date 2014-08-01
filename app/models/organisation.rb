@@ -30,6 +30,8 @@ class Organisation < ActiveRecord::Base
 	def creator_role
 	end
 
+
+
 	private
 	
 	def set_role_name
