@@ -42,35 +42,47 @@
 			<div ng-show="details" class="form-wrapper collection-work-information col-md-12">
 
 				<div class="row">
-					<div class="col-md-12 title-field">
+					<div class="col-md-12 title-field co-wo-title">
 						{{currentWork().title}}
 					</div>
 				</div>
 				
 				<br>
 
-		<li ng-repeat="medium in currentWork().media">{{medium}}</li>
-		
-
 				<div class="row">
-					<div class="col-md-12 genre-field">
-
-						<li ng-repeat="genre in currentWork().genres">{{genre}}</li>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-md-12 description-field">
+					<div class="col-md-12 description-field work-caption">
 						{{currentWork().caption}}
 					
 					</div>
 				</div>
 
-				<% if @user == current_user %>
-				<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
-				<% end %>
+
+
+				<div class="row">
+					<div class="col-md-12 genre-field wo-co-info">
+
+						<li>Genres: <p ng-repeat="genre in currentWork().genres">{{genre + ', '}}</p></li>
+					</div>
+				</div>
+				<br>
+				<div class="row" ng-show="currentWork().media">
+					<div class="col-md-12 genre-field wo-co-info">
+
+						<li>Media: <p ng-repeat="medium in currentWork().media">{{medium + ', '}}</p></li>
+					</div>
+				</div>
 				
+
+
+			<% if @user == current_user %>
+			<div class="row">
+				<div class="select-work-container">
+					Show on profile cover?
+				<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">
+				<% end %>
+				</div>
 			</div>
+		</div>
 
 		</div>		
 

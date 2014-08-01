@@ -325,9 +325,37 @@ div.collection-work-information div.title-field {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   font-size: 22px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
+div.collection-work-information li, div.collection-work-information li p  {
+  list-style: none;
+  font-family: 'Vollkorn', serif;
+  font-style: italic;
+  font-size: 14px;
 
+}
 
+div.collection-work-information li p {
+  display: inline;
+
+}
+
+div.work-caption {
+  margin-bottom: 3em;
+}
+
+div.co-wo-title {
+  margin-bottom: 3em;
+}
+
+div.wo-co-info {
+  margin-bottom: 3em;
+}
+
+div.select-work-container {
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
+  margin-top: 2em;
+}
 
