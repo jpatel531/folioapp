@@ -1,10 +1,10 @@
-@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700,900'); 
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
 
 /* ---------------------------------------------------------
  *	General
  *  --------------------------------------------------------- */
- 
+
 ::selection {
 	color: #fff;
 	background: #666;
@@ -95,18 +95,18 @@ a:after {
 
 /*
  *	Container
- *  --------------------------------------------------------- */ 
- 
+ *  --------------------------------------------------------- */
+
 @media (min-width: 1200px) {
 	.container {
 		width: 1000px;
-	} 
+	}
 }
- 
+
 /*
  *	Buttons
  *  --------------------------------------------------------- */
- 
+
 .btn {
 	display: inline-block;
 	padding: 10px 20px;
@@ -203,7 +203,7 @@ form.signup button.btn {
 /* ---------------------------------------------------------
  *	Preloader
  * --------------------------------------------------------- */
- 
+
 #preloader {
 	position: fixed;
 	top: 0;
@@ -238,7 +238,7 @@ form.signup button.btn {
   height: 100%;
   width: 6px;
   display: inline-block;
-  
+
   -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
   animation: stretchdelay 1.2s infinite ease-in-out;
 }
@@ -264,15 +264,15 @@ form.signup button.btn {
 }
 
 @-webkit-keyframes stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
   20% { -webkit-transform: scaleY(1.0) }
 }
 
 @keyframes stretchdelay {
-  0%, 40%, 100% { 
+  0%, 40%, 100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
-  }  20% { 
+  }  20% {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
@@ -321,7 +321,7 @@ form.signup button.btn {
 	.countdown-section{
 		padding: 0.3em 0.7em;
 	}
-	
+
 	.countdown-section b {
 		font-size: 1em;
 	}
@@ -333,7 +333,7 @@ form.signup button.btn {
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
- 
+
 	.countdown-section {
 		display: inline-block;
 		padding: 0.5em 0.7em;
@@ -373,7 +373,7 @@ form.signup button.btn {
 /* ---------------------------------------------------------
  *	Layout
  * --------------------------------------------------------- */
- 
+
 .page {
 	padding: 20px 0;
 }
@@ -397,7 +397,7 @@ form.signup button.btn {
 		height: 100%;
 		padding: 40px 0;
 	}
-	
+
 	.wrapper {
 		display: table-cell;
 		vertical-align: middle;
@@ -405,8 +405,8 @@ form.signup button.btn {
 		padding: 0;
 	}
 }
- 
- 
+
+
 /* ---------------------------------------------------------
  *	Body
  * --------------------------------------------------------- */
@@ -418,7 +418,7 @@ form.signup button.btn {
 	position: relative;
 	z-index: 2000;
 	text-align: center;
-} 
+}
 
 
 /* Small devices (tablets, 768px and up) */
@@ -428,18 +428,18 @@ form.signup button.btn {
 		max-height: 100%;
 	}
 }
- 
- 
- 
-/* 
+
+
+
+/*
  * Sections
  * --------------------------------------------------------- */
- 
+
 .section{
 	z-index: 2000;
-	padding: 70px 0;
-} 
- 
+	padding: 0px 0;
+}
+
 .section-title {
 	margin: 0 0 20px;
 	text-align: center;
@@ -453,7 +453,7 @@ form.signup button.btn {
 	border-radius: 3px;
 }
 
- 
+
 /* Home */
 
 .heading {
@@ -572,7 +572,7 @@ form.signup button.btn {
 	font-size: 35px;
 	padding: 10px;
 	color: #fff;
-	
+
 	-webkit-animation: arrowBounce 2.5s infinite;
 	-moz-animation: arrowBounce 2.5s infinite;
 	-ms-animation: arrowBounce 2.5s infinite;
@@ -593,7 +593,7 @@ form.signup button.btn {
 	#signupForm  .form-group {
 		vertical-align: top;
 	}
-	
+
 	.arrow-down{
 		display: block;
 	}
@@ -678,12 +678,12 @@ form.signup button.btn {
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
 	.feature-box-container{
 		margin: 0;
 	}
 }
- 
+
 /* Team */
 
 .team-member-container{
@@ -737,21 +737,21 @@ form.signup button.btn {
 .team-member p {
 	padding: 0 15px;
 }
- 
- 
+
+
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
 	.team-member-container{
 		margin: 0;
 	}
 }
- 
-/* Contact */ 
- 
+
+/* Contact */
+
 #contact{
 	background: #2d2e2e;
-} 
- 
+}
+
 .list-contacts {
 	list-style: none;
 	padding-left: 0;
@@ -791,7 +791,7 @@ form.signup button.btn {
  *	Footer
  * --------------------------------------------------------- */
 
-footer .pull-left, 
+footer .pull-left,
 footer .pull-right {
 	text-align: center;
 	float: none !important;
@@ -808,7 +808,7 @@ p.copyright {
 	font-size: 14px;
 }
 
-/* 
+/*
  * Social icons
  * --------------------------------------------------------- */
 
@@ -826,7 +826,7 @@ p.copyright {
 	height: 30px;
 	display: inline-block;
 	line-height: 28px;
-}	
+}
 
 
 /* Small devices (tablets, 768px and up) */
