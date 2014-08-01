@@ -12,6 +12,8 @@ class Collection < ActiveRecord::Base
   									 }
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  after_update :set_collection_cover
+
 
 
 end

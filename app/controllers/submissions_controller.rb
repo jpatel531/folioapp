@@ -22,6 +22,7 @@ class SubmissionsController < ApplicationController
 	def index
 		@opportunity = Opportunity.find params[:opportunity_id]
 		@submissions = @opportunity.submissions
+		@organisation = Organisation.find params[:organisation_id]
 	end
 
 	private

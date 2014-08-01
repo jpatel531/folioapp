@@ -53,6 +53,10 @@ a.add-details.art-submit::before {
 	content: '\1F3A8';
 }
 
+a.add-details.show-details::before {
+	content: '\1F4D5';
+}
+
 div.submit-ready {
 	height: 50px;
 	width: 50px;
@@ -88,8 +92,8 @@ div.form-wrapper {
 
 div.submit-details {
 	position: fixed;
-	right: 0;
-	top: 0;
+	right: -0.5em;
+	top: 3em;
 	max-height: 100vh;
 	/*width: 100%;*/
 }

@@ -93,6 +93,8 @@ button.add-details {
 	font-weight: 300;
 }
 
+
+
 span.glyphicon-edit {
 	font-size: 20px;
 	/*font-weight: 100;*/
@@ -135,16 +137,18 @@ div.file-field.collection-image {
 /*----COLLECTIONS SHOW---*/
 
 div.work-container {
-  margin-top: 50%;
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 25%;
 }
 
 div.collection-display:focus {
   outline: none;
 }
 
+div.collection-display {
+  width: 100vw;
+}
 
 
 /*---VISUAL PIECES--*/
@@ -157,6 +161,7 @@ img.select, img.small {
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 6px;
   margin: 0 auto;
+  box-shadow: 0px 0px 5px #888888;
 }
 
 
@@ -262,6 +267,10 @@ ul li:last-child::after {
 
 /*---TEXT-PIECES----*/
 
+
+
+
+
 div.text-work {
   position: absolute;
   left: 0;
@@ -311,4 +320,42 @@ div.first p.work-paragraph::first-line {
 }
 
 /*SHOWING DETAILS*/
+
+div.collection-work-information div.title-field {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  /*text-align: center;*/
+}
+
+div.collection-work-information li, div.collection-work-information li p  {
+  list-style: none;
+  font-family: 'Vollkorn', serif;
+  font-style: italic;
+  font-size: 14px;
+
+}
+
+div.collection-work-information li p {
+  display: inline;
+
+}
+
+div.work-caption {
+  margin-bottom: 3em;
+}
+
+div.co-wo-title {
+  margin-bottom: 3em;
+}
+
+div.wo-co-info {
+  margin-bottom: 3em;
+}
+
+div.select-work-container {
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
+  margin-top: 2em;
+}
 
