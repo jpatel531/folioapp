@@ -15,10 +15,12 @@
 <p class="alert"><%= alert %></p>
 <% end %>
 
+<% if user_signed_in? %>
  <div class="logo-centered" ng-click="blurred">
   	<button id="trigger-overlay" type="button"><img src="/assets/FfLogoBlack.png" class="logo-button">
   	</button>
  </div>
+<% end %>
 
 <% if user_signed_in? %>
 <div class="overlay overlay-slidedown">
