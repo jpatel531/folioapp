@@ -9,8 +9,8 @@
 		<%= form_for @organisation, html: {multipart: true} do |f| %>
 
 			<div class="field-wrapper col-md-12">
-				<div class="file-field profile-image">
-					<%= f.label :image, 'Thumbnail', class: 'organisation-thumb-label' %>
+				<div class="file-field profile-image org-image">
+					<%= f.label :image, 'Drag Thumbnail Here', class: 'organisation-thumb-label' %>
 					<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}, class: 'organisation-file-field'%>
 					<img ng-show="imageSrc" ng-src="{{imageSrc}}" class="img-circle collection-preview" id="profile-pic" />
 				</div>
@@ -22,38 +22,38 @@
 				</div>
 			</div>
 
+
 			<div class="row">
-				<div class="col-md-12 description-field">
+				<div class="col-md-12 network-field">
+			<%= f.text_area :network, placeholder: 'Network' %>
+				</div>	
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 description-field org-desc-field">
 			<%= f.text_area :description, placeholder: 'Describe your organisation' %>
 				</div>
 			</div>
 
 
 			<div class="row">
-				<div class="col-md-12">
-			<%= f.text_field :network, placeholder: 'Network' %>
-				</div>	
-			</div>
-
-
-			<div class="row">
-				<div class="col-md-12 genre-field">
-			<%= f.text_field :organisation_type, placeholder: 'Type of Organisation' %>
+				<div class="col-md-12 genre-field org-type-field">
+			<%= f.text_area :organisation_type, placeholder: 'Type of Organisation' %>
 				</div>
 			</div>
 
 
 
 			<div class="row">
-				<div class="col-md-12 genre-field">
-			<%= f.text_field :creator_role, placeholder: 'What is your role?' %>
+				<div class="col-md-12 genre-field role-field">
+			<%= f.text_area :creator_role, placeholder: 'What is your role?' %>
 				</div>
 			</div>
 
 
-			<div class="row">
+			<div class="row org-wrap-sub">
 				<div class="col-md-12">
-			<%= f.submit 'Submit', class: 'org-submit' %>
+			<%= f.submit 'Submit', class: 'form-submit org-submit' %>
 				</div>
 			</div>
 

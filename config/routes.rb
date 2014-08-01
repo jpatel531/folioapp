@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 		resources :collections do 
 			resources :works
 		end
+    resource :submissions_manager
 	end
 	
   resources :organisations do 

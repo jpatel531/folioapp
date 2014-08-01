@@ -13,7 +13,7 @@
 
   <hr>
 
-  <a class="short-bio" ng-show="editable" href="#" name="profile[bio]" editable-text="user.shortBio" onaftersave="updateProfile('short_bio', $data)"><p class="short-bio">{{user.description || "Description" }}</p></a>
+  <a class="short-bio" ng-show="editable" href="#" name="profile[bio]" editable-text="user.shortBio" onaftersave="updateProfile('short_bio', $data)"><p class="short-bio">{{organisation.description || "Description" }}</p></a>
   <p ng-hide="editable" class="short-bio">{{organisation.description || "Description" }}</p>
 
   <hr>
