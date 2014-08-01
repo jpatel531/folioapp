@@ -31,7 +31,7 @@
 					<div class="text-inputs row text-center">
 						<%= render "information" %>
 					</div>
-						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}
+						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of <a href="/organisations/{{membership.organisationId}}/">{{membership.organisation}}</a>
 						</p>
 					</div>	
 				</div>

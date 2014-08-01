@@ -26,6 +26,7 @@ if !@user.work_selection.nil?
 	end
 	json.memberships(@user.memberships) do |membership|
 		json.organisation membership.organisation.name
+		json.organisationId membership.organisation.id
 		json.organisationRole membership.role
 	end
 end

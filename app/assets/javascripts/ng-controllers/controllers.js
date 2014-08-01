@@ -92,6 +92,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
 
+
   var findPortfolioSelection = function(){
     var workIndex;
     if (workIndex = (/#\/(\d+)/.exec($location.absUrl()))) {
@@ -101,6 +102,8 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
       $scope.portfolioSelection = 0;
     }
   };
+
+  
 
   findPortfolioSelection();
 
