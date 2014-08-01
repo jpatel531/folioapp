@@ -157,6 +157,7 @@ div.picture-options{
 div.info-wrapper p {
 /*	opacity: 0.4;*/
 	color: #888;
+	width: 100%;
 	text-align: center;
 }
 
@@ -612,6 +613,21 @@ div.work-footer {
 	opacity: 1;
 	/*background-color: white;*/
 	/*opacity: 1;*/
+}
+
+.new-collection-footer, .new-collection-footer:hover{
+	display: block;
+	width: 25%;
+	font-family: Lato, sans-serif;
+	font-weight: 400;
+	margin: 0 auto 40px auto;
+	background: none;
+	border: 1px solid rgba(0,0,0,0.4);
+	border-radius: 50px;
+	text-align: center;
+	font-size: 15px;
+	text-decoration: none;
+	color: rgba(0,0,0,0.4);
 }
 
 /*------------MEDIA QUERIES------------*/
