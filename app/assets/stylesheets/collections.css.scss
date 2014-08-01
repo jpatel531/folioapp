@@ -17,12 +17,12 @@ body, a{
   /*margin: 0 auto;*/
   float:none !important;
   margin: 0 auto !important;
+  background-color: transparent !important;
 
 }
 .navbar-nav > li > a, .navbar-nav > li > a:hover {
   padding-right:5em !important;
   font-size: 1.125em !important;
-  background-color: none !important;
 }
 .navbar-nav a, a.visit-collection{
   font-family: 'Lato', sans-serif!important;

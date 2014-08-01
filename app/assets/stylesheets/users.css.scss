@@ -56,7 +56,6 @@ button.toggle-edit {
 	width: 40px;
 	height: 40px;
 	border-radius: 0px;
-	background-color: rgba(0,0,0,0.8);
 	overflow: hidden;
 }
 
@@ -64,9 +63,9 @@ button.toggle-edit::before {
 	padding-top: 0px;
 	font-family: 'Entypo';
 	content: '\270E';
-	font-size: 25px;
-	vertical-align: top;
-	color: white;
+	font-size: 40px;
+	vertical-align: middle;
+	color: black;
 }
 
 button.toggle-edit p {

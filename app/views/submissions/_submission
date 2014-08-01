@@ -15,6 +15,12 @@
 				<br>
 				<%= submission.work.caption %>
 				<br>
+				<% if submission.work.media.any? %>
+				Media: <% submission.work.media.each do |medium| %>
+					<%= medium.name %>
+				<% end %>
+				<% end %>
+				<br>
 				<% if submission.work.genres.any? %>
 				Genres: <% submission.work.genres.each do |genre| %>
 					<%= genre.name %>

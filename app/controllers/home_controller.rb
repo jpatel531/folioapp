@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 			current_user.save
 			redirect_to user_path(id: current_user.id, editable: true) 
 		else
-			render :index
+			redirect_to user_path(id: current_user.id)
 		end
 	end
 

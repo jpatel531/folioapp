@@ -13,13 +13,8 @@
 		</ul>
 	</div>
 
-	<div class="col-md-2 pull-right">
-		{{currentWork().title}}
-		<li ng-repeat="medium in currentWork().media">{{medium}}</li	
-		<li ng-repeat="genre in currentWork().genres">{{genre}}</li>
-		{{work.caption}}
-		<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
-	</div>
+
+
 
 	<div class="work-container row">
 		<div class="magnify col-md-12" ng-show="currentWork().format == 'image' ">
@@ -29,89 +24,61 @@
 
 		<div class="text-work" ng-show="currentWork().format == 'text'">
 
-			<div class="col-md-2"></div>
+			<div class="col-md-2" ng-hide="details"></div>
 			<div class="col-md-8 text-proper" ng-bind-html="currentWork().text">
 			</div>
 			<div class="col-md-2"></div>
 
 
-			<!-- <div class="text-wrapper" ng-repeat="work in currentWork().text">
-				<div ng-class="{'first': $first}">
-					<p class="work-paragraph" ng-repeat="paragraph in work">
-						{{paragraph}}
-					</p>
-				</div>
-			</div> -->
+
 
 		</div>
 	</div>
 
+		<div class="submit-details col-md-4">
+
+
+			<div class="submit-ready pull-right col-md-2" ng-init="details = false" ng-click="details = !details">
+				<a href="#" class="add-details"><p>Add Details</p></a>
+			</div>
+
+
+			<div ng-show="details" class="form-wrapper col-md-12">
+
+				<div class="row">
+					<div class="col-md-12 title-field">
+						{{currentWork().title}}
+					</div>
+				</div>
+
+						
+		<li ng-repeat="medium in currentWork().media">{{medium}}</li	
+		
+
+		<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
 
 
 
+				<div class="row">
+					<div class="col-md-12 genre-field">
+
+						<li ng-repeat="genre in currentWork().genres">{{genre}}</li>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12 description-field">
+						{{currentWork().caption}}
+					
+					</div>
+				</div>
+
+				
+			</div>
+
+		</div>		
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div ng-repeat="work in collection.works" class="{{work.title}}">
-
-	{{work.title}}
-	<img ng-src="{{work.image}}" ng-class="{'uploaded-image': work.format == 'image', 'text-thumbnail': work.format == 'text' }">
-	<li ng-repeat="medium in work.media">{{medium}}</li>	
-	<li ng-repeat="genre in work.genres">{{genre}}</li>
-	{{work.caption}}
-
-	<div ng-show="work.format == 'text'">
-		<div ng-bind-html="work.text"></div>
-	</div>
-
-	<input id="select-work" type="checkbox" name="selected" value="{{work.id}}" ng-click="sendSelection(work.id)" ng-model="selected" ng-true-value="{{work.id}}">Show on profile cover?
-
-
-</div>
-
-
-	<button ng-click="upload = true">Add To <%= @collection.title %></button>
-
-	<div ng-show="upload">
-	<%= link_to "Add Art", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'art') %>
-	<%= link_to "Add Writing", new_user_collection_work_path(collection_id: @collection.id, upload_type: 'writing') %>
-	</div> -->
 
 
 

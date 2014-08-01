@@ -192,6 +192,22 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     // getProfileProperties();
    } 
 
+   $scope.createCollection = function() {
+    $http.post('/users/' + $scope.userId +'/collections', {createNewCollection: $scope.userId}).then(function(){
+      $http.get('/users/' + $scope.userId + '.json').success(function(data){
+        $scope.user = data
+      })
+    })
+   }
+
+   $scope.deleteCollection = function(collectionId){
+    $http.delete('/users/' + $scope.userId + '/collections/' + collectionId).then(function(){
+      $http.get('/users/' + $scope.userId + '.json').success(function(data){
+        $scope.user = data
+      })
+    })
+   };
+
 
   }]).controller('CollectionInstanceCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
 
