@@ -30,4 +30,7 @@
 //= require ladda
 //= require angular-ui-bootstrap-tpls
 //= require init
+//= require modernizr.custom
+//= require classie
+//= require navmenu
 //= require_tree .
