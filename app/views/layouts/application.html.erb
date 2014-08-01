@@ -29,7 +29,11 @@
 			<%= link_to 'Profile', user_path(current_user.id) %>
 			</li>
 			<li><a href="#">Search</a></li>
-			<li><a href="#">Your Submissions</a></li>
+			<% if current_user.submissions.any? %>
+			<li>
+			<%= link_to 'Your Submissions',user_submissions_manager_path(current_user.id) %>
+			</li>
+			<% end %>
 			<li>
 			<% if current_user.memberships.any? %>
 			<%= link_to "Works Submitted To #{current_user.organisations.first.name} ", organisation_opportunity_submissions_path(current_user.organisations.first, current_user.organisations.first.opportunities.first) %></li>
