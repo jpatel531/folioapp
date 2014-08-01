@@ -17,22 +17,21 @@
 
 
 	<div class="work-container row">
-		<div class="magnify col-md-12" ng-show="currentWork().format == 'image' ">
+		<div class="col-md-2"></div>
+		<div class="magnify col-md-8" ng-show="currentWork().format == 'image' ">
 			<div class="large" style="background:url({{currentWork().image}}) no-repeat"></div>
 			<img class="small select" ng-src="{{currentWork().image}}">
 		</div>
-
+		<div class="col-md-2"></div>
 		<div class="text-work" ng-show="currentWork().format == 'text'">
-
 			<div class="col-md-2" ng-hide="details"></div>
 			<div class="col-md-8 text-proper" ng-bind-html="currentWork().text">
 			</div>
 			<div class="col-md-2"></div>
-
 		</div>
 	</div>
 
-		<div class="submit-details col-md-4">
+		<div class="submit-details show-work-information col-md-3">
 
 
 			<div class="submit-ready pull-right col-md-2" ng-init="details = false" ng-click="details = !details">
@@ -40,21 +39,18 @@
 			</div>
 
 
-			<div ng-show="details" class="form-wrapper col-md-12">
+			<div ng-show="details" class="form-wrapper collection-work-information col-md-12">
 
 				<div class="row">
 					<div class="col-md-12 title-field">
 						{{currentWork().title}}
 					</div>
 				</div>
+				
+				<br>
 
-						
-		<li ng-repeat="medium in currentWork().media">{{medium}}</li	
+		<li ng-repeat="medium in currentWork().media">{{medium}}</li>
 		
-
-		<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
-
-
 
 				<div class="row">
 					<div class="col-md-12 genre-field">
@@ -70,6 +66,9 @@
 					</div>
 				</div>
 
+				<% if @user == current_user %>
+				<input id="select-work" type="checkbox" name="selected" ng-click="sendSelection(currentWork().id)" ng-model="selected" ng-true-value="{{currentWork().id}}">Show on profile cover?
+				<% end %>
 				
 			</div>
 
