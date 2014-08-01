@@ -35,8 +35,8 @@
 			</li>
 			<% end %>
 			<li>
-			<% if current_user.memberships.any? %>
-			<%= link_to "Works Submitted To #{current_user.organisations.first.name} ", organisation_opportunity_submissions_path(current_user.organisations.first, current_user.organisations.first.opportunities.first) %></li>
+			<% if current_user.memberships.any? && current_user.organisations.any? {|org| org.opportunities.any? } %>
+			<%= link_to "Works Submitted To #{current_user.organisations.first.name} ", organisation_opportunity_submissions_path(current_user.organisations.first, current_user.organisations.first.opportunities.first.id) %></li>
 			<% end %>
 			<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 		</ul>
