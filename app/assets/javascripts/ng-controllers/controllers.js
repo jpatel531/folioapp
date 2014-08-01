@@ -275,7 +275,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
           method: 'PUT',
           file: file
         }).then(function(){
-            getProfileProperties();
+            getOrganisationProperties();
           })
       }
     }
