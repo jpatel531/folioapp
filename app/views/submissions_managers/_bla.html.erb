@@ -1,4 +1,8 @@
 
+<% submissions.each do |submission| %>
+
+
+
 <div class="col-sm-4">
 	<div class="panel panel-default">
     <div class="panel-heading">
@@ -28,7 +32,7 @@
 				<% end %>
 				<% end %>
 				<br>
-				<em>Submitted to <%= submission.work.organisation.name %> for <%= submission.opportunity.title %></em>
+				<em>Submitted to <%= submission.organisation.name %> for <%= submission.opportunity.title %></em>
 				<br>
 				<b>Status: <%= submission.status %></b>
 
@@ -36,3 +40,6 @@
 		</div>
 	</div>
 </div>
+
+
+<%end%>

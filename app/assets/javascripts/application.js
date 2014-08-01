@@ -28,9 +28,9 @@
 //= require jquery.countdown
 //= require spin
 //= require ladda
-//= require_tree .
 //= require angular-ui-bootstrap-tpls
 //= require init
 //= require modernizr.custom
 //= require classie
 //= require navmenu
+//= require_tree .

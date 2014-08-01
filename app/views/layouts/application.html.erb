@@ -29,12 +29,16 @@
 			<%= link_to 'Profile', user_path(current_user.id) %>
 			</li>
 			<li><a href="#">Search</a></li>
-			<li><a href="#">Your Submissions</a></li>
+			<% if current_user.submissions.any? %>
+			<li>
+			<%= link_to 'Your Submissions',user_submissions_manager_path(current_user.id) %>
+			</li>
+			<% end %>
 			<li>
 			<% if current_user.memberships.any? %>
 			<%= link_to "Works Submitted To #{current_user.organisations.first.name} ", organisation_opportunity_submissions_path(current_user.organisations.first, current_user.organisations.first.opportunities.first) %></li>
 			<% end %>
-			<li><%= link_to "Log Out", destroy_user_session_path, method: :delete%></li>
+			<li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 		</ul>
 	</nav>
 </div>
@@ -43,36 +47,7 @@
 <%= yield %>
 </div>
 
-<% if user_signed_in? %>
-<!-- <input style="display: none" type="search" class="search" ng-model="search" placeholder="Search...">
 
-	<div ng-show="search" ng-repeat="user in users | filter:search" class="users">
-		<p>{{user.name}}</p>
-		<p>{{user.profession}}</p>
-		<p>{{user.network}}</p>
-		<p>{{user.shortBio}}</p>
-	
-	</div>
- -->
-
-	<button id="trigger-overlay" class="btn btn-primary" type="button">Open Overlay</button></p>
-
-		<div class="overlay overlay-slidedown">
-			<button type="button" class="overlay-close">Close</button>
-			<nav>
-				<ul>
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Search</a></li>
-					<li><a href="#">Your Submissions</a></li>
-					<li><a href="#">Received Submissions</a></li>
-				</ul>
-			</nav>
-		</div>
-
-
-<%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'log-out' %>
-
-<% end %>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
