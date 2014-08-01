@@ -112,8 +112,8 @@ div.submit-details {
   position:relative;
 	border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:100px; 
-  height: 100px;
+  width:200px; 
+  height: 200px;
   /*padding: 4px 6px 4px 8px;*/
   font: normal 14px 'Lato' sans-serif;
   text-align: center;
@@ -137,9 +137,14 @@ div.submit-details {
   z-index: 1;
 }
 
+div.file-field.writing-thumb {
+	margin-bottom: 3em;
+}
+
 label.thumbnail-label {
-	padding-top: 40px;
+	padding-top: 88px;
 	font-weight: 300px !important;
+	text-transform: uppercase;
 }
 
 div.file-field img {

@@ -8,21 +8,14 @@
 </head>
 <body>
 
-<% if flash[:notice] %>
-<p class="notice"><%= notice %></p>
-<% end %>
-<% if flash[:alert] %>
-<p class="alert"><%= alert %></p>
-<% end %>
+
 
 <% if user_signed_in? %>
- <div class="logo-centered" ng-click="blurred">
+ <div class="logo-centered"
   	<button id="trigger-overlay" type="button"><img src="/assets/FfLogoBlack.png" class="logo-button">
   	</button>
  </div>
-<% end %>
 
-<% if user_signed_in? %>
 <div class="overlay overlay-slidedown">
 	<button type="button" class="overlay-close">Close</button>
 	<nav>
@@ -45,9 +38,9 @@
 	</nav>
 </div>
 <% end %>
-<div>
+
 <%= yield %>
-</div>
+
 
 
 

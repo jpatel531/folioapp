@@ -38,10 +38,10 @@
 
 				<div class="row">
 					<div class="field-wrapper col-md-12">
-						<div class="file-field">
-								<%= f.label :image, 'Thumbnail', class: 'thumbnail-label' %>
+						<div class="file-field writing-thumb">
+								<%= f.label :image, 'Drag Thumbnail Here', class: 'thumbnail-label' %>
 								<%= f.file_field :image, required: true, data: {:"ng-file-select" => "onFileSelect($files)"}%>
-									<img ng-show="imageSrc" ng-src="{{imageSrc}}" />
+									<img ng-show="imageSrc" class="img-circle collection-preview" ng-src="{{imageSrc}}" />
 						</div>
 					</div>
 				</div>
