@@ -10,8 +10,8 @@
           <li><a href="#">Collections</a></li>
           <!-- <li><a href="#">Random</a></li> -->
           <!-- <li><a href="#">Popular</a></li> -->
-          <li><a href="#">All</a></li>
-        </ul>
+<!--           <li><a href="#">All</a></li>
+ -->        </ul>
       </div>
     </header>
     <!-- END NAVBAR -->
@@ -19,12 +19,12 @@
     <div ng-repeat="collection in user.collections" class="row collection-row {{collection.title}}" ng-controller="CollectionInstanceCtrl">
       <div class="collection-">
         <div class="col-xs-3 col-xs-offset-2">
-   
+
 
  					<div class="file-field collection-image col-xs-12" ng-show="editable">
         		<input type="file" accept="image/*" ng-file-select="onFileSelect($files, collection.id)" id="collection_image" name="collection[image]" >
 
-        		
+
 	        	<img ng-show="editable" class="img-circle collection-preview editable-pic" ng-src="{{imageSrc || collection.image}}">
   	       </div>
 
@@ -77,7 +77,7 @@
         <% if @user == current_user %>
 	        <div class="col-xs-2">
 	          <button class="add-details" type="button" class="btn btn-default" ng-click="upload = collection.title">
-	       
+
 	          	<p class="add-button">Add To {{collection.title}}</p>
 	            <span class="glyphicon glyphicon glyphicon-edit"></span>
 	          </button>
@@ -94,7 +94,7 @@
 	       <% end %>
       </div>
     </div>
- 
+
 
 
     <% if @user == current_user %>

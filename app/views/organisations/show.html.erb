@@ -34,7 +34,7 @@
 					</div>
 						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}
 						</p>
-					</div>	
+					</div>
 				</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -52,11 +52,11 @@
 				</div>
 
 				<div class="work-wrapper row" ng-repeat="opp in organisation.opportunities">
-						
+
 					<div class="work-preview-info col-md-9" ng-class="{ 'story': profile.selection == storyPreview }">
 						<div id="info">
 							<h1 class="preview-title">{{opp.title}}</h1>
-		
+
 							<p class="short-description">{{opp.description}}</p>
 							<div class="additional-info">
 								<p>Accepting {{opp.requirements}}</p>
@@ -69,13 +69,13 @@
 						</div>
 					</div>
 
-					<div class="col-md-3">	
+					<div class="col-md-3">
 						<div class="preview-pic pic-wrapper">
 							<img class="selection" id="profile-pic" ng-src="{{opp.image}}">
 						</div>
 						<div class="hr-wrapper"><hr id="after-work" ng-show="!$last">
 						</div>
-					</div>	
+					</div>
 
 				</div>
 				<% if @organisation.users.include? current_user %>
@@ -90,4 +90,3 @@
 
 
 
-	
