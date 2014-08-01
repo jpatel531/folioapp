@@ -24,3 +24,21 @@ div.panel-heading h3.panel-title {
 	font-family: 'Lato', sans-serif !important;
 	text-align: center;
 }
+
+div.post-info {
+	font-family: 'Vollkorn', serif;
+}
+
+div.post-info blockquote {
+	font-family: 'Merriweather', serif;
+}
+
+div.post-info.btn-group {
+	background-color: white;
+	font-family: 'Lato', sans-serif !important;
+}
+
+div.post-info.btn-primary {
+	background: none !important;
+	color: black !important;
+}
