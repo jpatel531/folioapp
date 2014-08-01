@@ -10,7 +10,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     profession: 'Profession',
     network: 'Network',
     shortBio: 'Short Bio'
-  };  
+  };
 
 
   $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
@@ -84,7 +84,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                           $scope.imageSrc = result;
                       });
     };
- 
+
 
 
 }]).controller('CollectionShowCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
@@ -162,18 +162,18 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
       // angular.element(".nav").fadeTo('fast', 1)
       if ($scope.portfolioSelection > 0) {
         $scope.portfolioSelection -= 1
-      } 
+      }
       else {
         return;
-      }   
+      }
     }
 
   };
-  
 
 
 
-  
+
+
 
 }]).controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
 
@@ -188,7 +188,23 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     data[property] = value
     $http.put('/users/' + $scope.userId + '/collections/' + collectionId, data);
     // getProfileProperties();
-   } 
+   }
+
+   $scope.createCollection = function() {
+    $http.post('/users/' + $scope.userId +'/collections', {createNewCollection: $scope.userId}).then(function(){
+      $http.get('/users/' + $scope.userId + '.json').success(function(data){
+        $scope.user = data
+      })
+    })
+   }
+
+   $scope.deleteCollection = function(collectionId){
+    $http.delete('/users/' + $scope.userId + '/collections/' + collectionId).then(function(){
+      $http.get('/users/' + $scope.userId + '.json').success(function(data){
+        $scope.user = data
+      })
+    })
+   };
 
 
 
@@ -205,9 +221,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                   });
 };
 
-    $scope.testing = function() {
-      alert('hi');
-    }
+
     $scope.onFileSelect = function($files, collectionId) {
       console.log('Hello')
       // console.log($files)
@@ -237,7 +251,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                           $scope.imageSrc = result;
                       });
     };
- 
+
 
 
 }]).controller('OrganisationShowCtrl', ['$scope', '$window', '$http', '$location', '$upload', 'fileReader', '$rootScope', function($scope, $window, $http, $location, $upload, fileReader, $rootScope) {
@@ -302,7 +316,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
                           $scope.imageSrc = result;
                       });
     };
- 
+
 
 
 }])

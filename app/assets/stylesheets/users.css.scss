@@ -56,12 +56,11 @@ button:focus {
 
 button.toggle-edit {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 50px;
+	right: 0;
 	width: 40px;
 	height: 40px;
 	border-radius: 0px;
-	background-color: rgba(0,0,0,0.8);
 	overflow: hidden;
 }
 
@@ -69,9 +68,9 @@ button.toggle-edit::before {
 	padding-top: 0px;
 	font-family: 'Entypo';
 	content: '\270E';
-	font-size: 25px;
-	vertical-align: top;
-	color: white;
+	font-size: 40px;
+	vertical-align: middle;
+	color: black;
 }
 
 button.toggle-edit p {
@@ -107,7 +106,7 @@ div.summary {
 }
 
 div.left-hand-side {
-	margin-top: 10%;
+	margin-top: 14%;
 }
 
 div.right-hand-side {
@@ -149,16 +148,20 @@ img#profile-pic {
 	overflow: hidden;
 }
 
+div.picture-options{
+	margin: 0 auto 15px auto;
+}
+
 /*PROFILE SUMMARY TEXT*/
 
 div.info-wrapper p {
 /*	opacity: 0.4;*/
-	color: #b3b2b5;
+	color: #888;
 	text-align: center;
 }
 
 h1.name {
-	font-size: 20px;
+	font-size: 25px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 900;
 	margin: 8px 0;
@@ -167,7 +170,7 @@ h1.name {
 p.profession {
 	margin-top: 5px;
 	margin-bottom: 12px;
-	font-size: 10px;
+	font-size: 12px;
 	letter-spacing: 0.2em;
 	font-family: 'Vollkorn', serif;
 	font-style: italic;
@@ -198,8 +201,9 @@ hr {
 	color: black;
 	padding: 0;
 	width: 50px;
-	margin-left: auto;
-	margin-right: auto;
+/*	margin-left: auto;
+	margin-right: auto;*/
+	margin: 0 auto;
 
 }
 
@@ -256,8 +260,11 @@ div.work-preview {
 
 div.work-preview div.work-preview-header {
 	height: 10%;
-
 	margin-bottom: 20px;
+}
+
+div.work-preview-header {
+	padding-right: 80px;
 }
 
 h1.preview-title {
@@ -279,8 +286,9 @@ h3#selections {
 
 div.work-wrapper {
 	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 }
+
 
 
 div.work {
@@ -390,9 +398,14 @@ p.recommendation-number.story {
 	margin-right: 2px;
 }
 
-hr#after-work {
+/*hr#after-work {
 	margin: 25px 0px 25px 25px;
-}
+}*/
+
+// div.hr-wrapper{
+// 	margin: 0 auto;
+// 	width: 100%;
+// }
 
 /*-------PORTFOLIO---------*/
 

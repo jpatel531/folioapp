@@ -108,7 +108,7 @@ div.submit-details {
   position:relative;
 	border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:100px; 
+  width:100px;
   height: 100px;
   /*padding: 4px 6px 4px 8px;*/
   font: normal 14px 'Lato' sans-serif;
@@ -122,13 +122,13 @@ div.submit-details {
 
 .file-field input[type="file"]{
 
-  -webkit-appearance:none; 
+  -webkit-appearance:none;
   position:absolute;
   top:0; left:0;
-  opacity:0; 
+  opacity:0;
   border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:200px; 
+  width:200px;
   height: 200px;
   z-index: 1;
 }
@@ -267,11 +267,11 @@ label.call-to-drag {
 }
 
 .image-field.file-field input[type="file"]{
-  -webkit-appearance:none; 
+  -webkit-appearance:none;
   position:absolute;
-  top:0; 
+  top:0;
   left:0;
-  opacity:0; 
+  opacity:0;
 	width: 85%;
 	height: 50vh;
   z-index: 1;
