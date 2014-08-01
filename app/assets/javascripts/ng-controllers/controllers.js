@@ -103,7 +103,7 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     }
   };
 
-  
+
 
   findPortfolioSelection();
 
@@ -300,6 +300,10 @@ app.controller('ProfileCtrl', ['$scope', '$window', '$http', '$location', '$uplo
     }
   }
 
+  $scope.submitToThis = function(opportunityId) {
+    $scope.showForm = true
+    $scope.url = "/organisations/" + $scope.id + "/opportunities/" + opportunityId + "/submissions/new"
+  }
 
 
   $scope.getFile = function () {

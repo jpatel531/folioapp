@@ -60,7 +60,7 @@
 							<p class="short-description">{{opp.description}}</p>
 							<div class="additional-info">
 								<p>Accepting {{opp.requirements}}</p>
-								<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submissions/new">Submit To {{opp.title}}</a>
+								<a class="submission" ng-click="submitToThis(opp.id)" href="#">Submit To {{opp.title}}</a>
 								<br>
 								<% if @organisation.users.include? current_user %>
 									<a href="/organisations/{{organisation.id}}/opportunities/{{opp.id}}/submissions">View Submissions</a>
@@ -89,5 +89,12 @@
 	</div> <!-- end of .summary .row -->
 
 
+	<div ng-show="showForm" class="portfolio" id="sub-form-section">
+
+		<div ng-include="url"></div>
+
+
+	</div>
+</div>
 
 	
