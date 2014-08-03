@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :collections
   has_many :works, through: :collections
-  # has_many :works, through: :work_selection
-  # has_and_belongs_to_many :organisations
+
   has_many :memberships
   has_many :organisations, through: :memberships
   has_many :submissions
@@ -17,7 +16,7 @@ class User < ActiveRecord::Base
   acts_as_followable
 
   after_initialize :give_default_collection
-  # after_initialize :set_work_selection
+
 
   has_attached_file :avatar, 
   									 # styles: { thumb: "100x100>" }, 
