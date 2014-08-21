@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-route
 //= require xeditable.min
 //= require xml2json
 //= require angular-file-upload-html5-shim.min
@@ -34,3 +36,4 @@
 //= require classie
 //= require navmenu
 //= require_tree .
+
