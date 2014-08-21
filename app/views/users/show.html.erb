@@ -9,7 +9,7 @@
 	<div class="summary row" id="summary-section">
 		<div class="col-md-6 left-hand-side">
 			<div class="col-md-4"></div>
-			<div class="profile-info summary-column col-md-4 col-md-offset-1">
+			<div class="profile-info summary-column col-md-5 col-md-offset-1">
 				<div class="info-wrapper row col-md-12">
 					<div class="picture-options row col-md-12">
 						<div class="change-profile-pic" ng-show="editable">
@@ -31,9 +31,9 @@
 					<div class="text-inputs row text-center">
 						<%= render "information" %>
 					</div>
-						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of {{membership.organisation}}
+						<p ng-repeat="membership in user.memberships" class="organisations">{{membership.organisationRole}} of <a href="/organisations/{{membership.organisationId}}/">{{membership.organisation}}</a>
 						</p>
-					</div>	
+					</div>
 				</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -47,11 +47,11 @@
 			<div class="col-md-1"></div>
 			<div class="profile-preview summary-column col-md-8">
 				<div class="work-preview-header row">
-					<h3 class="col-md-12 text-center" id="selections">Selections of Laurie's Work</h3>
+					<h3 class="col-md-12 text-center" id="selections">Selections of {{user.name}}'s Work</h3>
 				</div>
 
 				<div class="work-wrapper row" ng-repeat="work in user.workSelection">
-						
+
 					<div class="work-preview-info col-md-8" ng-class="{ 'story': profile.selection == storyPreview }">
 						<div id="info">
 							<h1 class="preview-title">
@@ -59,20 +59,20 @@
 							</h1>
 											from <a href="/users/{{user.id}}/collections/{{work.collectionId}}">{{work.collection}}</a>
 							<p class="short-description">{{work.caption}}</p>
-							<div class="additional-info">
+							<!-- <div class="additional-info">
 								<p class="recommendation-number" ng-class="{ 'story': profile.selection == storyPreview }">{{work.recommendations}}</p>
 								<p ng-class="{ 'cool-information' : work.commissionedOrFeatured, 'anthology' : work.anthology, 'single-author' : work.singleAuthor}">{{work.additionalInformation}}</p>
-							</div>
+							</div> -->
 						</div>
 					</div>
 
-					<div class="col-md-3">	
+					<div class="col-md-3">
 						<div class="preview-pic pic-wrapper">
 							<img class="selection" id="profile-pic" ng-src="{{work.image}}">
 						</div>
-						<div class="hr-wrapper"><hr id="after-work" ng-show="!$last">
 						</div>
-					</div>	
+<!-- 						<div class="hr-wrapper"><hr id="after-work" ng-show="!$last">
+ -->					</div>
 
 				</div>
 			</div>	<!-- end of .profile-preview and col-md-6 -->

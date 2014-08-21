@@ -53,6 +53,10 @@ a.add-details.art-submit::before {
 	content: '\1F3A8';
 }
 
+a.add-details.show-details::before {
+	content: '\1F4D5';
+}
+
 div.submit-ready {
 	height: 50px;
 	width: 50px;
@@ -88,8 +92,8 @@ div.form-wrapper {
 
 div.submit-details {
 	position: fixed;
-	right: 0;
-	top: 0;
+	right: -0.5em;
+	top: 3em;
 	max-height: 100vh;
 	/*width: 100%;*/
 }
@@ -108,8 +112,8 @@ div.submit-details {
   position:relative;
 	border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:100px; 
-  height: 100px;
+  width:200px; 
+  height: 200px;
   /*padding: 4px 6px 4px 8px;*/
   font: normal 14px 'Lato' sans-serif;
   text-align: center;
@@ -122,20 +126,25 @@ div.submit-details {
 
 .file-field input[type="file"]{
 
-  -webkit-appearance:none; 
+  -webkit-appearance:none;
   position:absolute;
   top:0; left:0;
-  opacity:0; 
+  opacity:0;
   border-radius: 100%;
   border:#ebebeb solid 1px;
-  width:200px; 
+  width:200px;
   height: 200px;
   z-index: 1;
 }
 
+div.file-field.writing-thumb {
+	margin-bottom: 3em;
+}
+
 label.thumbnail-label {
-	padding-top: 40px;
+	padding-top: 88px;
 	font-weight: 300px !important;
+	text-transform: uppercase;
 }
 
 div.file-field img {
@@ -267,11 +276,11 @@ label.call-to-drag {
 }
 
 .image-field.file-field input[type="file"]{
-  -webkit-appearance:none; 
+  -webkit-appearance:none;
   position:absolute;
-  top:0; 
+  top:0;
   left:0;
-  opacity:0; 
+  opacity:0;
 	width: 85%;
 	height: 50vh;
   z-index: 1;

@@ -8,7 +8,7 @@ json.shortBio @user.short_bio
 json.signInCount @user.sign_in_count
 
 if !@user.work_selection.nil? 
-	json.workSelection(@user.work_selection.works) do |work|
+	json.workSelection(@user.work_selection.works[0..2]) do |work|
 			json.id work.id
 			json.collection work.collection.title
 			json.collectionId work.collection.id
@@ -26,6 +26,7 @@ if !@user.work_selection.nil?
 	end
 	json.memberships(@user.memberships) do |membership|
 		json.organisation membership.organisation.name
+		json.organisationId membership.organisation.id
 		json.organisationRole membership.role
 	end
 end
