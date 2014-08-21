@@ -36,6 +36,9 @@ body, a{
 .collection-row{
   margin-bottom: 6em;
 }
+
+
+
 .collection- h2{
   /*font-style: italic;*/
   font-weight: 700;
@@ -96,6 +99,12 @@ button.add-details {
 span.glyphicon-edit {
 	font-size: 20px;
 	/*font-weight: 100;*/
+}
+
+span.glyphicon-edit button {
+  display: hidden;
+  text-indent: -999999px;
+  color: salmon;
 }
 
 input.image-submit {

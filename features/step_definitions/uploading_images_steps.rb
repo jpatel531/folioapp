@@ -8,9 +8,9 @@ Given(/^on my profile$/) do
   visit "/users/#{@user.id}"
 end
 
-Given(/^I click the 'Work' link on my profile cover$/) do
-  click_link 'Work'
-end
+# Given(/^I click the 'Work' link on my profile cover$/) do
+#   click_link 'Work'
+# end
 
 Given(/^I specify that I wish to upload art$/) do
   # expect(current_path).to eq "/users/#{@user.id}/collections"
@@ -21,7 +21,7 @@ Given(/^I specify that I wish to upload art$/) do
 end
 
 When(/^I attach an image$/) do
-  attach_file 'Image', Rails.root.join('features/images/art.jpg')
+  attach_file 'Drag Work Here', Rails.root.join('features/images/art.jpg')
 end
 
 When(/^I give it a title, medium, genre and captions$/) do
