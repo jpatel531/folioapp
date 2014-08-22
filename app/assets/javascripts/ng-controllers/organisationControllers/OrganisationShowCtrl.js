@@ -1,16 +1,17 @@
-angular.module('app').controller('OrganisationShowCtrl', ['$scope', '$window', '$http', '$location', '$upload', 'fileReader', '$rootScope', function($scope, $window, $http, $location, $upload, fileReader, $rootScope) {
+angular.module('app').controller('OrganisationShowCtrl', ['$q','$scope', 'getParams', 'userData', '$window', '$http', '$location', '$upload', 'fileReader', '$rootScope', function($q, $scope, getParams, userData, $window, $http, $location, $upload, fileReader, $rootScope) {
 
 
-  $scope.id = (/organisations\/(\d+)/.exec($location.absUrl())[1]);
+  $scope.id = getParams.organisationId;
+  // console.log(getParams.organisationId)
+
+  var getOrganisationProperties = function(){ $scope.organisation = userData.properties };
 
 
-  var getOrganisationProperties = function(){
-    $http.get('/organisations/' + $scope.id + '.json').success(function(data){
-      $scope.organisation = data
-     });
-    };
+  deferred = $q.defer();
+  deferred.promise.then(getOrganisationProperties);
+  userData.get(deferred, true);
 
-  getOrganisationProperties();
+
 
 
   $scope.editable = false;
@@ -19,7 +20,7 @@ angular.module('app').controller('OrganisationShowCtrl', ['$scope', '$window', '
     var data = {}
     data[property] = value
     $http.put('/organisations/' + $scope.id, data);
-    getOrganisationProperties();
+    // getOrganisationProperties();
    }
 
 
@@ -33,7 +34,7 @@ angular.module('app').controller('OrganisationShowCtrl', ['$scope', '$window', '
           method: 'PUT',
           file: file
         }).then(function(){
-            getOrganisationProperties();
+            // getOrganisationProperties();
           })
       }
     }
