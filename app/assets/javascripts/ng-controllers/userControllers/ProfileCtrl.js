@@ -1,4 +1,4 @@
-angular.module('app').controller('ProfileCtrl', ['$scope', 'getParams', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($scope, getParams, $window, $http, $location, $upload, $rootScope, fileReader) {
+angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'getParams', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($q, $scope, userData, getParams, $window, $http, $location, $upload, $rootScope, fileReader) {
 
   $scope.user = {
     name: 'Name',
@@ -12,13 +12,13 @@ angular.module('app').controller('ProfileCtrl', ['$scope', 'getParams', '$window
 
   $scope.url = '/users/' + $scope.userId + '/collections';
 
-  var getProfileProperties = function(){
-    $http.get('/users/' + $scope.userId + '.json').success(function(data){
-      $scope.user = data
-     });
-    };
 
-  getProfileProperties();
+  var getUserData = function(){ $scope.user = userData.properties}
+
+  deferred = $q.defer()
+  deferred.promise.then(getUserData)
+
+  userData.get(deferred)
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false
 
@@ -30,12 +30,8 @@ angular.module('app').controller('ProfileCtrl', ['$scope', 'getParams', '$window
                       });
     };
 
-  $scope.updateProfile = function(property, value) {
-    var data = {}
-    data[property] = value
-    $http.put('/users/' + $scope.userId, data);
-    getProfileProperties();
-   }
+
+  $scope.updateProfile = function(property, value) {userData.update(property, value, null)}
 
 
   $scope.onFileSelect = function($files) {
@@ -49,7 +45,7 @@ angular.module('app').controller('ProfileCtrl', ['$scope', 'getParams', '$window
           method: 'PUT',
           file: file
         }).then(function(){
-            getProfileProperties();
+            userData.get(deferred)
           })
       }
     }
