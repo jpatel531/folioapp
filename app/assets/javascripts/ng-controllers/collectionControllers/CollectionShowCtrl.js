@@ -1,19 +1,16 @@
-angular.module('app').controller('CollectionShowCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+angular.module('app').controller('CollectionShowCtrl', ['$scope', '$q', 'getParams', 'userData', '$http', '$location', function($scope, $q, getParams, userData, $http, $location){
 
-  $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
-
+  $scope.userId = getParams.userId;
 
 
   var findPortfolioSelection = function(){
     var workIndex;
     if (workIndex = (/#\/(\d+)/.exec($location.absUrl()))) {
       $scope.portfolioSelection = parseInt(workIndex[1], 10);
-      console.log($scope.portfolioSelection)
     }else {
       $scope.portfolioSelection = 0;
     }
   };
-
 
 
   findPortfolioSelection();
@@ -28,27 +25,17 @@ angular.module('app').controller('CollectionShowCtrl', ['$scope', '$http', '$loc
     $scope.changePath($scope.portfolioSelection)
   })
 
-  var returnCollectionById = function(){
-    var collectionId = (/collections\/(\d+)/.exec($location.absUrl())[1]);
-    for (var i = 0; i < $scope.user.collections.length ; i++) {
-      if ($scope.user.collections[i].id == collectionId) {
-        $scope.collection = $scope.user.collections[i];
-      }
-    }
-  };
+  var getUserData = function () {
+    $scope.user = userData.properties;
+    $scope.collection = _.findWhere($scope.user.collections, {id: parseInt(getParams.collectionId)});
+  }
 
-  $http.get('/users/' + $scope.userId + '.json').success(function(data){
-    $scope.user = data;
-  }).then(function(){
-    returnCollectionById();
-  });
+  deferred = $q.defer()
+  deferred.promise.then(getUserData)
+  userData.get(deferred)
 
-  $scope.sendSelection = function(id){
-    var data = {}
-    data["workSelection"] = []
-    data["workSelection"].push(id)
-    $http.put('/users/' + $scope.userId + '.json', data);
-  };
+
+  $scope.sendSelection = function(id){ userData.sendSelection(id) };
 
 
   $scope.currentWork = function(){
@@ -60,10 +47,8 @@ angular.module('app').controller('CollectionShowCtrl', ['$scope', '$http', '$loc
   };
 
   $scope.togglePortfolio = function(e){
-    console.log("HELLO WORLD!!!!")
     if (e.keyCode === 39) {
       e.preventDefault();
-      // angular.element(".nav").fadeTo('fast', 1)
       if ($scope.portfolioSelection < $scope.collection.works.length - 1) {
         $scope.portfolioSelection += 1
       }
@@ -73,7 +58,6 @@ angular.module('app').controller('CollectionShowCtrl', ['$scope', '$http', '$loc
     }
     else if (e.keyCode === 37) {
       e.preventDefault();
-      // angular.element(".nav").fadeTo('fast', 1)
       if ($scope.portfolioSelection > 0) {
         $scope.portfolioSelection -= 1
       }

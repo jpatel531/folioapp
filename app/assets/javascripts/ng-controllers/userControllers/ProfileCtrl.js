@@ -7,17 +7,14 @@ angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'get
     shortBio: 'Short Bio'
   };
 
-
   $scope.userId = getParams.userId
 
   $scope.url = '/users/' + $scope.userId + '/collections';
-
 
   var getUserData = function(){ $scope.user = userData.properties}
 
   deferred = $q.defer()
   deferred.promise.then(getUserData)
-
   userData.get(deferred)
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false

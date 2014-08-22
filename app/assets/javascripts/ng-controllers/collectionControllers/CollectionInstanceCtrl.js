@@ -14,8 +14,6 @@ angular.module('app').controller('CollectionInstanceCtrl', ['$scope', '$http', '
 
     $scope.onFileSelect = function($files, collectionId) {
       console.log('Hello')
-      // console.log($files)
-    // if ($scope.editable) {
       console.log("hi")
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
@@ -27,7 +25,6 @@ angular.module('app').controller('CollectionInstanceCtrl', ['$scope', '$http', '
             getProfileProperties();
           })
       }
-    // }
   }
 
 

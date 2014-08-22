@@ -22,6 +22,12 @@ angular.module('app').factory('userData', ['$http', 'getParams', function($http,
 		}
 	};
 
+	userData.sendSelection = function(id) {
+		var data = {};
+		data["workSelection"] = [];
+		data["workSelection"].push(id);
+		$http.put('/users/' + getParams.userId + '.json', data);
+	}
 
 	return userData
 

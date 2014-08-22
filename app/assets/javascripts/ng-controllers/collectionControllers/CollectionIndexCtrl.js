@@ -1,4 +1,4 @@
-angular.module('app').controller('CollectionIndexCtrl', ['$scope', '$http', '$location', '$upload', 'fileReader', function($scope, $http, $location, $upload, fileReader){
+angular.module('app').controller('CollectionIndexCtrl', ['$scope', 'userData', '$http', '$location', '$upload', 'fileReader', function($scope, userData, $http, $location, $upload, fileReader){
 
   $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
 
@@ -6,12 +6,9 @@ angular.module('app').controller('CollectionIndexCtrl', ['$scope', '$http', '$lo
     $scope.user = data;
   });
 
-  $scope.updateCollection = function(property, value, collectionId) {
-    var data = {}
-    data[property] = value
-    $http.put('/users/' + $scope.userId + '/collections/' + collectionId, data);
-    // getProfileProperties();
-   }
+   $scope.updateCollection = function(property, value, collectionId) {
+      userData.update(property, value, collectionId)
+    }
 
    $scope.createCollection = function() {
     $http.post('/users/' + $scope.userId +'/collections', {createNewCollection: $scope.userId}).then(function(){

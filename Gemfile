@@ -40,7 +40,7 @@ gem 'jquery-countdown-rails'
 gem 'backstretch-rails'
 gem 'angular-ui-bootstrap-rails'
 gem 'angularjs-rails'
-
+gem 'underscore-rails'
 gem 'launchy'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
