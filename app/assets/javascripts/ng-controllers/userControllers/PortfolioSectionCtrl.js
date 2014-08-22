@@ -1,7 +1,7 @@
-angular.module('app').controller('PortfolioSectionCtrl', ['$scope', '$http', '$location', 'fileReader', '$upload', function($scope, $http, $location, fileReader, $upload) {
+angular.module('app').controller('PortfolioSectionCtrl', ['getParams','$scope', '$http', '$location', 'fileReader', '$upload', function(getParams, $scope, $http, $location, fileReader, $upload) {
 
-  $scope.id = (/users\/(\d+)/.exec($location.absUrl())[1]);
+  $scope.userId = getParams.userId
 
-  $scope.url = '/users/' + $scope.id + '/collections';
+  $scope.url = '/users/' + $scope.userId + '/collections';
 
 }])
