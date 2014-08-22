@@ -28,7 +28,9 @@ angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'get
     };
 
 
-  $scope.updateProfile = function(property, value) {userData.update(property, value, null)}
+  $scope.updateProfile = function(property, value) {
+    userData.update(property, value, null)
+  }
 
 
   $scope.onFileSelect = function($files) {

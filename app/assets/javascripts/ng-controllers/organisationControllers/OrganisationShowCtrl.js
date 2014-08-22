@@ -2,7 +2,6 @@ angular.module('app').controller('OrganisationShowCtrl', ['$q','$scope', 'getPar
 
 
   $scope.id = getParams.organisationId;
-  // console.log(getParams.organisationId)
 
   var getOrganisationProperties = function(){ $scope.organisation = userData.properties };
 
@@ -12,15 +11,10 @@ angular.module('app').controller('OrganisationShowCtrl', ['$q','$scope', 'getPar
   userData.get(deferred, true);
 
 
-
-
   $scope.editable = false;
 
   $scope.updateProfile = function(property, value) {
-    var data = {}
-    data[property] = value
-    $http.put('/organisations/' + $scope.id, data);
-    // getOrganisationProperties();
+    userData.update(property, value, null, true)
    }
 
 

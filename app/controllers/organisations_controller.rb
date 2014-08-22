@@ -22,7 +22,7 @@ class OrganisationsController < ApplicationController
 
 	def update
 		@organisation = Organisation.find params[:id]
-		[:name, :short_bio, :profession, :network, :workSelection].each do |attr|
+		[:name, :description, :organisation_type, :network].each do |attr|
 			if params[attr]
 				@organisation.update!(attr => params[attr])
 			end
@@ -31,7 +31,7 @@ class OrganisationsController < ApplicationController
 		if params[:file]
 			@organisation.update!(image: params[:file])
 		else
-			@organisation.update(image_params)
+			@organisation.update(avatar_params)
 		end
 
 		render json: {success: 200}

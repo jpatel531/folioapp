@@ -15,10 +15,12 @@ angular.module('app').factory('userData', ['$http', 'getParams', function($http,
 	});
 
 
-	userData.update = function(property, value, collectionId) {
-			var data = {}
-			data[property] = value
-			!collectionId ? $http.put('/users/' + getParams.userId, data) : $http.put('/users/' + getParams.userId + '/collections/' + collectionId, data);
+	userData.update = function(property, value, collectionId, isOrganisation) {
+		url = (isOrganisation) ? '/organisations/' : '/users/'
+		id = (isOrganisation) ? getParams.organisationId : getParams.userId
+		var data = {}
+		data[property] = value
+		!collectionId ? $http.put(url + id, data) : $http.put(url + id + '/collections/' + collectionId, data);
 		}
 	};
 
