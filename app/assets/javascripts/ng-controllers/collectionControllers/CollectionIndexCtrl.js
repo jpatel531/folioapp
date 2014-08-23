@@ -1,10 +1,12 @@
-angular.module('app').controller('CollectionIndexCtrl', ['$scope', 'userData', '$http', '$location', '$upload', 'fileReader', function($scope, userData, $http, $location, $upload, fileReader){
+angular.module('app').controller('CollectionIndexCtrl', ['getParams', '$q', '$scope', 'userData', '$http', '$location', '$upload', 'fileReader', function(getParams, $q, $scope, userData, $http, $location, $upload, fileReader){
 
-  $scope.userId = (/users\/(\d+)/.exec($location.absUrl())[1]);
+  $scope.userId = getParams.userId;
 
-  $http.get('/users/' + $scope.userId + '.json').success(function(data){
-    $scope.user = data;
-  });
+  var getUserData = function(){ $scope.user = userData.properties}
+
+  deferred = $q.defer()
+  deferred.promise.then(getUserData)
+  userData.get(deferred)
 
    $scope.updateCollection = function(property, value, collectionId) {
       userData.update(property, value, collectionId)

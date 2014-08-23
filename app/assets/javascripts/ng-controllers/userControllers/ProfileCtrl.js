@@ -1,5 +1,7 @@
 angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'getParams', '$window', '$http', '$location', '$upload','$rootScope', 'fileReader', function($q, $scope, userData, getParams, $window, $http, $location, $upload, $rootScope, fileReader) {
 
+  console.log($scope)
+
   $scope.user = {
     name: 'Name',
     profession: 'Profession',
