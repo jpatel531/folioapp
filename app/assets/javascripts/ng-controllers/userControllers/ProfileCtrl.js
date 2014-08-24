@@ -21,14 +21,6 @@ angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'get
 
   $scope.editable = ($window.location.search === "?editable=true") ? true : false
 
-  $scope.getFile = function () {
-        $scope.progress = 0;
-        fileReader.readAsDataUrl($scope.file, $scope)
-                      .then(function(result) {
-                          $scope.imageSrc = result;
-                      });
-    };
-
 
   $scope.updateProfile = function(property, value) {
     userData.update(property, value, null)

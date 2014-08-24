@@ -40,13 +40,5 @@ angular.module('app').controller('OrganisationShowCtrl', ['$q','$scope', 'getPar
   }
 
 
-  $scope.getFile = function () {
-        $scope.progress = 0;
-        fileReader.readAsDataUrl($scope.file, $scope)
-                      .then(function(result) {
-                          $scope.imageSrc = result;
-                      });
-    };
-
 
 }])

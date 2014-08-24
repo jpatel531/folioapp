@@ -2,14 +2,6 @@ angular.module('app').controller('CollectionInstanceCtrl', ['getParams', '$scope
 
   $scope.userId = getParams.userId
 
-  $scope.getFile = function() {
-    $scope.progress = 0;
-    fileReader.readAsDataUrl($scope.file, $scope)
-                  .then(function(result) {
-                      $scope.imageSrc = result;
-                  });
-    };
-
 
     $scope.onFileSelect = function($files, collectionId) {
       for (var i = 0; i < $files.length; i++) {
