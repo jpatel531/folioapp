@@ -26,22 +26,8 @@ angular.module('app').controller('ProfileCtrl', ['$q','$scope', 'userData' ,'get
     userData.update(property, value, null)
   }
 
+  $scope.fileUrl = '/users/' + $scope.userId
 
-  $scope.onFileSelect = function($files) {
-    console.log('c')
-    var currentImage = $scope.user.userImage
-    if ($scope.editable) {
-      for (var i = 0; i < $files.length; i++) {
-        var file = $files[i];
-        $scope.upload = $upload.upload({
-          url: '/users/' + $scope.userId,
-          method: 'PUT',
-          file: file
-        }).then(function(){
-            userData.get(deferred)
-          })
-      }
-    }
-  }
+
 
 }])

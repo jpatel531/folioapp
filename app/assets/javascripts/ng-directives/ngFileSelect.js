@@ -1,4 +1,4 @@
-angular.module('app').directive("ngFileSelect",function(fileReader){
+angular.module('app').directive("ngFileSelect",function(userData, fileReader, $upload, $location){
 
   return {
     link: function($scope,el){
@@ -14,7 +14,24 @@ angular.module('app').directive("ngFileSelect",function(fileReader){
                   });
     	};
         $scope.getFile();
-      })
+
+        $scope.onFileSelect = function($files) {
+        	if ($scope.editable) {
+        		for (var i = 0; i < $files.length; i++) {
+        			var file = $files[i];
+        			$scope.upload = $upload.upload({
+         				url: $scope.fileUrl,
+          				method: 'PUT',
+          				file: file
+        			}).then(function(){
+        				(/organisations\/(\d+)/.exec($location.absUrl())) ? userData.get(deferred, true) : userData.get(deferred)
+        				// userData.get(deferred)
+        			})
+        		}
+        	}
+        }
+
+      	})
       
     }
     
