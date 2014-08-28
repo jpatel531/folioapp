@@ -8,7 +8,7 @@ Feature: uploading images
 	Background:
 		Given I am a user
 		And on my profile
-		And I click the 'Work' link on my profile cover
+		# And I click the 'Work' link on my profile cover
 		And I specify that I wish to upload text
 
 	@javascript
