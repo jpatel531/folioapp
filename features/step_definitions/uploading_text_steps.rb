@@ -12,6 +12,8 @@ end
 When(/^I upload a thumbnail, add a title, genres and a short description$/) do
   click_link 'Add Details'
   attach_file 'Thumbnail', Rails.root.join('features/images/art.jpg')
+  # save_and_open_page
+  # sleep 15
   fill_in 'Title', with: 'In A Station of the Metro'
   fill_in 'Genres', with: 'Modernism, Imagism, Vorticism'
   fill_in 'Short Description', with: 'an intellectual and emotional complex in an instant of time.'

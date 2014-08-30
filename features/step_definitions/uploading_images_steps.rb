@@ -8,28 +8,25 @@ Given(/^on my profile$/) do
   visit "/users/#{@user.id}"
 end
 
-# Given(/^I click the 'Work' link on my profile cover$/) do
-#   click_link 'Work'
-# end
-
 Given(/^I specify that I wish to upload art$/) do
-  # expect(current_path).to eq "/users/#{@user.id}/collections"
-  # save_and_open_page
-  # save_and_open_page
   click_button 'Add To My Collection'
   click_link 'Add Art'
 end
 
 When(/^I attach an image$/) do
-  attach_file 'Drag Work Here', Rails.root.join('features/images/art.jpg')
+  # puts Rails.root.join('features/images/art.jpg')
+  attach_file 'work_image', Rails.root.join('features/images/art.jpg')
+  # sleep 10
 end
 
 When(/^I give it a title, medium, genre and captions$/) do
+  # save_and_open_page
   click_link 'Add Details'
+  # save_and_open_page
   fill_in 'Title', with: 'Samurai'
   fill_in 'Media', with: 'Digital Art'
-  fill_in 'Genres', with: 'Fantasy, Japanese tings'
-  fill_in 'Caption', with: 'Hello, here is some Art'
+  fill_in 'work_genre_names', with: 'Fantasy, Japanese tings'
+  fill_in 'work_caption', with: 'Hello, here is some Art'
 end
 
 
@@ -44,21 +41,21 @@ end
 
 Then(/^I should see the image in on its collection page$/) do
   expect(page).to have_css 'img.uploaded-image'
+  click_link 'Add Details'
   expect(page).to have_content 'Samurai'
   expect(page).to have_content 'Digital Art'
-  expect(page).to have_content 'Fantasy Japanese tings'
+  expect(page).to have_content 'Fantasy, Japanese tings'
   expect(page).to have_content 'Hello, here is some Art'
 
 end
 
 
 When(/^I fail to attach an image$/) do
-  # save_and_open_page
   click_link 'Add Details'
   fill_in 'Title', with: 'Samurai'
   fill_in 'Media', with: 'Digital Art'
-  fill_in 'Genres', with: 'Fantasy, Japanese tings'
-  fill_in 'Caption', with: 'Hello, here is some Art'
+  fill_in 'work_genre_names', with: 'Fantasy, Japanese tings'
+  fill_in 'work_caption', with: 'Hello, here is some Art'
   click_button 'Publish'
 end
 
@@ -69,11 +66,11 @@ Then(/^I should not be allowed to submit$/) do
 end
 
 When(/^I fail to specify a title$/) do
-  attach_file 'Image', Rails.root.join('features/images/art.jpg')
+  # attach_file 'Image', Rails.root.join('features/images/art.jpg')
   click_link 'Add Details'
   fill_in 'Media', with: 'Digital Art'
-  fill_in 'Genres', with: 'Fantasy, Japanese tings'
-  fill_in 'Caption', with: 'Hello, here is some Art'
+  fill_in 'work_genre_names', with: 'Fantasy, Japanese tings'
+  fill_in 'work_caption', with: 'Hello, here is some Art'
 end
 
 

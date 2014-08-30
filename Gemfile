@@ -48,6 +48,7 @@ gem 'aws-sdk'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 group :test, :development do 
+	gem 'protractor-rails'
 	gem 'rspec-rails'
 	gem 'capybara'
   gem 'cucumber-rails', :require => false
