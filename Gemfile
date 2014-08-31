@@ -33,6 +33,7 @@ gem 'omniauth-twitter'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'acts_as_follower'
+gem 'public_activity'
 gem 'factory_girl_rails'
 gem 'rspec-collection_matchers'
 gem "ladda-rails", :git => "git://github.com/Promptus/ladda-rails.git"
