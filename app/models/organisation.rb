@@ -5,6 +5,7 @@ class Organisation < ActiveRecord::Base
 	has_many :submissions, through: :opportunities
 	# belongs_to :users
 
+	acts_as_follower
 	acts_as_followable
 
 	has_many :opportunities
