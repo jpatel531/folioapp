@@ -7,7 +7,8 @@ end
 Given(/^I click 'Create Organisation'$/) do
 	# visit current_path
 	# save_and_open_page
-	click_link 'Create Organisation'
+	# click_link 'Create Organisation'
+	visit '/organisations/new'
 end
 
 Given(/^I specify its name, profile\-image, network and organisation type$/) do
