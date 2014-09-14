@@ -39,8 +39,6 @@ class User < ActiveRecord::Base
   def workSelection=(work_id_array)
     work_id_array.each do |id| 
       work_selection.works << Work.find(id)
-      # raise Work.where(user: self).find(id).inspect
-      # work_selection.works << works.find(id) 
     end 
   end
 
@@ -53,7 +51,6 @@ class User < ActiveRecord::Base
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]
     user.name = auth.info.name
-    #user.name = auth.info.name # no name by default
     user.avatar = process_uri(auth.info.image) # no image by default
   end
 end

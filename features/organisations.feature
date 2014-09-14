@@ -5,7 +5,7 @@ Feature: creating an organisation
 
 	Background:
 		Given I am a user
-		And on my homepage
+		# And on my homepage
 		And I click 'Create Organisation'
 		And I specify its name, profile-image, network and organisation type
 

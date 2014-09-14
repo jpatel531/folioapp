@@ -33,6 +33,7 @@ gem 'omniauth-twitter'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'acts_as_follower'
+gem 'public_activity'
 gem 'factory_girl_rails'
 gem 'rspec-collection_matchers'
 gem "ladda-rails", :git => "git://github.com/Promptus/ladda-rails.git"
@@ -48,6 +49,7 @@ gem 'aws-sdk'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 group :test, :development do 
+	gem 'protractor-rails'
 	gem 'rspec-rails'
 	gem 'capybara'
   gem 'cucumber-rails', :require => false
